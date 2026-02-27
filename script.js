@@ -394,6 +394,39 @@
       }
     });
   }
+  /* ---------- Category Filter Tags ---------- */
+  var filterTags = document.querySelectorAll('.filter-tag');
+  var filterCards = document.querySelectorAll('.card[data-tags]');
+  var filterEmpty = document.getElementById('filterEmpty');
+
+  if (filterTags.length > 0 && filterCards.length > 0) {
+    filterTags.forEach(function (tag) {
+      tag.addEventListener('click', function () {
+        var filter = this.getAttribute('data-filter');
+
+        // Update active tag
+        filterTags.forEach(function (t) { t.classList.remove('active'); });
+        this.classList.add('active');
+
+        // Filter cards
+        var visibleCount = 0;
+        filterCards.forEach(function (card) {
+          var tags = card.getAttribute('data-tags') || '';
+          if (filter === 'all' || tags.indexOf(filter) !== -1) {
+            card.classList.remove('filter-hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('filter-hidden');
+          }
+        });
+
+        // Show/hide empty message
+        if (filterEmpty) {
+          filterEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      });
+    });
+  }
 
   /* ---------- Fade-in on scroll ---------- */
   var fadeEls = document.querySelectorAll('.fade-on-scroll');
