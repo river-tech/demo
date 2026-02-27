@@ -1512,9 +1512,6 @@ button {
 }
 
 /* Spacer to prevent content from hiding behind bar */
-body {
-  padding-bottom: 72px
-}
 
 /* ---------- Footer ---------- */
 .footer {
