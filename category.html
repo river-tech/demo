@@ -269,13 +269,76 @@
                 </div>
 
             </div>
-            <!-- No result message -->
-            <div class="filter-empty" id="filterEmpty" style="display:none">
-                <p>Không có sản phẩm nào trong danh mục này. Vui lòng chọn danh mục khác hoặc <a
-                        href="contact.html">liên hệ tư vấn</a>.</p>
+        </div>
+    </section>
+
+    <!-- RELATED NEWS (Mới thêm theo yêu cầu) -->
+    <section class="related-news section section--alt">
+        <div class="container">
+            <div class="related-news__header">
+                <h2>Bạn cần thêm thông tin kỹ thuật? Đọc ngay bài viết từ chuyên gia.</h2>
+                <p>Nắm bắt các tiêu chuẩn an toàn và hướng dẫn lựa chọn đồng phục bảo hộ mới nhất</p>
+            </div>
+            <div class="related-news__grid">
+                <a href="blog.html#post-demo" class="related-news__card" rel="dofollow">
+                    <div class="related-news__card-img">
+                        <svg viewBox="0 0 64 64">
+                            <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                        </svg>
+                        <span class="tag">Hướng dẫn</span>
+                    </div>
+                    <div class="related-news__card-body">
+                        <h3>Hướng dẫn chọn vải bảo hộ phù hợp từng ngành công nghiệp</h3>
+                        <p>Mỗi ngành nghề có yêu cầu đặc thù về chất liệu vải bảo hộ. Bài viết tổng hợp tiêu chí chọn
+                            vải kaki, chống cháy, chống tĩnh điện...</p>
+                        <div class="related-news__card-meta">
+                            <span>20/02/2026</span>
+                            <span>Đọc tiếp →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="blog.html#post-demo" class="related-news__card" rel="dofollow">
+                    <div class="related-news__card-img">
+                        <svg viewBox="0 0 64 64">
+                            <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                        <span class="tag">Tiêu chuẩn</span>
+                    </div>
+                    <div class="related-news__card-body">
+                        <h3>Tiêu chuẩn EN ISO 20471 — Quần áo tầm nhìn cao</h3>
+                        <p>Tìm hiểu các cấp độ phản quang và yêu cầu diện tích dải phản quang theo tiêu chuẩn châu Âu để
+                            bảo vệ người lao động...</p>
+                        <div class="related-news__card-meta">
+                            <span>15/02/2026</span>
+                            <span>Đọc tiếp →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="blog.html#post-demo" class="related-news__card" rel="dofollow">
+                    <div class="related-news__card-img">
+                        <svg viewBox="0 0 64 64">
+                            <polygon points="32,8 56,56 8,56" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                        <span class="tag">Kinh nghiệm</span>
+                    </div>
+                    <div class="related-news__card-body">
+                        <h3>5 sai lầm khi đặt may đồng phục bảo hộ số lượng lớn</h3>
+                        <p>Những lỗi thường gặp khi doanh nghiệp đặt may đồng phục bảo hộ và cách khắc phục hiệu quả
+                            giúp tiết kiệm chi phí...</p>
+                        <div class="related-news__card-meta">
+                            <span>10/02/2026</span>
+                            <span>Đọc tiếp →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center" style="margin-top:var(--space-xl)">
+                <a href="blog.html" class="btn btn--secondary" rel="dofollow">Xem tất cả bài viết</a>
             </div>
         </div>
     </section>
+    <!-- END RELATED NEWS -->
 
     <!-- CASE STUDIES -->
     <section class="section">
@@ -424,6 +487,7 @@
         </div>
     </section>
 
+
     <!-- CTA BANNER -->
     <section class="section">
         <div class="container">
@@ -438,6 +502,21 @@
             </div>
         </div>
     </section>
+
+    <!-- SCHEMA MARKUP: CollectionPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Danh mục sản phẩm theo ngành nghề",
+        "url": "https://baohopro.vn/danh-muc",
+        "relatedLink": [
+            "https://baohopro.vn/blog/huong-dan-chon-vai-bao-ho",
+            "https://baohopro.vn/blog/tieu-chuan-en-iso-20471",
+            "https://baohopro.vn/blog/sai-lam-khi-dat-may-dong-phuc"
+        ]
+    }
+    </script>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -481,27 +560,38 @@
             </div>
         </div>
     </footer>
-  </div>
-
-  <!-- STICKY BOTTOM CTA BAR -->
-  <div class="sticky-cta">
-    <div class="sticky-cta__inner">
-      <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
-      </a>
-      <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z"/></svg>
-        <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
-      </a>
-      <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
-      </a>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- STICKY BOTTOM CTA BAR -->
+    <div class="sticky-cta">
+        <div class="sticky-cta__inner">
+            <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
+            </a>
+            <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
+                </svg>
+                <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
+            </a>
+            <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg>
+                <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
