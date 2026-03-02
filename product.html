@@ -40,8 +40,10 @@
 
     <!-- PAGE HERO -->
     <section class="page-hero">
-        <div class="breadcrumb"><a href="index.html">Trang chủ</a> <span>/</span> <a href="category.html">Danh mục sản phẩm</a>
-            <span>/</span> <span>Áo phản quang</span></div>
+        <div class="breadcrumb"><a href="index.html">Trang chủ</a> <span>/</span> <a href="category.html">Danh mục sản
+                phẩm</a>
+            <span>/</span> <span>Áo phản quang</span>
+        </div>
         <h1>Áo phản quang công trình</h1>
         <p>Vải kaki 65/35 — Phản quang 3M — Đường may 2 kim chắc chắn</p>
     </section>
@@ -127,11 +129,205 @@
                             MOQ: 50 bộ trở lên
                         </li>
                     </ul>
-                    <a href="index.html#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
+                    <div style="display:flex;gap:var(--space-md);margin-bottom:var(--space-lg);flex-wrap:wrap">
+                        <a href="index.html#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
+                        <button type="button" class="btn btn--secondary btn--lg" id="btnSizeChart">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 01-2.5-2.5z" />
+                                <path d="M8 7h6M8 11h8M8 15h6" />
+                            </svg>
+                            Bảng quy đổi kích thước
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- SIZE CHART MODAL -->
+    <div class="size-modal" id="sizeModal">
+        <div class="size-modal__overlay" id="sizeModalOverlay"></div>
+        <div class="size-modal__content">
+            <button class="size-modal__close" id="sizeModalClose" aria-label="Đóng">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+
+            <h3 class="size-modal__title">Bảng Quy Đổi Kích Thước</h3>
+            <p class="size-modal__desc">Lựa chọn kích thước phù hợp dựa trên chất liệu vải</p>
+
+            <div class="size-tabs">
+                <button class="size-tabs__btn active" data-size-tab="kaki">Vải Kaki (Không co giãn)</button>
+                <button class="size-tabs__btn" data-size-tab="cotton">Vải Cotton / Thun (Co giãn)</button>
+                <button class="size-tabs__btn" data-size-tab="phong-sach">Đồng Phục Phòng Sạch</button>
+            </div>
+
+            <!-- Panel: Kaki -->
+            <div class="size-panel active" id="size-kaki">
+                <div class="size-note">
+                    Vải Kaki (65/35, 100% Cotton, Pangrim) ít co giãn. Vui lòng chọn lớn hơn 1 size nếu thường xuyên mặc
+                    thêm lót bên trong hoặc làm việc vận động mạnh.
+                </div>
+                <div class="table-responsive">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chiều Cao (cm)</th>
+                                <th>Cân Nặng (kg)</th>
+                                <th>Vòng Ngực (cm)</th>
+                                <th>Vòng Bụng (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>S (Số 4)</strong></td>
+                                <td>155 - 162</td>
+                                <td>45 - 55</td>
+                                <td>80 - 85</td>
+                                <td>70 - 75</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M (Số 5)</strong></td>
+                                <td>160 - 168</td>
+                                <td>55 - 62</td>
+                                <td>85 - 90</td>
+                                <td>75 - 80</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L (Số 6)</strong></td>
+                                <td>165 - 172</td>
+                                <td>62 - 70</td>
+                                <td>90 - 95</td>
+                                <td>80 - 85</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL (Số 7)</strong></td>
+                                <td>170 - 178</td>
+                                <td>70 - 78</td>
+                                <td>95 - 100</td>
+                                <td>85 - 90</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL (Số 8)</strong></td>
+                                <td>175 - 185</td>
+                                <td>78 - 85</td>
+                                <td>100 - 105</td>
+                                <td>90 - 95</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Panel: Cotton -->
+            <div class="size-panel" id="size-cotton">
+                <div class="size-note">
+                    Vải thun / Cotton pha có độ co giãn tốt. Chọn đúng size hoặc nhỏ hơn 1 size nếu muốn mặc ôm sát.
+                </div>
+                <div class="table-responsive">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chiều Cao (cm)</th>
+                                <th>Cân Nặng (kg)</th>
+                                <th>Vòng Ngực (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>S</strong></td>
+                                <td>150 - 160</td>
+                                <td>40 - 50</td>
+                                <td>76 - 82</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong></td>
+                                <td>155 - 165</td>
+                                <td>50 - 60</td>
+                                <td>82 - 88</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L</strong></td>
+                                <td>160 - 170</td>
+                                <td>60 - 70</td>
+                                <td>88 - 94</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL</strong></td>
+                                <td>165 - 175</td>
+                                <td>70 - 80</td>
+                                <td>94 - 100</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL</strong></td>
+                                <td>170 - 180+</td>
+                                <td>80 - 90</td>
+                                <td>100 - 106</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Panel: Phòng Sạch -->
+            <div class="size-panel" id="size-phong-sach">
+                <div class="size-note">
+                    Trang phục ESD phòng sạch thường được thiết kế form rộng để mặc trùm bên ngoài trang phục thường.
+                    Hãy chọn theo chiều cao để đảm bảo độ bao phủ tay/chân.
+                </div>
+                <div class="table-responsive">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chiều Cao (cm)</th>
+                                <th>Cân Nặng (kg)</th>
+                                <th>Chiều Dài Áo (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>S</strong></td>
+                                <td>Dưới 155</td>
+                                <td>Dưới 50</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong></td>
+                                <td>155 - 160</td>
+                                <td>50 - 58</td>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L</strong></td>
+                                <td>160 - 165</td>
+                                <td>58 - 65</td>
+                                <td>95</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL</strong></td>
+                                <td>165 - 172</td>
+                                <td>65 - 75</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL</strong></td>
+                                <td>172 - 180</td>
+                                <td>75 - 85</td>
+                                <td>105</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- TABS -->
     <section class="section section--alt">
@@ -146,10 +342,14 @@
 
             <div class="tabs__panel active" id="tab-desc">
                 <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Mô tả sản phẩm</h3>
-                <p style="color:var(--clr-text-muted);line-height:1.8">Áo phản quang công trình BảoHộ Pro được thiết kế
-                    chuyên biệt cho môi trường làm việc ngoài trời và trong nhà máy. Sản phẩm sử dụng vải kaki 65/35 cao
-                    cấp, đảm bảo độ bền cao và thoáng mát khi mặc cả ngày dài. Dải phản quang 3M được bố trí tại ngực,
-                    lưng, và hai tay áo, đảm bảo tầm nhìn tối đa trong điều kiện thiếu ánh sáng. Đường may 2 kim kết hợp
+                <p style="color:var(--clr-text-muted);line-height:1.8">Áo phản quang công trình BảoHộ Pro được thiết
+                    kế
+                    chuyên biệt cho môi trường làm việc ngoài trời và trong nhà máy. Sản phẩm sử dụng vải kaki 65/35
+                    cao
+                    cấp, đảm bảo độ bền cao và thoáng mát khi mặc cả ngày dài. Dải phản quang 3M được bố trí tại
+                    ngực,
+                    lưng, và hai tay áo, đảm bảo tầm nhìn tối đa trong điều kiện thiếu ánh sáng. Đường may 2 kim kết
+                    hợp
                     chỉ Coats chuyên dụng tạo nên độ bền vượt trội, chịu được cường độ lao động nặng.</p>
             </div>
 
@@ -197,19 +397,25 @@
 
             <div class="tabs__panel" id="tab-fabric">
                 <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Loại vải sử dụng</h3>
-                <p style="color:var(--clr-text-muted);line-height:1.8;margin-bottom:var(--space-md)"><strong>Vải kaki
-                        65/35 (TC)</strong> — Blend giữa polyester và cotton mang lại sự cân bằng hoàn hảo giữa độ bền,
-                    thoáng mát và dễ giặt. Vải có khả năng chống nhăn tốt, giữ form áo sau nhiều lần giặt. Định lượng
+                <p style="color:var(--clr-text-muted);line-height:1.8;margin-bottom:var(--space-md)"><strong>Vải
+                        kaki
+                        65/35 (TC)</strong> — Blend giữa polyester và cotton mang lại sự cân bằng hoàn hảo giữa độ
+                    bền,
+                    thoáng mát và dễ giặt. Vải có khả năng chống nhăn tốt, giữ form áo sau nhiều lần giặt. Định
+                    lượng
                     240 GSM đảm bảo vải đủ dày để bảo vệ nhưng không quá nặng.</p>
-                <p style="color:var(--clr-text-muted);line-height:1.8"><strong>Tùy chọn bổ sung:</strong> Vải chống cháy
-                    (FR), vải chống tĩnh điện (ESD), vải chống hóa chất tùy theo yêu cầu đặc thù của từng môi trường làm
+                <p style="color:var(--clr-text-muted);line-height:1.8"><strong>Tùy chọn bổ sung:</strong> Vải chống
+                    cháy
+                    (FR), vải chống tĩnh điện (ESD), vải chống hóa chất tùy theo yêu cầu đặc thù của từng môi trường
+                    làm
                     việc.</p>
             </div>
 
             <div class="tabs__panel" id="tab-safety">
                 <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Tiêu chuẩn an toàn</h3>
                 <ul style="display:flex;flex-direction:column;gap:var(--space-md);color:var(--clr-text-muted)">
-                    <li><strong>EN ISO 20471</strong> — Quần áo cảnh báo tầm nhìn cao, đáp ứng yêu cầu về diện tích phản
+                    <li><strong>EN ISO 20471</strong> — Quần áo cảnh báo tầm nhìn cao, đáp ứng yêu cầu về diện tích
+                        phản
                         quang tối thiểu</li>
                     <li><strong>TCVN 6689</strong> — Tiêu chuẩn Việt Nam về quần áo bảo vệ cho người lao động</li>
                     <li><strong>ANSI/ISEA 107</strong> — Tiêu chuẩn Mỹ về quần áo an toàn tầm nhìn cao</li>
@@ -243,8 +449,10 @@
                         </svg>
                     </button>
                     <div class="accordion__body">
-                        <div class="accordion__body-inner">MOQ cho áo phản quang là 50 bộ trở lên. Với đơn hàng từ 500
-                            bộ, chúng tôi áp dụng chính sách giá ưu đãi đặc biệt. Liên hệ để nhận báo giá chi tiết theo
+                        <div class="accordion__body-inner">MOQ cho áo phản quang là 50 bộ trở lên. Với đơn hàng từ
+                            500
+                            bộ, chúng tôi áp dụng chính sách giá ưu đãi đặc biệt. Liên hệ để nhận báo giá chi tiết
+                            theo
                             số lượng.</div>
                     </div>
                 </div>
@@ -257,8 +465,10 @@
                         </svg>
                     </button>
                     <div class="accordion__body">
-                        <div class="accordion__body-inner">Thời gian sản xuất từ 10–21 ngày tùy số lượng. Đơn hàng dưới
-                            200 bộ: 10–12 ngày. Đơn hàng 200–1000 bộ: 14–18 ngày. Đơn hàng trên 1000 bộ: thỏa thuận theo
+                        <div class="accordion__body-inner">Thời gian sản xuất từ 10–21 ngày tùy số lượng. Đơn hàng
+                            dưới
+                            200 bộ: 10–12 ngày. Đơn hàng 200–1000 bộ: 14–18 ngày. Đơn hàng trên 1000 bộ: thỏa thuận
+                            theo
                             kế hoạch.</div>
                     </div>
                 </div>
@@ -271,7 +481,8 @@
                         </svg>
                     </button>
                     <div class="accordion__body">
-                        <div class="accordion__body-inner">Có, chúng tôi hỗ trợ đầy đủ: in lụa, thêu vi tính, in chuyển
+                        <div class="accordion__body-inner">Có, chúng tôi hỗ trợ đầy đủ: in lụa, thêu vi tính, in
+                            chuyển
                             nhiệt. Hỗ trợ thiết kế file in miễn phí. Vị trí in: ngực trái, ngực phải, lưng, tay áo.
                         </div>
                     </div>
@@ -286,7 +497,8 @@
                     </button>
                     <div class="accordion__body">
                         <div class="accordion__body-inner">Bảo hành 6 tháng cho lỗi kỹ thuật (bung chỉ, phai màu bất
-                            thường, hỏng khóa). Chính sách đổi trả trong 7 ngày nếu sản phẩm không đúng mô tả. Hỗ trợ
+                            thường, hỏng khóa). Chính sách đổi trả trong 7 ngày nếu sản phẩm không đúng mô tả. Hỗ
+                            trợ
                             sửa chữa miễn phí trong thời gian bảo hành.</div>
                     </div>
                 </div>
@@ -299,8 +511,10 @@
                         </svg>
                     </button>
                     <div class="accordion__body">
-                        <div class="accordion__body-inner">Có, chúng tôi giao hàng toàn quốc qua các đơn vị vận chuyển
-                            uy tín. Miễn phí ship cho đơn hàng trên 100 bộ khu vực miền Trung. Hỗ trợ giao hàng nhanh
+                        <div class="accordion__body-inner">Có, chúng tôi giao hàng toàn quốc qua các đơn vị vận
+                            chuyển
+                            uy tín. Miễn phí ship cho đơn hàng trên 100 bộ khu vực miền Trung. Hỗ trợ giao hàng
+                            nhanh
                             cho đơn gấp.</div>
                     </div>
                 </div>
@@ -328,7 +542,8 @@
                     </button>
                     <div class="accordion__body">
                         <div class="accordion__body-inner">Chúng tôi gửi mẫu vải và mẫu may hoàn chỉnh trước khi sản
-                            xuất hàng loạt. Chi phí mẫu sẽ được trừ vào đơn hàng chính thức. Thời gian làm mẫu: 3–5 ngày
+                            xuất hàng loạt. Chi phí mẫu sẽ được trừ vào đơn hàng chính thức. Thời gian làm mẫu: 3–5
+                            ngày
                             làm việc.</div>
                     </div>
                 </div>
@@ -351,7 +566,7 @@
                     <div class="card__body">
                         <h3>Quần bảo hộ nhiều túi</h3>
                         <p>Vải kaki chống cháy – Đường may 2 kim</p>
-                        <a href="product.html" class="btn btn--primary btn--sm">Xem chi tiết</a>
+                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="card">
@@ -363,7 +578,7 @@
                     <div class="card__body">
                         <h3>Bộ đồng phục kỹ thuật</h3>
                         <p>Cotton pha polyester – In/thêu logo</p>
-                        <a href="product.html" class="btn btn--primary btn--sm">Xem chi tiết</a>
+                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="card">
@@ -374,7 +589,7 @@
                     <div class="card__body">
                         <h3>Áo khoác bảo hộ mùa đông</h3>
                         <p>Vải dù chống nước – Lót nỉ ấm</p>
-                        <a href="product.html" class="btn btn--primary btn--sm">Xem chi tiết</a>
+                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
@@ -399,7 +614,8 @@
                 <div>
                     <h4>BảoHộ Pro</h4>
                     <p>Xưởng sản xuất đồng phục bảo hộ lao động trực tiếp tại Đà Nẵng.</p>
-                    <p style="margin-top:var(--space-md)"><strong>Địa chỉ:</strong> Lô 45, KCN Hòa Khánh, Liên Chiểu, Đà
+                    <p style="margin-top:var(--space-md)"><strong>Địa chỉ:</strong> Lô 45, KCN Hòa Khánh, Liên
+                        Chiểu, Đà
                         Nẵng</p>
                 </div>
                 <div>
@@ -425,7 +641,8 @@
                     <p>Hotline: 0905 123 456</p>
                     <p>Email: info@baohopro.vn</p>
                     <p>Zalo: 0905 123 456</p>
-                    <p style="margin-top:var(--space-md)"><strong>Giờ làm việc:</strong><br>T2–T7: 7:30 – 17:30<br>CN:
+                    <p style="margin-top:var(--space-md)"><strong>Giờ làm việc:</strong><br>T2–T7: 7:30 –
+                        17:30<br>CN:
                         Nghỉ</p>
                 </div>
             </div>
@@ -434,27 +651,38 @@
             </div>
         </div>
     </footer>
-  </div>
-
-  <!-- STICKY BOTTOM CTA BAR -->
-  <div class="sticky-cta">
-    <div class="sticky-cta__inner">
-      <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
-      </a>
-      <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z"/></svg>
-        <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
-      </a>
-      <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
-      </a>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- STICKY BOTTOM CTA BAR -->
+    <div class="sticky-cta">
+        <div class="sticky-cta__inner">
+            <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
+            </a>
+            <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
+                </svg>
+                <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
+            </a>
+            <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg>
+                <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

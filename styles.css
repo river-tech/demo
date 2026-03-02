@@ -1108,6 +1108,38 @@ button {
   border: 1px solid var(--clr-border);
 }
 
+.form-submit-area {
+  text-align: center;
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+@media(min-width:480px) {
+  .form-submit-area {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.warranty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-accent);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  background: rgba(242, 140, 40, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+}
+
+.warranty-badge svg {
+  flex-shrink: 0;
+}
+
 /* ---------- FAQ / Accordion ---------- */
 .accordion {
   display: flex;
@@ -1595,6 +1627,32 @@ button {
   justify-content: center;
   color: var(--clr-white);
   font-size: var(--fs-lg);
+}
+
+/* ---------- Size Chart Table ---------- */
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.size-table th {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  padding: var(--space-sm);
+  font-weight: var(--fw-semibold);
+  border: 1px solid var(--clr-primary);
+  white-space: nowrap;
+}
+
+.size-table td {
+  padding: var(--space-sm);
+  border: 1px solid var(--clr-border);
+  font-size: var(--fs-sm);
+}
+
+.size-table tr:nth-child(even) {
+  background: var(--clr-bg);
 }
 
 .modal__close {
@@ -2350,6 +2408,164 @@ button {
 
 .fade-in-up {
   animation: fadeInUp 0.6s ease forwards
+}
+
+/* ---------- Size Chart Modal ---------- */
+.size-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.size-modal.active {
+  display: flex;
+}
+
+.size-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.size-modal__content {
+  position: relative;
+  background: var(--clr-white);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-xl);
+  animation: modalScaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.size-modal__close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--clr-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+}
+
+.size-modal__close:hover {
+  background: var(--clr-error);
+  color: var(--clr-white);
+}
+
+.size-modal__close svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.size-modal__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary);
+  margin-bottom: var(--space-xs);
+  text-align: center;
+}
+
+.size-modal__desc {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.size-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.size-tabs__btn {
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-text-muted);
+  background: var(--clr-bg);
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.size-tabs__btn.active {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+
+.size-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.size-panel.active {
+  display: block;
+}
+
+.size-note {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+  background: rgba(242, 140, 40, 0.1);
+  border-left: 3px solid var(--clr-accent);
+  padding: var(--space-md);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.size-table th,
+.size-table td {
+  padding: var(--space-sm);
+  border: 1px solid var(--clr-border);
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+
+.size-table th {
+  background: var(--clr-bg-alt);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-primary);
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
 
 /* ---------- Legal Strip ---------- */

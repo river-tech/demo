@@ -473,4 +473,48 @@
     }, 220);
   });
 
+  /* ---------- Size Chart Modal ---------- */
+  var btnSizeChart = document.getElementById('btnSizeChart');
+  var sizeModal = document.getElementById('sizeModal');
+
+  if (btnSizeChart && sizeModal) {
+    var sizeModalClose = document.getElementById('sizeModalClose');
+    var sizeModalOverlay = document.getElementById('sizeModalOverlay');
+    var sizeTabsBtns = sizeModal.querySelectorAll('.size-tabs__btn');
+    var sizePanels = sizeModal.querySelectorAll('.size-panel');
+
+    function openSizeModal() {
+      sizeModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSizeModal() {
+      sizeModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    btnSizeChart.addEventListener('click', openSizeModal);
+    if (sizeModalClose) sizeModalClose.addEventListener('click', closeSizeModal);
+    if (sizeModalOverlay) sizeModalOverlay.addEventListener('click', closeSizeModal);
+
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && sizeModal.classList.contains('active')) {
+        closeSizeModal();
+      }
+    });
+
+    sizeTabsBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = 'size-' + this.getAttribute('data-size-tab');
+
+        sizeTabsBtns.forEach(function (b) { b.classList.remove('active'); });
+        sizePanels.forEach(function (p) { p.classList.remove('active'); });
+
+        this.classList.add('active');
+        var targetPanel = document.getElementById(targetId);
+        if (targetPanel) targetPanel.classList.add('active');
+      });
+    });
+  }
+
 })();
