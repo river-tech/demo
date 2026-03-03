@@ -18,8 +18,8 @@ flowchart LR
     MEDIA["Media và PDF (Hồ sơ năng lực + hình xưởng)"]
   end
 
-  subgraph DATA["Data Layer và Tracking Layer"]
-    DL["dataLayer / Custom Events: service_type, persona, category, fabric, quantity, deadline, form_id"]
+  subgraph DATA["Tracking Layer (GTM + dataLayer)"]
+    DL["dataLayer: service_type, persona, category, fabric, quantity, deadline, form_id"]
     GTM["GTM Container (tag rules + triggers)"]
   end
 
@@ -28,10 +28,11 @@ flowchart LR
     BQ["BigQuery (tùy chọn): Raw event export"]
   end
 
-  subgraph LEAD["Lead Pipeline (không dùng n8n)"]
+  subgraph LEAD["Lead Pipeline (Option 4: Webhook + Apps Script + Sheets + Telegram)"]
     FORMAPI["Form Handler (Plugin/Server)"]
-    SHEET["Google Sheets / CRM (Lead storage + pipeline)"]
-    NOTI["Thông báo Sales (Email/Zalo/Slack - tùy chọn)"]
+    GAS["Google Apps Script Web App (Webhook receiver + validate + dedupe)"]
+    SHEET["Google Sheets (Kho lead)"]
+    TGR["Telegram Bot Notify (realtime)"]
   end
 
   subgraph ADM["Admin Tracking Web (Read-only Dashboard)"]
@@ -50,8 +51,9 @@ flowchart LR
   GA4 -->|"Export raw events (tùy chọn)"| BQ
 
   UI -->|"Submit form (lead data thật)"| FORMAPI
-  FORMAPI -->|"Ghi trực tiếp lead vào Sheets/CRM (API/Integration)"| SHEET
-  FORMAPI -->|"Gửi thông báo sales ngay khi có lead (tùy chọn)"| NOTI
+  FORMAPI -->|"POST webhook (JSON payload)"| GAS
+  GAS -->|"Append row vào Sheets (lưu lead)"| SHEET
+  GAS -->|"Gửi thông báo realtime cho Sales"| TGR
 
   GA4 -->|"Pull metrics (sessions/events/conversions)"| DASH
   BQ -->|"Pull raw events (path/cohort/segment)"| DASH
