@@ -1,0 +1,69 @@
+flowchart LR
+
+  subgraph U["Người dùng và Nguồn truy cập"]
+    V["Khách truy cập (Thu mua / Chủ thầu / Xưởng nhỏ)"]
+    CH["Google / AI Overview / SEO"]
+    ADS["Ads / Social / Referral"]
+  end
+
+  subgraph FE["Website Public (Frontend)"]
+    PAGES["Các trang Public: Home / Authority / Category / Product / Blog / Profile PDF / Contact / Thank-you"]
+    UI["UI Components: CTA sticky / Form báo giá / Download PDF / Hotline-Zalo"]
+  end
+
+  subgraph CMS["Hệ quản trị nội dung và sản phẩm"]
+    MANAGER["Manager/CMS (quản lý nội dung)"]
+    PROD["Kho sản phẩm và danh mục (Silo + Specs + FAQ)"]
+    BLOG["Blog AEO Hub (Bài chuyên môn + internal links)"]
+    MEDIA["Media và PDF (Hồ sơ năng lực + hình xưởng)"]
+  end
+
+  subgraph DATA["Data Layer và Tracking Layer"]
+    DL["dataLayer / Custom Events: service_type, persona, category, fabric, quantity, deadline, form_id"]
+    GTM["GTM Container (tag rules + triggers)"]
+  end
+
+  subgraph ANA["Analytics và Reporting"]
+    GA4["GA4 Property (Events + Key Events)"]
+    BQ["BigQuery (tùy chọn): Raw event export"]
+  end
+
+  subgraph LEAD["Lead Pipeline (không dùng n8n)"]
+    FORMAPI["Form Handler (Plugin/Server)"]
+    SHEET["Google Sheets / CRM (Lead storage + pipeline)"]
+    NOTI["Thông báo Sales (Email/Zalo/Slack - tùy chọn)"]
+  end
+
+  subgraph ADM["Admin Tracking Web (Read-only Dashboard)"]
+    DASH["Dashboard (chỉ xem): traffic, events, conversions, xu hướng"]
+    DEF["Definitions (read-only): funnel/segment/persona mapping"]
+  end
+
+  CH -->|"Traffic từ tìm kiếm/AI"| V
+  ADS -->|"Traffic từ Ads/Referral"| V
+  V -->|"HTTP request mở trang"| PAGES
+  PAGES -->|"Render UI và nội dung theo trang"| UI
+
+  UI -->|"Hành vi phát sinh (click/scroll/submit/download)"| DL
+  DL -->|"Push event và parameters chuẩn hóa"| GTM
+  GTM -->|"Gửi page_view và events sang GA4"| GA4
+  GA4 -->|"Export raw events (tùy chọn)"| BQ
+
+  UI -->|"Submit form (lead data thật)"| FORMAPI
+  FORMAPI -->|"Ghi trực tiếp lead vào Sheets/CRM (API/Integration)"| SHEET
+  FORMAPI -->|"Gửi thông báo sales ngay khi có lead (tùy chọn)"| NOTI
+
+  GA4 -->|"Pull metrics (sessions/events/conversions)"| DASH
+  BQ -->|"Pull raw events (path/cohort/segment)"| DASH
+  DEF -->|"Giải thích cách đọc báo cáo (không chỉnh sửa)"| DASH
+
+  MANAGER -->|"Tạo/sửa sản phẩm + specs + FAQ + schema fields"| PROD
+  MANAGER -->|"Tạo/sửa bài blog + internal links + CTA blocks"| BLOG
+  MANAGER -->|"Upload hình xưởng và PDF"| MEDIA
+
+  PROD -->|"Publish sản phẩm ra frontend"| PAGES
+  BLOG -->|"Publish bài viết ra frontend"| PAGES
+  MEDIA -->|"Cung cấp ảnh/PDF cho frontend"| PAGES
+
+  BLOG -->|"Mapping tag/metadata: gợi ý sản phẩm liên quan cuối bài"| PROD
+  PROD -->|"Mapping tag/metadata: hiển thị bài blog liên quan trong danh mục"| BLOG
