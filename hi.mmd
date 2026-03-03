@@ -1,0 +1,68 @@
+flowchart LR
+
+  %% =========================
+  %% OPTION 4 - FREE & TỐI ƯU
+  %% Tracking: dataLayer -> GTM -> GA4
+  %% Lead: Form -> Webhook -> Apps Script -> Sheets + Telegram
+  %% =========================
+
+  subgraph U["NGƯỜI DÙNG & NGUỒN TRUY CẬP"]
+    CH["SEO / Google / AI Overview"]
+    ADS["Ads / Social / Referral"]
+    V["Khách truy cập (Thu mua / Chủ thầu / Xưởng nhỏ)"]
+  end
+
+  subgraph WEB["WEBSITE PUBLIC"]
+    PAGES["Các trang: Home / Authority / Category / Product / Blog / PDF / Contact / Thank-you"]
+    UI["Hành động: CTA / Click Zalo-Hotline / Tải PDF / Submit Form"]
+    FORM["Form báo giá / Form tải PDF (gated)"]
+  end
+
+  subgraph TRACK["TRACKING LAYER"]
+    DL["dataLayer (event + parameters)\nservice_type, persona, category, fabric, quantity, deadline, form_id"]
+    GTM["Google Tag Manager\n(triggers + tags)"]
+    GA4["Google Analytics 4\n(events + key events)"]
+  end
+
+  subgraph LEAD["LEAD PIPELINE (KHÔNG n8n)"]
+    WH["Webhook (HTTP POST)\nGửi payload form"]
+    GAS["Google Apps Script Web App\nValidate + Normalize + Dedupe + Label"]
+    SHEET["Google Sheets\nKho lưu lead"]
+    TGBOT["Telegram Bot\nNotify realtime"]
+  end
+
+  subgraph REPORT["BÁO CÁO"]
+    DASH["Dashboard/Report\n(đọc từ GA4 + Sheets)\nChỉ xem"]
+  end
+
+  %% =========================
+  %% LUỒNG TRUY CẬP
+  %% =========================
+  CH -->|"Mang traffic từ tìm kiếm"| V
+  ADS -->|"Mang traffic từ quảng cáo/referral"| V
+  V -->|"Mở website"| PAGES
+  PAGES -->|"Hiển thị nội dung + CTA"| UI
+
+  %% =========================
+  %% LUỒNG TRACKING (HÀNH VI)
+  %% =========================
+  UI -->|"Phát sinh hành vi (click/scroll/download/submit)"| DL
+  DL -->|"Đẩy event + parameters chuẩn hóa"| GTM
+  GTM -->|"Gửi page_view + events lên GA4"| GA4
+  GA4 -->|"Tạo báo cáo sessions/events/conversions"| DASH
+
+  %% =========================
+  %% LUỒNG LEAD (DỮ LIỆU THẬT)
+  %% =========================
+  UI -->|"Người dùng điền và gửi form"| FORM
+  FORM -->|"Submit thành công (lead data thật)"| WH
+  WH -->|"Gọi Apps Script endpoint"| GAS
+  GAS -->|"Lưu lead vào Sheets (append row)"| SHEET
+  GAS -->|"Gửi tin nhắn ngay cho Sales"| TGBOT
+  SHEET -->|"Dùng để theo dõi pipeline/đối soát lead"| DASH
+
+  %% =========================
+  %% GHI CHÚ QUAN TRỌNG (HIỂN THỊ DỄ HIỂU)
+  %% =========================
+  GA4 -.->|"GA4 chỉ lưu hành vi (không lưu SĐT/email)"| DASH
+  SHEET -.->|"Sheets lưu lead thật: tên/công ty/SĐT/email"| DASH
