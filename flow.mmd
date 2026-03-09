@@ -1,0 +1,92 @@
+flowchart LR
+
+  %% ========= 1) ACQUISITION =========
+  subgraph A["1. ACQUISITION & ATTRIBUTION"]
+    SEO["SEO / Google / AI Overview"]
+    ADS["Google Ads (Search)"]
+    REF["Social / Referral"]
+  end
+
+  %% ========= 2) WEBSITE =========
+  subgraph W["2. FRONTEND WEBSITE & INTERACTION"]
+    VIS["Khách truy cập (persona B2B)"]
+    PAGES["Pages: Home / Authority / Category / Product / Blog / PDF / Contact"]
+    CTA["Micro-actions: Click Zalo/Hotline/Download / Internal link"]
+    FORM["Macro: Submit Form báo giá"]
+    CAPTCHA["reCAPTCHA v3"]
+    VALID["Strict Validation (SĐT/email/required/threshold B2B)"]
+    TY["Thank-you / Success UI"]
+  end
+
+  %% ========= 3) TRACKING ANONYMOUS =========
+  subgraph T["3. TRACKING (ANONYMOUS) - GTM + GA4"]
+    DL["dataLayer + data-track-* (NON-PII only)"]
+    GTM["GTM (triggers + tags)"]
+    GA4["GA4 (events + key events + reports)"]
+    UX["Micro-interactions: engagement time / scroll 25-50-75 / internal flow"]
+  end
+
+  %% ========= 4) SECURE LEAD PIPELINE (PII) =========
+  subgraph S["4. SECURE LEAD PIPELINE (PII)"]
+    UUID["lead_id UUID v4"]
+    WEBHOOK["Webhook endpoint (POST JSON)"]
+    SIG["HMAC-SHA256 Signature (X-Signature)"]
+    VERIFY["Verify signature -> Accept/Drop"]
+    SHEET["Google Sheets Micro-CRM (pipeline)"]
+    TG["Telegram Notify (realtime)"]
+  end
+
+  %% ========= 5) SALES OPS =========
+  subgraph O["5. OPERATION & SALES"]
+    SLA["SLA gọi < 5 phút + Script tư vấn B2B"]
+    STATUS["Update status: NEW / WON / LOST / SPAM + deal value"]
+  end
+
+  %% ========= 6) ADS AI FEEDBACK LOOP =========
+  subgraph F["6. GOOGLE ADS AI FEEDBACK LOOP"]
+    GCLID["Capture click_id (GCLID) + UTM"]
+    OCT["Offline Conversion Tracking (push WON + value back to Ads)"]
+  end
+
+  %% --- Traffic into website
+  SEO -->|"Traffic tự nhiên"| VIS
+  ADS -->|"Traffic quảng cáo"| VIS
+  REF -->|"Traffic referral"| VIS
+  VIS -->|"Mở landing page"| PAGES
+
+  %% --- Interaction tracking
+  PAGES -->|"Hiển thị CTA & nội dung"| CTA
+  CTA -->|"Gắn định danh click bằng data-track-*"| DL
+  DL -->|"Trigger rules"| GTM
+  GTM -->|"Send events (anonymous)"| GA4
+  CTA -->|"Thu thập tín hiệu UX"| UX
+  UX -->|"Báo cáo hành vi tối ưu UI/Content"| GA4
+
+  %% --- Form conversion gate
+  PAGES -->|"Điền form"| FORM
+  FORM -->|"Chạy chống spam"| CAPTCHA
+  CAPTCHA -->|"Pass -> validate"| VALID
+  VALID -->|"Fail -> chặn submit"| FORM
+  VALID -->|"Pass -> submit success"| TY
+
+  %% --- Split data: anonymous vs PII
+  TY -->|"Nhánh 1: Anonymous event (NON-PII) + quantity/value params"| DL
+  TY -->|"Nhánh 2: PII payload (name/phone/note + attribution)"| UUID
+  UUID -->|"Gắn lead_id vào payload"| WEBHOOK
+  GCLID -->|"Đính kèm click_id/UTM vào payload"| WEBHOOK
+
+  %% --- Secure webhook
+  WEBHOOK -->|"Kèm X-Signature (HMAC)"| SIG
+  SIG -->|"Verify authenticity"| VERIFY
+  VERIFY -->|"TRUE: ghi vào Sheets"| SHEET
+  VERIFY -->|"TRUE: notify sales"| TG
+  VERIFY -->|"FALSE: drop data (anti-spam)"| WEBHOOK
+
+  %% --- Sales ops
+  TG -->|"Kích hoạt xử lý ngay"| SLA
+  SLA -->|"Sales gọi + tư vấn"| STATUS
+  STATUS -->|"Cập nhật pipeline trong Sheets"| SHEET
+
+  %% --- Ads feedback loop
+  SHEET -->|"Nếu status = WON + có value + click_id"| OCT
+  OCT -->|"Push offline conversion + value về Google Ads"| ADS

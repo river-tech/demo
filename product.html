@@ -55,37 +55,25 @@
                 <!-- Left: Gallery -->
                 <div>
                     <div class="product-gallery__main" id="productMainImg">
-                        <svg viewBox="0 0 80 80">
-                            <rect x="10" y="5" width="60" height="70" rx="6" fill="none" stroke="currentColor"
-                                stroke-width="2" opacity="0.3" />
-                            <path d="M30 30h20M30 40h16" fill="none" stroke="currentColor" stroke-width="2"
-                                opacity="0.3" />
-                        </svg>
+                        <img src="images/product-main.png" alt="Áo phản quang công trình vải kaki 65/35 phản quang 3M"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-md)">
                     </div>
                     <div class="product-gallery__thumbs">
                         <div class="product-gallery__thumb active">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" opacity="0.4" />
-                            </svg>
+                            <img src="images/product-main.png" alt="Áo phản quang - mặt trước"
+                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
                         </div>
                         <div class="product-gallery__thumb">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    opacity="0.4" />
-                            </svg>
+                            <img src="images/product-pants.png" alt="Kết hợp với quần bảo hộ"
+                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
                         </div>
                         <div class="product-gallery__thumb">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    opacity="0.4" />
-                            </svg>
+                            <img src="images/factory-3.png" alt="QC kiểm tra chất lượng"
+                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
                         </div>
                         <div class="product-gallery__thumb">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5z" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    opacity="0.4" />
-                            </svg>
+                            <img src="images/blog-fabric.png" alt="Vải kaki 65/35 chi tiết"
+                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
                         </div>
                     </div>
                 </div>
@@ -560,9 +548,8 @@
             </div>
             <div class="grid-3" style="margin-top:var(--space-2xl)">
                 <div class="card">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <path d="M20 12h24v40H20z" fill="none" stroke="currentColor" stroke-width="2" />
-                        </svg></div>
+                    <div class="card__img"><img src="images/product-pants.png" alt="Quần bảo hộ nhiều túi"
+                            loading="lazy"></div>
                     <div class="card__body">
                         <h3>Quần bảo hộ nhiều túi</h3>
                         <p>Vải kaki chống cháy – Đường may 2 kim</p>
@@ -570,11 +557,8 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <circle cx="32" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M18 56c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
+                    <div class="card__img"><img src="images/product-uniform.png" alt="Bộ đồng phục kỹ thuật"
+                            loading="lazy"></div>
                     <div class="card__body">
                         <h3>Bộ đồng phục kỹ thuật</h3>
                         <p>Cotton pha polyester – In/thêu logo</p>
@@ -582,10 +566,8 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
+                    <div class="card__img"><img src="images/product-winter.png" alt="Áo khoác bảo hộ mùa đông"
+                            loading="lazy"></div>
                     <div class="card__body">
                         <h3>Áo khoác bảo hộ mùa đông</h3>
                         <p>Vải dù chống nước – Lót nỉ ấm</p>
@@ -681,6 +663,37 @@
             </a>
         </div>
     </div>
+
+    <!-- Schema: Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Áo phản quang công trình",
+      "description": "Áo phản quang công trình vải kaki 65/35, phản quang 3M, đường may 2 kim. Size S–XXL.",
+      "brand": { "@type": "Brand", "name": "BảoHộ Pro" },
+      "manufacturer": { "@type": "Organization", "name": "BảoHộ Pro" },
+      "material": "Kaki 65% Polyester / 35% Cotton, 240 GSM",
+      "category": "Đồng phục bảo hộ lao động"
+    }
+    </script>
+
+    <!-- Schema: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Số lượng đặt hàng tối thiểu (MOQ) là bao nhiêu?","acceptedAnswer":{"@type":"Answer","text":"MOQ cho áo phản quang là 50 bộ trở lên. Với đơn hàng từ 500 bộ, chúng tôi áp dụng chính sách giá ưu đãi đặc biệt."}},
+        {"@type":"Question","name":"Thời gian sản xuất trung bình là bao lâu?","acceptedAnswer":{"@type":"Answer","text":"Thời gian sản xuất từ 10–21 ngày tùy số lượng. Đơn hàng dưới 200 bộ: 10–12 ngày. Đơn hàng 200–1000 bộ: 14–18 ngày."}},
+        {"@type":"Question","name":"Có thể in/thêu logo công ty không?","acceptedAnswer":{"@type":"Answer","text":"Có, chúng tôi hỗ trợ: in lụa, thêu vi tính, in chuyển nhiệt. Hỗ trợ thiết kế file in miễn phí."}},
+        {"@type":"Question","name":"Chính sách bảo hành như thế nào?","acceptedAnswer":{"@type":"Answer","text":"Bảo hành 6 tháng cho lỗi kỹ thuật. Chính sách đổi trả trong 7 ngày nếu sản phẩm không đúng mô tả."}},
+        {"@type":"Question","name":"Có ship toàn quốc không?","acceptedAnswer":{"@type":"Answer","text":"Có, giao hàng toàn quốc. Miễn phí ship cho đơn hàng trên 100 bộ khu vực miền Trung."}},
+        {"@type":"Question","name":"Có thể may theo size riêng không?","acceptedAnswer":{"@type":"Answer","text":"Có, hỗ trợ may theo bảng size riêng hoặc theo số đo từng người."}},
+        {"@type":"Question","name":"Làm sao để nhận mẫu trước khi đặt hàng?","acceptedAnswer":{"@type":"Answer","text":"Chúng tôi gửi mẫu vải và mẫu may hoàn chỉnh trước khi sản xuất hàng loạt. Thời gian làm mẫu: 3–5 ngày làm việc."}}
+      ]
+    }
+    </script>
 
     <script src="script.js"></script>
 </body>
