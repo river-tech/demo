@@ -1,0 +1,58 @@
+flowchart LR
+
+  subgraph TRAFFIC["NGUỒN TRUY CẬP"]
+    SEO["SEO / Google / AI Overview"]
+    ADS["Ads / Social / Referral"]
+  end
+
+  subgraph USER["NGƯỜI DÙNG"]
+    VIS["Khách truy cập B2B"]
+  end
+
+  subgraph WEB["WEBSITE B2B (FRONTEND)"]
+    PAGES["Pages: Home / Authority / Category-Product / Contact / Thank-you"]
+    UI["UI Actions: CTA sticky / Click Hotline-Zalo / Download PDF (nếu có)"]
+    UTM["UTM Capture (utm_source, utm_medium, utm_campaign, utm_content, utm_term)"]
+    FORM["Form báo giá (1 form)"]
+  end
+
+  subgraph TRACK["TRACKING ẨN DANH (NON-PII)"]
+    DL["dataLayer events: click_tel, click_zalo, file_download(opt), generate_lead"]
+    GTM["Google Tag Manager"]
+    GA4["GA4 Reports + Conversions"]
+  end
+
+  subgraph LEAD["LEAD PIPELINE (SHEETS) - KHÔNG n8n"]
+    GAS["Google Apps Script Web App (Webhook receiver + basic validate)"]
+    SHEET["Google Sheets (Kho lead + UTM + status)"]
+    TGBOT["Telegram Notify (realtime)"]
+    EMAIL["Email notify (optional)"]
+  end
+
+  subgraph BACKUP["BACKUP DRIVE (CSV)"]
+    TRIGGER["Time Trigger (Daily)"]
+    EXPORT["Apps Script Export Leads -> CSV"]
+    DRIVE["Google Drive Folder: Lead_Backups"]
+  end
+
+  SEO -->|"Traffic vào web"| VIS
+  ADS -->|"Traffic vào web"| VIS
+  VIS -->|"Mở website"| PAGES
+  PAGES -->|"Hiển thị UI/CTA"| UI
+
+  PAGES -->|"Đọc UTM từ URL"| UTM
+  UTM -->|"Gắn UTM vào form payload"| FORM
+
+  UI -->|"Click hotline/zalo/download"| DL
+  FORM -->|"Submit success => generate_lead (NON-PII)"| DL
+  DL -->|"Push events"| GTM
+  GTM -->|"Send events"| GA4
+
+  FORM -->|"Submit form (PII) -> POST webhook"| GAS
+  GAS -->|"Append row vào Sheets"| SHEET
+  GAS -->|"Notify realtime"| TGBOT
+  GAS -->|"Notify backup (optional)"| EMAIL
+
+  TRIGGER -->|"Chạy mỗi ngày"| EXPORT
+  SHEET -->|"Nguồn dữ liệu export"| EXPORT
+  EXPORT -->|"Lưu CSV backup"| DRIVE
