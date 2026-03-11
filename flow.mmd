@@ -48,6 +48,14 @@ flowchart LR
     OCT["Offline Conversion Tracking (push WON + value back to Ads)"]
   end
 
+  %% ========= 7) ADMIN DASHBOARD (READ-ONLY) =========
+  subgraph D["7. ADMIN DASHBOARD (Read-only)"]
+    ADMIN["Admin Web (Dashboard chỉ xem)"]
+    GA4API["GA4 Data API (pull metrics/events)"]
+    SHEETAPI["Google Sheets API (pull leads/pipeline)"]
+    HEALTH["System Health: webhook ok/fail, signature drop, notify latency (tùy log)"]
+  end
+
   %% --- Traffic into website
   SEO -->|"Traffic tự nhiên"| VIS
   ADS -->|"Traffic quảng cáo"| VIS
@@ -90,3 +98,11 @@ flowchart LR
   %% --- Ads feedback loop
   SHEET -->|"Nếu status = WON + có value + click_id"| OCT
   OCT -->|"Push offline conversion + value về Google Ads"| ADS
+
+  %% --- Admin dashboard pulls (read-only)
+  GA4 -->|"Dữ liệu hành vi + conversions"| GA4API
+  SHEET -->|"Dữ liệu lead + trạng thái pipeline"| SHEETAPI
+
+  GA4API -->|"Hiển thị sessions/events/conversions, funnel, UX signals"| ADMIN
+  SHEETAPI -->|"Hiển thị lead mới, status NEW/WON/LOST/SPAM, value"| ADMIN
+  HEALTH -->|"Hiển thị trạng thái hệ thống (read-only)"| ADMIN
