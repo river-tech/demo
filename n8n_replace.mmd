@@ -1,0 +1,104 @@
+flowchart LR
+
+  %% =========================
+  %% B2B MVP SYSTEM (WITH n8n) + GA4 DATA API -> SHEETS SUMMARY
+  %% n8n replaces:
+  %% - Webhook receiver + validate + dedupe
+  %% - Append row to Google Sheets (lead storage)
+  %% - Telegram/Email notify
+  %% - Daily backup export to Drive
+  %% Added (Option B):
+  %% - n8n pulls GA4 Data API on schedule -> writes GA4_Summary tab in Sheets
+  %% Still keep:
+  %% - Website UI + Form
+  %% - UTM capture on website
+  %% - Anonymous tracking: dataLayer -> GTM -> GA4
+  %% =========================
+
+  subgraph TRAFFIC["NGUỒN TRUY CẬP"]
+    SEO["SEO / Google / AI Overview"]
+    ADS["Ads / Social / Referral"]
+  end
+
+  subgraph USER["NGƯỜI DÙNG"]
+    VIS["Khách truy cập B2B"]
+  end
+
+  subgraph WEB["WEBSITE B2B (FRONTEND)"]
+    PAGES["Pages: Home / Authority / Category-Product / Contact / Thank-you"]
+    UI["UI Actions: CTA sticky / Click Hotline-Zalo / Download PDF (opt)"]
+    UTM["UTM Capture: utm_source, utm_medium, utm_campaign, utm_content, utm_term"]
+    FORM["Form báo giá (PII)"]
+  end
+
+  subgraph TRACK["TRACKING ẨN DANH (NON-PII)"]
+    DL["dataLayer events (NON-PII)\nclick_tel, click_zalo, file_download(opt), generate_lead"]
+    GTM["Google Tag Manager (Triggers + Tags)"]
+    GA4["GA4 (Reports + Conversions)"]
+  end
+
+  subgraph N8N["n8n AUTOMATION"]
+    WH["Webhook Node (Receive form payload)"]
+    VALID["Validate Node (required + format)"]
+    DEDUPE["Dedupe Node (optional)\ncheck phone/email recent"]
+    SHEET_LEADS["Google Sheets Node (Append lead row)"]
+    TG["Telegram Node (Realtime notify)"]
+    EMAIL["Email Node (Optional backup notify)"]
+
+    CRON_BACKUP["Cron (Daily backup)"]
+    EXPORT["Build CSV (from Sheets data)"]
+    DRIVE["Google Drive Node (Upload CSV backup)"]
+
+    CRON_GA4["Cron (Every 15m / 1h)\nGA4 Summary refresh"]
+    GA4API["GA4 Data API Request\n(runReport)"]
+    SHEET_SUM["Google Sheets Node\nWrite tab: GA4_Summary"]
+
+    LOG["Error/Log Node (optional)\nstore failures for review"]
+  end
+
+  subgraph STORAGE["DATA STORAGE"]
+    SHEET["Google Sheets\nTab: Leads + GA4_Summary"]
+    DRV["Google Drive Folder: Lead_Backups"]
+  end
+
+  %% Traffic -> Website
+  SEO -->|"Traffic vào web"| VIS
+  ADS -->|"Traffic vào web"| VIS
+  VIS -->|"Mở website"| PAGES
+  PAGES -->|"Hiển thị UI/CTA"| UI
+
+  %% UTM capture on website
+  PAGES -->|"Đọc UTM từ URL"| UTM
+  UTM -->|"Gắn UTM vào payload form"| FORM
+
+  %% Anonymous tracking (kept)
+  UI -->|"Click hotline/zalo/download"| DL
+  FORM -->|"Submit success => generate_lead (NON-PII)"| DL
+  DL -->|"Push events"| GTM
+  GTM -->|"Send events"| GA4
+
+  %% Form payload -> n8n (Lead pipeline)
+  FORM -->|"POST payload (PII + UTM + landing_page)"| WH
+  WH -->|"Pass payload to validation"| VALID
+  VALID -->|"If invalid -> log/drop"| LOG
+  VALID -->|"If valid -> continue"| DEDUPE
+  DEDUPE -->|"If duplicate -> log/drop (optional)"| LOG
+  DEDUPE -->|"If ok -> write lead"| SHEET_LEADS
+
+  %% Sheets write + notify
+  SHEET_LEADS -->|"Append row to tab Leads"| SHEET
+  SHEET_LEADS -->|"Notify sales realtime"| TG
+  SHEET_LEADS -->|"Notify email backup (optional)"| EMAIL
+
+  %% GA4 Data API -> Sheets Summary (Option B)
+  CRON_GA4 -->|"Trigger fetch GA4 metrics"| GA4API
+  GA4 -->|"Source dữ liệu analytics"| GA4API
+  GA4API -->|"Write/overwrite tab GA4_Summary"| SHEET_SUM
+  SHEET_SUM -->|"Cập nhật tab GA4_Summary"| SHEET
+  GA4API -->|"Nếu lỗi -> log"| LOG
+
+  %% Daily backup to Drive (backup cả Leads + GA4_Summary)
+  CRON_BACKUP -->|"Run daily backup job"| EXPORT
+  SHEET -->|"Read data for export"| EXPORT
+  EXPORT -->|"Upload CSV backup"| DRIVE
+  DRIVE -->|"Store backup files"| DRV
