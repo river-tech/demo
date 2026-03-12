@@ -1,16 +1,5 @@
 flowchart LR
 
-  %% =========================
-  %% B2B MVP SYSTEM (WITH n8n) - SIMPLIFIED
-  %% Removed:
-  %% - GA4 -> Sheets Summary branch
-  %% - Daily Backup Drive branch
-  %% Keep:
-  %% - Website UI + Form + UTM capture
-  %% - Anonymous tracking: dataLayer -> GTM -> GA4
-  %% - n8n lead intake: Webhook -> reCAPTCHA verify -> Sheets -> Telegram/Email
-  %% =========================
-
   subgraph TRAFFIC["NGUỒN TRUY CẬP"]
     SEO["SEO / Google / AI Overview"]
     ADS["Ads / Social / Referral"]
@@ -23,55 +12,67 @@ flowchart LR
   subgraph WEB["WEBSITE B2B (FRONTEND)"]
     PAGES["Pages: Home / Authority / Category-Product / Contact / Thank-you"]
     UI["UI Actions: CTA sticky / Click Hotline-Zalo / Download PDF (opt)"]
-    UTM["UTM Capture: utm_source, utm_medium, utm_campaign, utm_content, utm_term"]
+
+    UTMSTORE["First-touch UTM Store\nCookie/LocalStorage\n(ft_utm_* + ft_landing_page + ft_ts)"]
+    GAID["Get GA4 client_id\n(from _ga cookie)"]
+
     CAPTCHA["reCAPTCHA v3 (ẩn)\nGenerate token on submit"]
-    FORM["Form báo giá (PII)"]
+    FORM["Form báo giá (PII)\nAttach: ft_utm_* + ga_client_id + recaptcha_token"]
   end
 
   subgraph TRACK["TRACKING ẨN DANH (NON-PII)"]
     DL["dataLayer events (NON-PII)\nclick_tel, click_zalo, file_download(opt), generate_lead"]
-    GTM["Google Tag Manager (Triggers + Tags)"]
+    GTM["GTM (Triggers + Tags)"]
     GA4["GA4 (Reports + Conversions)"]
   end
 
   subgraph N8N["n8n AUTOMATION (LEAD INTAKE)"]
-    WH["Webhook Node (Receive payload)\n(PII + UTM + landing_page + recaptcha_token)"]
+    WH["Webhook Receive payload"]
     RCHECK["Verify reCAPTCHA token\n(siteverify)"]
-    SHEET_LEADS["Google Sheets Node (Append lead row)"]
-    TG["Telegram Node (Realtime notify)"]
-    EMAIL["Email Node (Optional backup notify)"]
-    LOG["Error/Log Node (optional)"]
+    REGEX["Validation (Regex)\nphone/email/quantity…"]
+    DEDUPE["Dedupe check\nLookup phone/email in Sheets\n(time window e.g. 24h)"]
+    SHEET_LEADS["Append row -> Sheets (Leads)"]
+    TG["Telegram notify (realtime)"]
+    EMAIL["Email notify (optional)"]
+    LOG["Error/Drop Log (optional)"]
   end
 
   subgraph STORAGE["DATA STORAGE"]
-    SHEET["Google Sheets\nTab: Leads"]
+    SHEET["Google Sheets - Tab Leads"]
   end
 
-  %% Traffic -> Website
-  SEO -->|"Traffic vào web"| VIS
-  ADS -->|"Traffic vào web"| VIS
-  VIS -->|"Mở website"| PAGES
-  PAGES -->|"Hiển thị UI/CTA"| UI
+  SEO -->|"Traffic"| VIS
+  ADS -->|"Traffic"| VIS
+  VIS -->|"Open site"| PAGES
+  PAGES -->|"Render UI"| UI
 
-  %% UTM capture on website
-  PAGES -->|"Đọc UTM từ URL"| UTM
-  UTM -->|"Gắn UTM vào payload form"| FORM
+  %% UTM first-touch store
+  PAGES -->|"Read UTM from URL (if exists)"| UTMSTORE
+  UTMSTORE -->|"Persist first-touch UTM"| FORM
 
-  %% reCAPTCHA token
-  FORM -->|"On submit: request reCAPTCHA v3 token"| CAPTCHA
-  CAPTCHA -->|"Attach recaptcha_token into payload"| FORM
+  %% GA4 client_id capture
+  PAGES -->|"Read GA client_id from _ga cookie"| GAID
+  GAID -->|"Attach ga_client_id"| FORM
 
-  %% Anonymous tracking (kept)
-  UI -->|"Click hotline/zalo/download"| DL
-  FORM -->|"Submit success => generate_lead (NON-PII)"| DL
+  %% reCAPTCHA
+  FORM -->|"On submit -> get token"| CAPTCHA
+  CAPTCHA -->|"Attach token"| FORM
+
+  %% Anonymous tracking
+  UI -->|"Clicks"| DL
+  FORM -->|"Submit success -> generate_lead (NON-PII)"| DL
   DL -->|"Push events"| GTM
-  GTM -->|"Send events"| GA4
+  GTM -->|"Send"| GA4
 
-  %% Lead pipeline (n8n)
-  FORM -->|"POST payload to webhook"| WH
-  WH -->|"Verify reCAPTCHA before processing"| RCHECK
-  RCHECK -->|"Pass -> process lead"| SHEET_LEADS
-  RCHECK -->|"Fail -> log error"| LOG
-  SHEET_LEADS -->|"Lead saved"| SHEET
-  SHEET_LEADS -->|"Notify realtime"| TG
-  SHEET_LEADS -->|"Backup notify"| EMAIL
+  %% Lead pipeline
+  FORM -->|"POST payload"| WH
+  WH -->|"Verify captcha"| RCHECK
+  RCHECK -->|"Fail -> drop/log"| LOG
+  RCHECK -->|"Pass"| REGEX
+  REGEX -->|"Fail -> drop/log"| LOG
+  REGEX -->|"Pass"| DEDUPE
+  DEDUPE -->|"Duplicate -> drop/log"| LOG
+  DEDUPE -->|"Unique -> write"| SHEET_LEADS
+  SHEET_LEADS -->|"Row added"| SHEET
+  SHEET_LEADS -->|"Notify"| TG
+  SHEET_LEADS -->|"Email (opt)"| EMAIL
