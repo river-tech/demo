@@ -1,11 +1,14 @@
 flowchart LR
 
   %% =========================
-  %% B2B MVP SYSTEM (WITH n8n) + GA4 DATA API -> SHEETS SUMMARY
-  %% Changes:
-  %% - Remove DEDUPE
-  %% - Remove heavy VALIDATION (format/required) because reCAPTCHA v3 is used
-  %% - Keep reCAPTCHA verification in n8n (must-have)
+  %% B2B MVP SYSTEM (WITH n8n) - SIMPLIFIED
+  %% Removed:
+  %% - GA4 -> Sheets Summary branch
+  %% - Daily Backup Drive branch
+  %% Keep:
+  %% - Website UI + Form + UTM capture
+  %% - Anonymous tracking: dataLayer -> GTM -> GA4
+  %% - n8n lead intake: Webhook -> reCAPTCHA verify -> Sheets -> Telegram/Email
   %% =========================
 
   subgraph TRAFFIC["NGUỒN TRUY CẬP"]
@@ -31,27 +34,17 @@ flowchart LR
     GA4["GA4 (Reports + Conversions)"]
   end
 
-  subgraph N8N["n8n AUTOMATION"]
-    WH["Webhook Node (Receive form payload)\n(PII + UTM + landing_page + recaptcha_token)"]
+  subgraph N8N["n8n AUTOMATION (LEAD INTAKE)"]
+    WH["Webhook Node (Receive payload)\n(PII + UTM + landing_page + recaptcha_token)"]
     RCHECK["Verify reCAPTCHA token\n(siteverify)"]
     SHEET_LEADS["Google Sheets Node (Append lead row)"]
     TG["Telegram Node (Realtime notify)"]
     EMAIL["Email Node (Optional backup notify)"]
-
-    CRON_BACKUP["Cron (Daily backup)"]
-    EXPORT["Build CSV (from Sheets data)"]
-    DRIVE["Google Drive Node (Upload CSV backup)"]
-
-    CRON_GA4["Cron (Every 1h)\nGA4 Summary refresh"]
-    GA4API["GA4 Data API Request\n(runReport)"]
-    SHEET_SUM["Google Sheets Node\nWrite tab: GA4_Summary"]
-
-    LOG["Error/Log Node (optional)\nstore failures for review"]
+    LOG["Error/Log Node (optional)"]
   end
 
   subgraph STORAGE["DATA STORAGE"]
-    SHEET["Google Sheets\nTab: Leads + GA4_Summary"]
-    DRV["Google Drive Folder: Lead_Backups"]
+    SHEET["Google Sheets\nTab: Leads"]
   end
 
   %% Traffic -> Website
@@ -62,7 +55,7 @@ flowchart LR
 
   %% UTM capture on website
   PAGES -->|"Đọc UTM từ URL"| UTM
-  UTM -->|"Gắn UTM vào form payload"| FORM
+  UTM -->|"Gắn UTM vào payload form"| FORM
 
   %% reCAPTCHA token
   FORM -->|"On submit: request reCAPTCHA v3 token"| CAPTCHA
@@ -74,26 +67,11 @@ flowchart LR
   DL -->|"Push events"| GTM
   GTM -->|"Send events"| GA4
 
-  %% Form payload -> n8n (Lead pipeline)
+  %% Lead pipeline (n8n)
   FORM -->|"POST payload to webhook"| WH
   WH -->|"Verify reCAPTCHA before processing"| RCHECK
-  RCHECK -->|"Fail -> log/drop"| LOG
-  RCHECK -->|"Pass -> write lead"| SHEET_LEADS
-
-  %% Sheets write + notify
-  SHEET_LEADS -->|"Append row to tab Leads"| SHEET
-  SHEET_LEADS -->|"Notify sales realtime"| TG
-  SHEET_LEADS -->|"Notify email backup (optional)"| EMAIL
-
-  %% GA4 Data API -> Sheets Summary
-  CRON_GA4 -->|"Trigger fetch GA4 metrics"| GA4API
-  GA4 -->|"Source dữ liệu analytics"| GA4API
-  GA4API -->|"Write/overwrite tab GA4_Summary"| SHEET_SUM
-  SHEET_SUM -->|"Cập nhật tab GA4_Summary"| SHEET
-  GA4API -->|"Nếu lỗi -> log"| LOG
-
-  %% Daily backup to Drive (backup cả Leads + GA4_Summary)
-  CRON_BACKUP -->|"Run daily backup job"| EXPORT
-  SHEET -->|"Read data for export"| EXPORT
-  EXPORT -->|"Upload CSV backup"| DRIVE
-  DRIVE -->|"Store backup files"| DRV
+  RCHECK -->|"Pass -> process lead"| SHEET_LEADS
+  RCHECK -->|"Fail -> log error"| LOG
+  SHEET_LEADS -->|"Lead saved"| SHEET
+  SHEET_LEADS -->|"Notify realtime"| TG
+  SHEET_LEADS -->|"Backup notify"| EMAIL
