@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="theme-orange">
+<body>
 
     <!-- HEADER -->
     <div id="header-container"></div>
@@ -22,44 +22,43 @@
             <!-- SIDEBAR -->
             <aside class="category-sidebar">
                 <!-- Box Danh mục -->
-                <div class="sidebar-box"
-                    style="background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; margin-bottom: 24px;">
+                <div class="sidebar-box" style="background: #fff; overflow: hidden; margin-bottom: 24px;">
                     <h3
                         style="background: var(--clr-primary); color: #fff; padding: 16px 24px; font-size: 16px; margin: 0; text-transform: uppercase; border-bottom: 3px solid var(--clr-accent);">
                         Danh mục ngành nghề</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
+                    <ul id="categoryList" style="list-style: none; padding: 0; margin: 0;">
                         <li style="border-bottom: 1px solid var(--clr-border);">
-                            <a href="category.html"
-                                style="display: block; padding: 14px 24px; color: var(--clr-accent); text-decoration: none; font-weight: 600; background: var(--clr-accent-10); border-left: 4px solid var(--clr-accent);">Bảo
+                            <a href="#" class="sidebar-link active" data-category="bao-ho"
+                                style="display: block; padding: 14px 24px; color: var(--clr-primary); text-decoration: none; font-weight: 600; background: rgba(11, 58, 102, 0.1); border-left: 4px solid var(--clr-accent);">Bảo
                                 hộ lao động</a>
                         </li>
                         <li style="border-bottom: 1px solid var(--clr-border);">
-                            <a href="category.html" class="sidebar-link">Đồng phục y tế (Phòng sạch)</a>
+                            <a href="#" class="sidebar-link" data-category="y-te">Đồng phục y tế (Phòng sạch)</a>
                         </li>
                         <li style="border-bottom: 1px solid var(--clr-border);">
-                            <a href="category.html" class="sidebar-link">Đồng phục nhà máy (ESD)</a>
+                            <a href="#" class="sidebar-link" data-category="nha-may">Đồng phục nhà máy (ESD)</a>
                         </li>
                         <li style="border-bottom: 1px solid var(--clr-border);">
-                            <a href="category.html" class="sidebar-link">Áo thun Polo Doanh nghiệp</a>
+                            <a href="#" class="sidebar-link" data-category="ao-thun">Áo thun Polo Doanh nghiệp</a>
                         </li>
                         <li>
-                            <a href="category.html" class="sidebar-link">Vải sỉ công nghiệp</a>
+                            <a href="#" class="sidebar-link" data-category="vai-si">Vải sỉ công nghiệp</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Box Hỗ trợ -->
                 <div class="sidebar-box support-box"
-                    style="background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); padding: 24px; text-align: center; border: 1px solid var(--clr-border);">
+                    style="background: #fff; padding: 24px; text-align: center; border: 1px solid var(--clr-border);">
                     <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--clr-text-main);">Quản lý sản xuất –
                         Báo giá sỉ</h3>
-                    <p style="font-size: 24px; font-weight: 800; color: var(--clr-accent); margin-bottom: 8px;">
+                    <p style="font-size: 24px; font-weight: 800; color: var(--clr-primary); margin-bottom: 8px;">
                         0905.123.456</p>
                     <p style="font-size: 14px; color: var(--clr-text-muted); margin-bottom: 24px;">T2–T7: 7:30 – 17:30
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 12px;">
                         <a href="https://zalo.me" target="_blank" class="btn btn--outline"
-                            style="width: 100%; border-color: var(--clr-accent); color: var(--clr-accent);">Chat
+                            style="width: 100%; border-color: var(--clr-accent); color: var(--clr-primary);">Chat
                             Zalo</a>
                         <a href="tel:0905123456" class="btn btn--primary" style="width: 100%;">Gọi ngay</a>
                     </div>
@@ -79,137 +78,31 @@
                             <span>/</span>
                             <span style="color: var(--clr-text-main); font-weight: 600;">Bảo hộ lao động</span>
                         </div>
-                        <h1 style="font-size: 32px; margin: 0; color: var(--clr-primary);">Bảo hộ lao động</h1>
+                        <h1 id="categoryTitle" style="font-size: 32px; margin: 0; color: var(--clr-primary);">Bảo hộ lao
+                            động</h1>
                     </div>
                     <div class="sort-dropdown"
                         style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--clr-text-muted);">
                         <span>Sắp xếp theo:</span>
-                        <select
-                            style="padding: 8px 12px; border: 1px solid var(--clr-border); border-radius: var(--radius-sm); font-family: inherit; color: var(--clr-text-main); outline: none; cursor: pointer; background: #fff;">
-                            <option>Mặc định</option>
-                            <option>Mới nhất</option>
-                            <option>Mua nhiều nhất</option>
+                        <select id="productSort"
+                            style="padding: 8px 12px; border: 1px solid var(--clr-border); font-family: inherit; color: var(--clr-text-main); outline: none; cursor: pointer; background: #fff;">
+                            <option value="default">Mặc định</option>
+                            <option value="newest">Mới nhất</option>
+                            <option value="bestseller">Mua nhiều nhất</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- Product Grid -->
-                <div class="product-grid-new">
-                    <!-- Card 1 -->
-                    <article class="product-card-new">
-                        <a href="product.html" class="product-card-new__img">
-                            <span class="product-card-new__tag tag-hot">HOT</span>
-                            <img src="images/product-main.png" alt="Áo phản quang">
-                        </a>
-                        <div class="product-card-new__info">
-                            <h3><a href="product.html">Áo phản quang công trình</a></h3>
-                            <ul>
-                                <li>Vải kaki 65/35</li>
-                                <li>Phản quang 3M</li>
-                                <li>Chứng nhận TCVN</li>
-                            </ul>
-                            <a href="index.html#quote-section" class="btn-sm-quote">Nhận báo giá sỉ</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 2 -->
-                    <article class="product-card-new">
-                        <a href="product.html" class="product-card-new__img">
-                            <span class="product-card-new__tag tag-new">MỚI</span>
-                            <img src="images/product-pants.png" alt="Quần bảo hộ">
-                        </a>
-                        <div class="product-card-new__info">
-                            <h3><a href="product.html">Quần bảo hộ nhiều túi</a></h3>
-                            <ul>
-                                <li>Vải kaki chống cháy</li>
-                                <li>Đường may 2 kim, 6 túi</li>
-                                <li>Độ bền màu cao</li>
-                            </ul>
-                            <a href="index.html#quote-section" class="btn-sm-quote">Nhận báo giá sỉ</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article class="product-card-new">
-                        <a href="product.html" class="product-card-new__img">
-                            <span class="product-card-new__tag tag-esd">ESD</span>
-                            <img src="images/product-uniform.png" alt="Áo chống tĩnh điện">
-                        </a>
-                        <div class="product-card-new__info">
-                            <h3><a href="product.html">Bộ đồ chống tĩnh điện phòng sạch</a></h3>
-                            <ul>
-                                <li>Vải ESD sợi carbon</li>
-                                <li>Tiêu chuẩn IEC 61340</li>
-                                <li>Lọc khuẩn 99%</li>
-                            </ul>
-                            <a href="index.html#quote-section" class="btn-sm-quote">Nhận báo giá sỉ</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 4 -->
-                    <article class="product-card-new">
-                        <a href="product.html" class="product-card-new__img">
-                            <img src="images/product-winter.png" alt="Áo khoác mùa đông">
-                        </a>
-                        <div class="product-card-new__info">
-                            <h3><a href="product.html">Áo khoác bảo hộ mùa đông</a></h3>
-                            <ul>
-                                <li>Vải dù chống nước</li>
-                                <li>Lót nỉ, phản quang</li>
-                            </ul>
-                            <a href="index.html#quote-section" class="btn-sm-quote">Nhận báo giá sỉ</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 5 -->
-                    <article class="product-card-new">
-                        <a href="product.html" class="product-card-new__img">
-                            <img src="images/polo.png" alt="Áo polo">
-                        </a>
-                        <div class="product-card-new__info">
-                            <h3><a href="product.html">Áo Polo công nhân</a></h3>
-                            <ul>
-                                <li>Vải cá sấu PE thoáng mát</li>
-                                <li>Thêu logo sắc nét</li>
-                            </ul>
-                            <a href="index.html#quote-section" class="btn-sm-quote">Nhận báo giá sỉ</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 6 -->
-                    <article class="product-card-new">
-                        <a href="product.html" class="product-card-new__img">
-                            <span class="product-card-new__tag tag-fr">FR</span>
-                            <img src="images/hero-1.png" alt="Bộ đồ chống cháy">
-                        </a>
-                        <div class="product-card-new__info">
-                            <h3><a href="product.html">Bộ đồ chống cháy FR</a></h3>
-                            <ul>
-                                <li>Vải Proban® Anh Quốc</li>
-                                <li>Chịu nhiệt 350°C</li>
-                                <li>Tiêu chuẩn EN 11612</li>
-                            </ul>
-                            <a href="index.html#quote-section" class="btn-sm-quote">Nhận báo giá sỉ</a>
-                        </div>
-                    </article>
+                <div id="productGrid" class="product-grid-new">
+                    <!-- Products will be injected by JS -->
                 </div>
 
                 <!-- Pagination -->
-                <div class="pagination-new" style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
-                    <button class="page-btn active">1</button>
-                    <button class="page-btn">2</button>
-                    <button class="page-btn">3</button>
-                    <span
-                        style="display: flex; align-items: center; justify-content: center; width: 40px; color: var(--clr-text-muted);">...</span>
-                    <button class="page-btn">8</button>
-                    <button class="page-btn page-next">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </button>
+                <div id="paginationContainer" class="pagination-new"
+                    style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+                    <!-- Pagination buttons will be injected by JS -->
                 </div>
-
             </main>
         </div>
     </section>
@@ -446,7 +339,7 @@
 
 
     <!-- CTA BANNER -->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <div class="cta-banner">
                 <h2>Cần đặt đồng phục cho ngành nghề khác?</h2>
@@ -458,7 +351,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- SCHEMA MARKUP: CollectionPage -->
     <script type="application/ld+json">
@@ -478,22 +371,6 @@
     <!-- FOOTER -->
     <div id="footer-container"></div>
 
-
-    <script>
-        // Mock navigation logic for category page
-        document.querySelectorAll('.page-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                console.log('Navigating to page...');
-            });
-        });
-
-        document.querySelector('.sort-dropdown select')?.addEventListener('change', (e) => {
-            console.log('Sorting products by: ' + e.target.value);
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 

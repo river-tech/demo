@@ -126,12 +126,12 @@
           </a>
           <a href="authority.html" class="service-card service-card--dark" data-track="service_card_full">
             <div class="service-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg style="color: #fff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
             </div>
-            <h3>SẢN XUẤT TRỌN GÓI</h3>
+            <h3 style="color: #fff;">SẢN XUẤT TRỌN GÓI</h3>
             <p>Quy trình khép kín, tối ưu chi phí từ khâu dệt tới may thành phẩm.</p>
           </a>
         </div>
@@ -140,16 +140,18 @@
   </section>
 
   <!-- ===== CORE TECHNICAL STANDARDS ===== -->
-  <section class="section bg-warm fade-on-scroll">
+  <section class="strip-section bg-warm">
     <div class="container">
-      <div class="text-center">
-        <span class="tag-pill">Tiêu chuẩn kỹ thuật</span>
-        <h2 class="section-title">TIÊU CHUẨN KỸ THUẬT LÕI BẢO CHỨNG CHẤT LƯỢNG</h2>
-        <p class="section-subtitle">Quy trình sản xuất ứng dụng công nghệ và kiểm định chặt chẽ từ khâu rập vi tính đến
-          KCS kháng khuẩn trước khi đóng gói.</p>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 40px;">
+        <span
+          style="color: var(--clr-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; border-bottom: 2px solid var(--clr-accent); padding-bottom: 4px;">Tiêu
+          chuẩn kỹ thuật</span>
+        <h2 style="margin-top: 16px;">TIÊU CHUẨN KỸ THUẬT LÕI</h2>
+        <p style="max-width: 700px; color: var(--clr-text-muted);">Quy trình sản xuất ứng dụng công nghệ và kiểm định
+          chặt chẽ từ khâu rập vi tính đến KCS kháng khuẩn trước khi đóng gói.</p>
       </div>
 
-      <div class="tech-grid" style="margin-top:var(--space-2xl)">
+      <div class="tech-grid">
         <div class="tech-grid__item">
           <div class="tech-grid__img">
             <img src="images/factory-1.png" alt="Theo dõi tiến độ sản xuất bằng QR Code tại xưởng" loading="lazy">
@@ -179,12 +181,16 @@
   </section>
 
   <!-- ===== CORE PRODUCT CATEGORIES ===== -->
-  <section class="section bg-white section--with-accent fade-on-scroll">
+  <section class="strip-section bg-white">
     <div class="container">
-      <div class="text-center">
-        <span class="tag-pill">Sản phẩm chính</span>
-        <h2 class="section-title">Danh mục bảo hộ lao động</h2>
-        <p class="section-subtitle">Sản phẩm đồng phục bảo hộ đa dạng, đáp ứng mọi ngành nghề công nghiệp</p>
+      <div
+        style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; margin-bottom: 40px;">
+        <span
+          style="color: var(--clr-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; border-bottom: 2px solid var(--clr-accent); padding-bottom: 4px;">Sản
+          phẩm chính</span>
+        <h2 style="margin-top: 16px;">Danh mục bảo hộ lao động</h2>
+        <p style="max-width: 600px; color: var(--clr-text-muted);">Sản phẩm đồng phục bảo hộ đa dạng, đáp ứng mọi ngành
+          nghề công nghiệp</p>
       </div>
       <div class="grid-3" style="margin-top:var(--space-2xl)">
         <div class="card">
@@ -434,14 +440,15 @@
 
   <!-- ===== PARTNERS SECTION ===== -->
 
-  <section class="section bg-warm fade-on-scroll" id="partners">
+  <section class="strip-section bg-warm" id="partners">
     <div class="container">
-      <div class="text-center">
-        <span class="section-label">Đối tác nổi bật</span>
-        <h2 class="section-title">Danh sách & logo đối tác</h2>
-        <p class="section-subtitle">Đã phục vụ hơn 14 doanh nghiệp trong nước và FDI, bao gồm các nhà máy lớn như
-          Foster,
-          Daiwa, Tokai...</p>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 40px;">
+        <span
+          style="color: var(--clr-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; border-bottom: 2px solid var(--clr-accent); padding-bottom: 4px;">Đối
+          tác nổi bật</span>
+        <h2 style="margin-top: 16px;">Danh sách & logo đối tác</h2>
+        <p style="max-width: 700px; color: var(--clr-text-muted);">Đã phục vụ hơn 14 doanh nghiệp trong nước và FDI, bao
+          gồm các nhà máy lớn như Foster, Daiwa, Tokai...</p>
       </div>
 
       <div class="partner-layout-compact" style="margin-top:var(--space-xl)">
@@ -481,18 +488,18 @@
   <div class="pdf-modal" id="capabilityPdfModal" aria-hidden="true">
     <div class="pdf-modal__overlay"></div>
     <div class="pdf-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="capabilityModalTitle">
-      <button class="pdf-modal__close" type="button" aria-label="Đóng">
+      <button class="pdf-modal__close" type="button" aria-label="Đóng" style="border-radius: 0;">
         <svg viewBox="0 0 24 24">
           <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" />
         </svg>
       </button>
 
-      <div class="pdf-modal__grid">
+      <div class="pdf-modal__grid" style="border-radius: 0;">
         <!-- Left: Book cover -->
-        <aside class="pdf-modal__left">
-          <div class="book-cover-card">
-            <span class="book-cover-card__tag">PDF miễn phí</span>
+        <aside class="pdf-modal__left" style="background: var(--clr-primary); border-radius: 0;">
+          <div class="book-cover-card" style="border-radius: 0;">
+            <span class="book-cover-card__tag" style="border-radius: 0;">PDF miễn phí</span>
             <div class="book-cover-card__body">
               <span class="book-cover-card__logo">BảoHộ Pro</span>
               <h3 class="book-cover-card__title">Hồ sơ năng lực xưởng bảo hộ</h3>
@@ -505,7 +512,7 @@
         <!-- Right: Content + form (UI only) -->
         <section class="pdf-modal__right">
           <header class="pdf-modal__header">
-            <span class="pdf-modal__tag">Tài liệu cho Thu mua / Manager</span>
+            <span class="pdf-modal__tag" style="border-radius: 0;">Tài liệu cho Thu mua / Manager</span>
             <h2 id="capabilityModalTitle" class="pdf-modal__title">Download Hồ Sơ Năng Lực Xưởng (PDF)</h2>
             <p class="pdf-modal__subtitle">
               Bộ tài liệu tóm tắt năng lực sản xuất, quy trình kiểm soát chất lượng và checklist hỗ trợ bạn đánh giá
@@ -552,23 +559,23 @@
             <div class="pdf-modal__form-grid">
               <div class="pdf-field">
                 <label for="pdfName">Họ tên *</label>
-                <input id="pdfName" type="text" placeholder="Nguyễn Văn A">
+                <input id="pdfName" type="text" placeholder="Nguyễn Văn A" style="border-radius: 0;">
               </div>
               <div class="pdf-field">
                 <label for="pdfEmail">Email công ty *</label>
-                <input id="pdfEmail" type="email" placeholder="email@company.com">
+                <input id="pdfEmail" type="email" placeholder="email@company.com" style="border-radius: 0;">
               </div>
               <div class="pdf-field">
                 <label for="pdfCompany">Tên công ty *</label>
-                <input id="pdfCompany" type="text" placeholder="Công ty TNHH ABC">
+                <input id="pdfCompany" type="text" placeholder="Công ty TNHH ABC" style="border-radius: 0;">
               </div>
               <div class="pdf-field">
                 <label for="pdfPhone">Số điện thoại</label>
-                <input id="pdfPhone" type="tel" placeholder="0905 123 456">
+                <input id="pdfPhone" type="tel" placeholder="0905 123 456" style="border-radius: 0;">
               </div>
             </div>
 
-            <button type="button" class="pdf-modal__cta">
+            <button type="button" class="pdf-modal__cta" style="border-radius: 0;">
               TẢI MIỄN PHÍ NGAY
             </button>
             <p class="pdf-modal__note">
