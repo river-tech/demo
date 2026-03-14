@@ -31,7 +31,7 @@
             <div class="product-detail-container">
 
                 <!-- COLUMN 1: GALLERY -->
-                <div class="product-gallery-column">
+                <div class="product-gallery-column reveal reveal-left">
                     <div class="product-gallery__main" id="mainImageContainer"
                         style="overflow: hidden; aspect-ratio: 4/5; background: #f9f9f9;">
                         <img src="images/product-main.png" alt="Áo phản quang công trình" id="mainProductImage"
@@ -42,20 +42,23 @@
                     <div class="product-gallery__thumbs" style="display: flex; gap: 12px; margin-top: 16px;">
                         <div class="product-gallery__thumb active" onclick="switchGallery(this)"
                             style="width: 80px; height: 80px; overflow: hidden; border: 2px solid var(--clr-accent); cursor: pointer;">
-                            <img src="images/product-main.png" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="images/product-main.png" alt="Áo phản quang mặt trước"
+                                style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                         </div>
                         <div class="product-gallery__thumb" onclick="switchGallery(this)"
                             style="width: 80px; height: 80px; overflow: hidden; border: 1px solid var(--clr-border); cursor: pointer;">
-                            <img src="images/product-pants.png" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="images/product-pants.png" alt="Quần bảo hộ lao động đồng bộ"
+                                style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                         </div>
                         <div class="product-gallery__thumb" onclick="switchGallery(this)"
                             style="width: 80px; height: 80px; overflow: hidden; border: 1px solid var(--clr-border); cursor: pointer;">
-                            <img src="images/factory-3.png" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="images/factory-3.png" alt="Chi tiết kỹ thuật đường may"
+                                style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <div class="product-info-column">
+                <div class="product-info-column reveal reveal-up">
                     <h1 class="product-title-main">Áo phản quang công trình Cao cấp</h1>
 
                     <div class="product-meta-stats">
@@ -72,7 +75,7 @@
                     </ul>
 
                     <!-- CTA BOX -->
-                    <div class="lead-action-block">
+                    <div class="lead-action-block reveal reveal-scale">
                         <h3 style="margin: 0 0 16px 0; font-weight: 700;">Bạn muốn có báo giá sỉ nhanh nhất?</h3>
                         <div class="lead-action-buttons">
                             <a href="index.html#quote-section" class="btn btn--primary btn--lg"
@@ -107,7 +110,7 @@
                     </div>
 
                     <div class="banner-card">
-                        <img src="images/factory-1.png" alt="Xưởng may Dương Thành Tín">
+                        <img src="images/factory-1.png" alt="Năng lực xưởng may Dương Thành Tín" loading="lazy">
                         <div class="banner-card__overlay">
                             <a href="profile.html" class="btn btn--secondary btn--sm"
                                 style="border: 1px solid #fff; background: rgba(255,255,255,0.1); backdrop-filter: blur(4px); color: #fff;">Tải
@@ -122,7 +125,7 @@
 
     <!-- PRODUCT CONTENT TABS (SWITCHER) -->
     <nav class="tabs-nav-sticky">
-        <div class="container">
+        <div class="container reveal reveal-up">
             <button class="tab-sticky-btn active" onclick="switchTab(this, 'highlights-panel')">Điểm nổi bật</button>
             <button class="tab-sticky-btn" onclick="switchTab(this, 'tech-specs')">Thông số kỹ thuật</button>
             <button class="tab-sticky-btn" onclick="switchTab(this, 'policy')">Chính sách B2B</button>
@@ -223,7 +226,7 @@
 
             <div class="related-carousel">
                 <!-- Product 1 -->
-                <a href="product.html" class="related-card">
+                <a href="product.html" class="related-card reveal reveal-up delay-100">
                     <div class="related-card__img">
                         <img src="images/product-pants.png" alt="Quần bảo hộ">
                         <span class="related-card__tag" style="position: absolute; top: 12px; left: 12px;">MỚI</span>
@@ -240,7 +243,7 @@
                 </a>
 
                 <!-- Product 2 -->
-                <a href="product.html" class="related-card">
+                <a href="product.html" class="related-card reveal reveal-up delay-200">
                     <div class="related-card__img">
                         <img src="images/product-uniform.png" alt="Bộ đồ phòng sạch">
                     </div>
@@ -256,7 +259,7 @@
                 </a>
 
                 <!-- Product 3 -->
-                <a href="product.html" class="related-card">
+                <a href="product.html" class="related-card reveal reveal-up delay-300">
                     <div class="related-card__img">
                         <img src="images/product-winter.png" alt="Áo khoác bảo hộ">
                         <span class="related-card__tag" style="position: absolute; top: 12px; left: 12px;">HOT</span>
@@ -273,7 +276,7 @@
                 </a>
 
                 <!-- Product 4 -->
-                <a href="product.html" class="related-card">
+                <a href="product.html" class="related-card reveal reveal-up delay-400">
                     <div class="related-card__img">
                         <img src="images/polo.png" alt="Áo Polo công nhân">
                     </div>

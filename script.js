@@ -605,11 +605,29 @@ document.addEventListener('DOMContentLoaded', async function () {
   const hamburger = document.querySelector('.hamburger');
   const nav = document.querySelector('.navbar__nav');
 
+  // Create overlay if not exists
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+  }
+
   if (hamburger && nav) {
-    hamburger.addEventListener('click', function () {
+    const toggleMenu = () => {
       hamburger.classList.toggle('active');
       nav.classList.toggle('open');
+      overlay.classList.toggle('active');
       document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    };
+
+    hamburger.addEventListener('click', () => {
+      console.log('Hamburger clicked');
+      toggleMenu();
+    });
+    overlay.addEventListener('click', () => {
+      console.log('Overlay clicked');
+      toggleMenu();
     });
 
     // Close nav when clicking a link
@@ -617,6 +635,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       link.addEventListener('click', function () {
         hamburger.classList.remove('active');
         nav.classList.remove('open');
+        overlay.classList.remove('active');
         document.body.style.overflow = '';
       });
     });
@@ -799,40 +818,38 @@ document.addEventListener('DOMContentLoaded', async function () {
   var counterAnimated = new Set();
 
   function animateCounter(el) {
-    var target = parseInt(el.getAttribute('data-counter'), 10);
-    var suffix = el.getAttribute('data-suffix') || '';
-    var duration = 2000;
-    var start = 0;
-    var startTime = null;
+    const target = parseFloat(el.getAttribute('data-counter')) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
+    const prefix = el.getAttribute('data-prefix') || '';
+    const duration = 2000;
+    const decimals = (el.getAttribute('data-counter').split('.')[1] || '').length;
+    let startTime = null;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-      var current = Math.floor(eased * target);
-      el.textContent = current.toLocaleString('vi-VN') + suffix;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const current = progress === 1 ? target : eased * target;
+
+      el.textContent = prefix + (decimals > 0 ? current.toFixed(decimals) : Math.floor(current).toLocaleString('vi-VN')) + suffix;
+
       if (progress < 1) {
         requestAnimationFrame(step);
-      } else {
-        el.textContent = target.toLocaleString('vi-VN') + suffix;
       }
     }
-
     requestAnimationFrame(step);
   }
 
-  if (counters.length > 0) {
-    var counterObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !counterAnimated.has(entry.target)) {
-          counterAnimated.add(entry.target);
-          animateCounter(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
 
-    counters.forEach(function (c) { counterObserver.observe(c); });
-  }
+  document.querySelectorAll('[data-counter]').forEach(c => counterObserver.observe(c));
 
   /* ---------- Video Modal ---------- */
   var videoThumb = document.querySelector('.video-thumb');
@@ -1075,18 +1092,22 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   /* ---------- Section Entrance Animation ---------- */
-  var sections = document.querySelectorAll('.section, .page-hero');
-  if (sections.length > 0) {
-    var sectionObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          sectionObserver.unobserve(entry.target);
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // If it's a section being entered, we might want to keep it visible
+        // but for reveal elements, we usually unobserve after first trigger
+        if (entry.target.classList.contains('reveal')) {
+          revealObserver.unobserve(entry.target);
         }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    sections.forEach(function (s) { sectionObserver.observe(s); });
-  }
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.section, .page-hero, .reveal, .fade-on-scroll').forEach(el => {
+    revealObserver.observe(el);
+  });
 
   /* ---------- Page Transition on Link Clicks ---------- */
   document.addEventListener('click', function (e) {
