@@ -13,65 +13,70 @@
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="header" id="header">
-    <div class="container">
-      <a href="index.html" class="header__logo">
-        <svg viewBox="0 0 36 36" fill="none">
-          <rect width="36" height="36" rx="8" fill="#0B3A66" />
-          <path d="M10 26V10h6l5 8 5-8h0v16h-4V17l-4 6h-1l-4-6v9h-3z" fill="#F28C28" />
-        </svg>
-        BảoHộ Pro
-      </a>
-      <nav class="header__nav" id="mainNav">
-        <a href="index.html">Trang chủ</a>
-        <a href="authority.html">Năng lực xưởng</a>
-        <a href="category.html">Danh mục sản phẩm</a>
-        <a href="blog.html">Blog</a>
-        <a href="profile.html">Hồ sơ năng lực</a>
-        <a href="contact.html">Liên hệ</a>
-      </nav>
-      <div class="header__cta">
-        <a href="#quote-section" class="btn btn--primary">Nhận báo giá B2B</a>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
+  <div id="header-container"></div>
   <!-- ===== HERO SLIDER ===== -->
   <section class="hero-slider" aria-label="Banner quảng cáo">
     <div class="hero-slider__track">
-      <!-- Slide 1 -->
+      <!-- Slide 1: POLO UNIFORMS -->
       <div class="hero-slider__slide" style="background-image:url('images/hero-1.png')">
         <div class="hero-slider__slide-content">
-          <h1>Xưởng sản xuất đồng phục bảo hộ trực tiếp tại Đà Nẵng</h1>
-          <p>Công suất lớn – Quy trình chuẩn – Cam kết chất lượng. Không qua trung gian, giá tốt nhất thị trường.</p>
+          <h1>Đồng phục áo thun công ty B2B</h1>
+          <div class="subheadline">Thiết kế theo nhận diện – May số lượng – Giao đúng tiến độ</div>
+          <ul class="hero-slider__bullets">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg> Vải cá sấu/cotton… bền màu, thoáng mát</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg> Sản xuất trực tiếp tại xưởng – giá cạnh tranh</li>
+          </ul>
           <div class="hero__actions">
-            <a href="#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
-            <a href="authority.html" class="btn btn--outline-white btn--lg">Xem năng lực sản xuất</a>
+            <a href="category.html" class="btn btn--primary btn--lg" data-track="hero_cta_polo">Xem mẫu áo thun đồng
+              phục</a>
+            <a href="#quote-section" class="btn btn--outline-white btn--lg" data-track="hero_cta_quote_1">Nhận báo giá
+              nhanh</a>
           </div>
         </div>
       </div>
-      <!-- Slide 2 -->
+      <!-- Slide 2: WORKWEAR -->
       <div class="hero-slider__slide" style="background-image:url('images/hero-2.png')">
         <div class="hero-slider__slide-content">
-          <h1>Nhà máy 50 máy công nghiệp — Công suất 15.000 bộ/tháng</h1>
-          <p>Dây chuyền sản xuất hiện đại, QC nghiêm ngặt từng công đoạn. Đáp ứng mọi quy mô đơn hàng.</p>
+          <h1>Đồng phục bảo hộ lao động bền bỉ</h1>
+          <div class="subheadline">An toàn – Đúng chuẩn – May cho công trình & nhà máy</div>
+          <ul class="hero-slider__bullets">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg> Vải dày – bền – phù hợp môi trường công nghiệp</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg> Sản xuất số lượng lớn – giao đúng tiến độ</li>
+          </ul>
           <div class="hero__actions">
-            <a href="#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
-            <a href="authority.html" class="btn btn--outline-white btn--lg">Tham quan xưởng</a>
+            <a href="category.html" class="btn btn--primary btn--lg" data-track="hero_cta_safety">Xem mẫu bảo hộ lao
+              động</a>
+            <a href="#quote-section" class="btn btn--outline-white btn--lg" data-track="hero_cta_quote_2">Nhận báo
+              giá</a>
           </div>
         </div>
       </div>
-      <!-- Slide 3 -->
+      <!-- Slide 3: WIND JACKETS -->
       <div class="hero-slider__slide" style="background-image:url('images/hero-3.png')">
         <div class="hero-slider__slide-content">
-          <h1>Vải kaki 65/35 — Phản quang 3M — Đường may 2 kim</h1>
-          <p>Chất liệu cao cấp, tiêu chuẩn ISO, phù hợp mọi ngành công nghiệp từ xây dựng đến điện tử.</p>
+          <h1>Áo khoác gió đồng phục theo yêu cầu</h1>
+          <div class="subheadline">Chống gió – chống nước nhẹ – giữ ấm tốt</div>
+          <ul class="hero-slider__bullets">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg> Thiết kế đồng bộ nhận diện thương hiệu</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg> Phù hợp nhân viên, sự kiện, teambuilding</li>
+          </ul>
           <div class="hero__actions">
-            <a href="#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
-            <a href="product.html" class="btn btn--outline-white btn--lg">Xem chi tiết sản phẩm</a>
+            <a href="category.html" class="btn btn--primary btn--lg" data-track="hero_cta_jacket">Xem mẫu áo khoác
+              gió</a>
+            <a href="#quote-section" class="btn btn--outline-white btn--lg" data-track="hero_cta_quote_3">Tư vấn
+              ngay</a>
           </div>
         </div>
       </div>
@@ -96,166 +101,88 @@
       <button class="hero-slider__dot" aria-label="Slide 3"></button>
     </div>
 
-    <!-- Feature Bar -->
-    <div class="hero-features-bar">
-      <div class="hero-features-bar__inner">
-        <div class="hero-features-bar__item">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-          </svg>
-          <span>Sản xuất trực tiếp</span>
-        </div>
-        <div class="hero-features-bar__item">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2v10l8.5 5M12 2a10 10 0 100 20 10 10 0 000-20z" />
-          </svg>
-          <span>Giao hàng đúng hẹn</span>
-        </div>
-        <div class="hero-features-bar__item">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>Miễn phí thiết kế</span>
-        </div>
-        <div class="hero-features-bar__item">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
-          </svg>
-          <span>Bảo hành 6 tháng</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PERSONA NAVIGATION ===== -->
-  <section class="section fade-on-scroll" id="persona">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">Bạn là ai?</span>
-        <h2 class="section-title">Chọn giải pháp phù hợp với bạn</h2>
-        <p class="section-subtitle">Chúng tôi phục vụ đa dạng khách hàng B2B từ nhà thu mua đến các xưởng sản xuất nhỏ
-        </p>
-      </div>
-      <div class="grid-3" style="margin-top:var(--space-2xl)">
-        <div class="persona-card" onclick="window.location='product.html'">
-          <div class="persona-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-          </div>
-          <h3>Thu mua</h3>
-          <p>Tìm nhà cung cấp uy tín, đơn hàng lớn, giá cạnh tranh</p>
-          <span class="btn btn--secondary btn--sm">Xem thông số kỹ thuật</span>
-        </div>
-        <div class="persona-card" onclick="window.location='authority.html'">
-          <div class="persona-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
-          <h3>Chủ thầu</h3>
-          <p>Cần đối tác sản xuất công suất lớn, đúng tiến độ công trình</p>
-          <span class="btn btn--secondary btn--sm">Xem năng lực sản xuất</span>
-        </div>
-        <div class="persona-card" onclick="window.location='category.html'">
-          <div class="persona-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-            </svg>
-          </div>
-          <h3>Xưởng nhỏ</h3>
-          <p>Nguồn vải sỉ chất lượng, gia công theo yêu cầu</p>
-          <span class="btn btn--secondary btn--sm">Xem nguồn vải sỉ</span>
+    <!-- Service Cards -->
+    <div class="service-cards">
+      <div class="container">
+        <div class="service-cards__grid">
+          <a href="category.html" class="service-card service-card--accent" data-track="service_card_fabric">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>CUNG CẤP VẢI SỈ</h3>
+            <p>Nguồn vải đa dạng & chất lượng cao trực tiếp từ nhà máy.</p>
+          </a>
+          <a href="authority.html" class="service-card service-card--light" data-track="service_card_sample">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <h3>GIA CÔNG RẬP & MẪU</h3>
+            <p>Kỹ thuật rập chính xác, lên mẫu nhanh chóng trong 3-5 ngày.</p>
+          </a>
+          <a href="authority.html" class="service-card service-card--dark" data-track="service_card_full">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3>SẢN XUẤT TRỌN GÓI</h3>
+            <p>Quy trình khép kín, tối ưu chi phí từ khâu dệt tới may thành phẩm.</p>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== MANUFACTURING CAPABILITY ===== -->
-  <section class="section section--alt fade-on-scroll" id="capability">
+  <!-- ===== CORE TECHNICAL STANDARDS ===== -->
+  <section class="section bg-warm fade-on-scroll">
     <div class="container">
       <div class="text-center">
-        <span class="section-label">Năng lực sản xuất</span>
-        <h2 class="section-title">Con số ấn tượng từ nhà máy</h2>
-      </div>
-      <!-- Stats -->
-      <div class="stats" style="margin-top:var(--space-2xl)">
-        <div>
-          <div class="stat__number" data-counter="15000" data-suffix="+">0</div>
-          <div class="stat__label">Công suất bộ/tháng</div>
-        </div>
-        <div>
-          <div class="stat__number" data-counter="50" data-suffix="">0</div>
-          <div class="stat__label">Máy công nghiệp</div>
-        </div>
-        <div>
-          <div class="stat__number" data-counter="12" data-suffix="">0</div>
-          <div class="stat__label">Năm kinh nghiệm</div>
-        </div>
-        <div>
-          <div class="stat__number" data-counter="500" data-suffix="+">0</div>
-          <div class="stat__label">Đơn hàng hoàn thành</div>
-        </div>
+        <span class="tag-pill">Tiêu chuẩn kỹ thuật</span>
+        <h2 class="section-title">TIÊU CHUẨN KỸ THUẬT LÕI BẢO CHỨNG CHẤT LƯỢNG</h2>
+        <p class="section-subtitle">Quy trình sản xuất ứng dụng công nghệ và kiểm định chặt chẽ từ khâu rập vi tính đến
+          KCS kháng khuẩn trước khi đóng gói.</p>
       </div>
 
-      <!-- SOP Timeline -->
-      <div style="margin-top:var(--space-3xl)">
-        <h3 class="section-title text-center" style="font-size:var(--fs-xl)">Quy trình sản xuất chuẩn</h3>
-        <div class="timeline">
-          <div class="timeline__step">
-            <div class="timeline__num">1</div>
-            <h4>Tư vấn & chốt yêu cầu</h4>
-            <p>Khảo sát nhu cầu, tư vấn chất vải, thiết kế</p>
+      <div class="tech-grid" style="margin-top:var(--space-2xl)">
+        <div class="tech-grid__item">
+          <div class="tech-grid__img">
+            <img src="images/factory-1.png" alt="Theo dõi tiến độ sản xuất bằng QR Code tại xưởng" loading="lazy">
           </div>
-          <div class="timeline__step">
-            <div class="timeline__num">2</div>
-            <h4>Thiết kế mẫu</h4>
-            <p>Lên mẫu, duyệt mẫu trước khi sản xuất hàng loạt</p>
+          <p class="tech-grid__caption">Tracking QR Code Tiến Độ</p>
+        </div>
+        <div class="tech-grid__item">
+          <div class="tech-grid__img">
+            <img src="images/factory-2.png" alt="Test độ co rút vải và khả năng phai màu" loading="lazy">
           </div>
-          <div class="timeline__step">
-            <div class="timeline__num">3</div>
-            <h4>Sản xuất</h4>
-            <p>May hàng loạt theo tiêu chuẩn ISO, QC từng công đoạn</p>
+          <p class="tech-grid__caption">Test Độ Co Rút Vải &amp; Phai Màu</p>
+        </div>
+        <div class="tech-grid__item">
+          <div class="tech-grid__img">
+            <img src="images/factory-3.png" alt="Kiểm định mũi chỉ và đánh bọ chịu lực trên sản phẩm" loading="lazy">
           </div>
-          <div class="timeline__step">
-            <div class="timeline__num">4</div>
-            <h4>Giao hàng & bảo hành</h4>
-            <p>Đóng gói, vận chuyển toàn quốc, bảo hành chất lượng</p>
+          <p class="tech-grid__caption">Kiểm Định Mũi Chỉ &amp; Đánh Bọ Chịu Lực</p>
+        </div>
+        <div class="tech-grid__item">
+          <div class="tech-grid__img">
+            <img src="images/factory-4.png" alt="QC / KCS 100% sản phẩm trước khi đóng gói kháng khuẩn" loading="lazy">
           </div>
-        </div>
-      </div>
-
-      <!-- Factory Gallery -->
-      <div class="gallery-grid" style="margin-top:var(--space-2xl)">
-        <div class="gallery-grid__item">
-          <img src="images/factory-1.png" alt="Xưởng may công nghiệp BảoHộ Pro — dây chuyền sản xuất" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="images/factory-2.png" alt="Máy cắt vải tự động CNC tại nhà máy" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="images/factory-3.png" alt="Kiểm tra chất lượng QC từng công đoạn" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="images/factory-4.png" alt="Kho hàng thành phẩm đóng gói sẵn sàng giao" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="images/factory-5.png" alt="Máy may công nghiệp đường may 2 kim" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="images/factory-6.png" alt="Toàn cảnh nhà máy BảoHộ Pro tại KCN Hòa Khánh" loading="lazy">
+          <p class="tech-grid__caption">QC/KCS 100% Trước Khi Đóng Gói</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== CORE PRODUCT CATEGORIES ===== -->
-  <section class="section fade-on-scroll">
+  <section class="section bg-white section--with-accent fade-on-scroll">
     <div class="container">
       <div class="text-center">
-        <span class="section-label">Sản phẩm chính</span>
+        <span class="tag-pill">Sản phẩm chính</span>
         <h2 class="section-title">Danh mục bảo hộ lao động</h2>
         <p class="section-subtitle">Sản phẩm đồng phục bảo hộ đa dạng, đáp ứng mọi ngành nghề công nghiệp</p>
       </div>
@@ -293,310 +220,368 @@
       </div>
     </div>
   </section>
-
-  <!-- ===== VIDEO SECTION ===== -->
-  <section class="section section--alt fade-on-scroll">
+  <!-- ===== TRUST BADGE & VIDEO SOP ===== -->
+  <section class="section trust-video bg-gray fade-on-scroll" id="trust-video">
     <div class="container">
-      <div class="text-center">
-        <span class="section-label">Video nhà máy</span>
-        <h2 class="section-title">Tham quan xưởng sản xuất</h2>
-        <p class="section-subtitle">Xem quy trình sản xuất thực tế tại nhà máy của chúng tôi</p>
-      </div>
-      <div class="video-thumb" style="margin-top:var(--space-2xl)" role="button" tabindex="0" aria-label="Phát video">
-        <div class="play-btn">
-          <svg viewBox="0 0 24 24">
-            <polygon points="5,3 19,12 5,21" />
-          </svg>
+      <div class="trust-video__grid">
+        <!-- Left: Trust Badges -->
+        <div class="trust-video__left">
+          <h2 class="trust-video__main-title">TRUST BADGE</h2>
+          <div class="trust-badges" style="margin-top:var(--space-xl)">
+            <div class="trust-badge">
+              <div class="trust-badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <div class="trust-badge__content">
+                <h4>CUNG ỨNG NGUYÊN PHỤ LIỆU</h4>
+                <p>Nguồn vải/PHL đa dạng, ổn định theo lô</p>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 11 12 14 22 4" />
+                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                </svg>
+              </div>
+              <div class="trust-badge__content">
+                <h4>TIÊU CHUẨN SOP 4 BƯỚC</h4>
+                <p>Quy trình kiểm soát chất lượng rõ ràng</p>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="trust-badge__content">
+                <h4>GIA CÔNG FOB TRỌN GÓI</h4>
+                <p>Tư vấn–mẫu–sản xuất–giao hàng khép kín</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Video Modal -->
-  <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video xưởng sản xuất">
-    <div class="modal__content">
-      <button class="modal__close" aria-label="Đóng">
-        <svg viewBox="0 0 24 24">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </button>
-      <p>Video placeholder — Giới thiệu xưởng sản xuất BảoHộ Pro</p>
-    </div>
-  </div>
-
-  <!-- ===== CLIENTS / PROJECTS ===== -->
-  <section class="section fade-on-scroll">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">Khách hàng & dự án</span>
-        <h2 class="section-title">Đối tác tin tưởng chúng tôi</h2>
-      </div>
-      <!-- Logo Grid -->
-      <div class="logo-grid" style="margin-top:var(--space-2xl)">
-        <div class="logo-grid__item"><span style="font-weight:700;color:var(--clr-primary);font-size:1.1rem">⚙️ Hòa Phát
-            Steel</span></div>
-        <div class="logo-grid__item"><span style="font-weight:700;color:var(--clr-primary);font-size:1.1rem">🏭 KCN Điện
-            Nam</span></div>
-        <div class="logo-grid__item"><span style="font-weight:700;color:var(--clr-primary);font-size:1.1rem">🏥 BV Đa
-            Khoa ĐN</span></div>
-        <div class="logo-grid__item"><span style="font-weight:700;color:var(--clr-primary);font-size:1.1rem">⚡ Điện Lực
-            MT</span></div>
-        <div class="logo-grid__item"><span style="font-weight:700;color:var(--clr-primary);font-size:1.1rem">🏗️ Cảng
-            Tiên Sa</span></div>
-      </div>
-      <!-- Project Cards -->
-      <div class="grid-3" style="margin-top:var(--space-2xl)">
-        <div class="project-card">
-          <div class="project-card__img">
-            <img src="images/project-1.png" alt="Dự án Nhà máy Thép Hòa Phát — 3000 bộ đồng phục" loading="lazy">
-          </div>
-          <div class="project-card__body">
-            <h4>Dự án Nhà máy Thép Hòa Phát</h4>
-            <p>Cung cấp 3.000 bộ đồng phục bảo hộ phản quang, giao hàng trong 21 ngày.</p>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-card__img">
-            <img src="images/factory-1.png" alt="Dự án KCN Điện Nam Điện Ngọc — 5000 bộ" loading="lazy">
-          </div>
-          <div class="project-card__body">
-            <h4>Dự án KCN Điện Nam – Điện Ngọc</h4>
-            <p>May 5.000 bộ quần áo kỹ thuật cho 3 nhà máy liên tiếp trong khu công nghiệp.</p>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-card__img">
-            <img src="images/factory-6.png" alt="Dự án Cảng Tiên Sa — đồng phục chống cháy" loading="lazy">
-          </div>
-          <div class="project-card__body">
-            <h4>Dự án Cảng Tiên Sa</h4>
-            <p>Sản xuất đồng phục chống cháy class 2 cho đội ngũ vận hành cảng biển.</p>
+        <!-- Right: Video Thumbnail -->
+        <div class="trust-video__right">
+          <div class="video-card"
+            onclick="document.getElementById('videoModal').classList.add('active'); document.body.style.overflow='hidden'">
+            <div class="video-card__thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1590402444521-93169869630c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Quy trình xưởng sản xuất BảoHộ Pro" loading="lazy">
+              <div class="video-card__play">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21" />
+                </svg>
+              </div>
+            </div>
+            <div class="video-card__caption">
+              <h5>Video quy trình xưởng</h5>
+              <p>Xem 60s: SOP – QC – đóng gói – giao hàng</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CERTIFICATIONS ===== -->
-  <section class="section section--alt fade-on-scroll">
+  <!-- ===== TESTIMONIALS SECTION ===== -->
+  <section class="section testimonials bg-white section--with-accent fade-on-scroll" id="testimonials">
     <div class="container">
-      <div class="text-center">
-        <span class="section-label">Chứng nhận & cam kết</span>
-        <h2 class="section-title">Tiêu chuẩn chất lượng</h2>
-        <p class="section-subtitle">Sản phẩm đạt các tiêu chuẩn an toàn lao động quốc tế và trong nước</p>
+      <div class="testimonials__header text-center">
+        <span class="testimonials__tag">Khách hàng nói gì về chúng tôi</span>
+        <h2 class="testimonials__title">Được tin tưởng và đồng hành bởi 3,500+ khách hàng</h2>
       </div>
-      <div class="grid-4" style="margin-top:var(--space-2xl)">
-        <div class="cert-card">
-          <div class="cert-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor"
-                stroke-width="1.5" />
+
+      <div class="testimonials__grid" style="margin-top:var(--space-3xl)">
+        <div class="testimonials__image-side">
+          <div class="testimonials__accent-shape"></div>
+          <div class="testimonials__image-card">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+              alt="Đội ngũ chuyên gia BảoHộ Pro tư vấn giải pháp B2B" loading="lazy">
+          </div>
+        </div>
+
+        <div class="testimonials__content-side">
+          <div class="testimonial-card">
+            <div class="testimonial-card__inner">
+              <div class="testimonial-card__profile">
+                <img src="https://i.pravatar.cc/150?u=dung" alt="Trần Quốc Dũng" class="testimonial-card__avatar">
+                <div class="testimonial-card__info">
+                  <h4 class="testimonial-card__name">Trần Quốc Dũng</h4>
+                  <p class="testimonial-card__role">Giám đốc chi nhánh ACB</p>
+                </div>
+              </div>
+              <div class="testimonial-card__body">
+                <p class="testimonial-card__quote">
+                  “Chúng tôi đã hợp tác với BảoHộ Pro cho 3 dự án lớn trong năm qua. Chất lượng vải kaki và đường may
+                  rất
+                  chắc chắn, đúng tiêu chuẩn bảo hộ khắt khe. Đặc biệt, đội ngũ hỗ trợ tiến độ rất sát sao, giúp chúng
+                  tôi
+                  hoàn thành trang bị cho 500 nhân viên đúng thời hạn.”
+                </p>
+              </div>
+            </div>
+            <div class="testimonials__nav">
+              <button class="testimonials__btn testimonials__btn--prev" aria-label="Previous testimonial">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button class="testimonials__btn testimonials__btn--next" aria-label="Next testimonial">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-quality fade-on-scroll">
+    <div class="container text-center">
+      <span class="quality-header-pill">CHỨNG NHẬN & CAM KẾT</span>
+      <h2 class="section-title">Tiêu chuẩn chất lượng</h2>
+      <p class="section-subtitle">Sản phẩm đạt các tiêu chuẩn an toàn lao động quốc tế và cam kết quy trình sản xuất
+        nghiêm ngặt.</p>
+
+      <div class="quality-grid">
+        <!-- Card 1: ISO -->
+        <div class="quality-card">
+          <span class="quality-verified-chip">Verified</span>
+          <div class="quality-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <h4>ISO 9001:2015</h4>
-          <p>Hệ thống quản lý chất lượng</p>
+          <p>Hệ thống quản lý chất lượng đạt chuẩn quốc tế.</p>
+          <a href="#" class="quality-card__link">Xem chi tiết →</a>
         </div>
-        <div class="cert-card">
-          <div class="cert-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 15l-3 3m0 0l-3-3m3 3V9m12 3a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor"
-                stroke-width="1.5" />
+
+        <!-- Card 2: TCVN -->
+        <div class="quality-card">
+          <span class="quality-verified-chip">Verified</span>
+          <div class="quality-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15l-3 3m0 0l-3-3m3 3V9m12 3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <h4>TCVN 6689</h4>
-          <p>Tiêu chuẩn quần áo bảo vệ</p>
+          <p>Tiêu chuẩn quốc gia về quần áo bảo vệ lao động.</p>
+          <a href="#" class="quality-card__link">Xem chi tiết →</a>
         </div>
-        <div class="cert-card">
-          <div class="cert-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" fill="none"
-                stroke="currentColor" stroke-width="1.5" />
+
+        <!-- Card 3: EN ISO -->
+        <div class="quality-card">
+          <span class="quality-verified-chip">Standard</span>
+          <div class="quality-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
             </svg>
           </div>
           <h4>EN ISO 20471</h4>
-          <p>Quần áo cảnh báo tầm nhìn cao</p>
+          <p>Tiêu chuẩn quần áo cảnh báo tầm nhìn cao.</p>
+          <a href="#" class="quality-card__link">Xem chi tiết →</a>
         </div>
-        <div class="cert-card">
-          <div class="cert-card__icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5" fill="none" stroke="currentColor" stroke-width="1.5" />
+
+        <!-- Card 4: Oeko-Tex -->
+        <div class="quality-card">
+          <span class="quality-verified-chip">Standard</span>
+          <div class="quality-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5" />
             </svg>
           </div>
           <h4>Oeko-Tex® 100</h4>
-          <p>Chứng nhận an toàn vải dệt</p>
+          <p>Chứng nhận an toàn vải dệt không độc hại.</p>
+          <a href="#" class="quality-card__link">Xem chi tiết →</a>
+        </div>
+      </div>
+
+      <!-- Quality Highlights Strip -->
+      <div class="quality-strip">
+        <div class="quality-strip__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>KCS theo mẫu chốt (Pre-production sample)</span>
+        </div>
+        <div class="quality-strip__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Sai số kiểm soát ±1cm</span>
+        </div>
+        <div class="quality-strip__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Tỷ lệ lỗi KCS < 0.1%</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== QUOTE FORM ===== -->
-  <section class="section fade-on-scroll" id="quote-section">
+  <!-- ===== PARTNERS SECTION ===== -->
+
+  <section class="section bg-warm fade-on-scroll" id="partners">
     <div class="container">
       <div class="text-center">
-        <span class="section-label">Báo giá B2B</span>
-        <h2 class="section-title">Nhận báo giá trong 24 giờ</h2>
-        <p class="section-subtitle">Điền thông tin bên dưới, đội ngũ tư vấn sẽ liên hệ bạn sớm nhất</p>
+        <span class="section-label">Đối tác nổi bật</span>
+        <h2 class="section-title">Danh sách & logo đối tác</h2>
+        <p class="section-subtitle">Đã phục vụ hơn 14 doanh nghiệp trong nước và FDI, bao gồm các nhà máy lớn như
+          Foster,
+          Daiwa, Tokai...</p>
       </div>
-      <div class="form-section" style="max-width:720px;margin:var(--space-2xl) auto 0">
-        <form data-validate id="quoteForm">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="qName">Họ tên *</label>
-              <input type="text" id="qName" required placeholder="Nguyễn Văn A">
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group">
-              <label for="qCompany">Công ty *</label>
-              <input type="text" id="qCompany" required placeholder="Công ty TNHH ABC">
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group">
-              <label for="qPhone">Số điện thoại *</label>
-              <input type="tel" id="qPhone" required placeholder="0905 123 456">
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group">
-              <label for="qEmail">Email</label>
-              <input type="email" id="qEmail" placeholder="email@company.com">
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group">
-              <label for="quoteNeed">Nhu cầu *</label>
-              <select id="quoteNeed" required>
-                <option value="">— Chọn nhu cầu —</option>
-                <option value="May đồng phục">May đồng phục</option>
-                <option value="Mua vải">Mua vải sỉ</option>
-              </select>
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group">
-              <label for="qQty" id="qtyLabel">Số lượng (bộ)</label>
-              <input type="text" id="qQty" placeholder="VD: 500">
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group">
-              <label for="qDeadline">Deadline mong muốn</label>
-              <input type="text" id="qDeadline" placeholder="VD: 15/04/2026">
-              <span class="error-msg"></span>
-            </div>
-            <div class="form-group form-group--full">
-              <label for="qNote">Ghi chú thêm</label>
-              <textarea id="qNote" rows="3" placeholder="Yêu cầu đặc biệt, loại vải, mẫu thiết kế..."></textarea>
-            </div>
-          </div>
-      </div>
-      <div class="form-submit-area">
-        <button type="submit" class="btn btn--primary btn--lg">Gửi yêu cầu báo giá</button>
-        <div class="warranty-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            <polyline points="9 12 11 14 15 10" />
-          </svg>
-          <span>Cam kết bảo hành 6 tháng</span>
-        </div>
-      </div>
-      </form>
-    </div>
-    </div>
-  </section>
 
-  <!-- ===== FINAL CTA BANNER ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-banner">
-        <h2>Sẵn sàng đặt hàng số lượng lớn?</h2>
-        <p>Liên hệ ngay để nhận tư vấn miễn phí và báo giá nhanh nhất từ xưởng sản xuất trực tiếp</p>
-        <a href="#quote-section" class="btn btn--primary btn--lg">Nhận báo giá ngay</a>
+      <div class="partner-layout-compact" style="margin-top:var(--space-xl)">
+        <div class="partner-logos-compact">
+          <img src="images/partner.png" alt="Logo các đối tác tiêu biểu của BảoHộ Pro" loading="lazy">
+        </div>
+
+        <div class="partner-list-compact" style="margin-top:var(--space-xl)">
+          <h3 class="partner-list__title text-center" style="font-size: 1.1rem; margin-bottom: var(--space-md)">DANH
+            SÁCH ĐỐI TÁC TIÊU BIỂU</h3>
+          <ul class="partner-list__items-grid">
+            <li>CÔNG TY TNHH ĐIỆN TỬ FOSTER (QUẢNG NGÃI)</li>
+            <li>CÔNG TY TNHH ĐIỆN TỬ FOSTER (ĐÀ NẴNG)</li>
+            <li>CÔNG TY TNHH ĐIỆN TỬ FOSTER (BẮC NINH)</li>
+            <li>CÔNG TY TNHH DAIWA VIỆT NAM</li>
+            <li>CÔNG TY TNHH VIỆT NAM TOKAI</li>
+            <li>CÔNG TY TNHH SETO VIỆT NAM</li>
+            <li>CÔNG TY TNHH NHẬT LINH ĐÀ NẴNG</li>
+            <li>CÔNG TY TNHH NGUYỄN ĐÌNH CHI</li>
+            <li>BV ĐA KHOA VĨNH ĐỨC</li>
+            <li>VẬN TẢI NGỌC KHÁNH</li>
+            <li>ẮC QUY ENI-FLORÈNCE</li>
+            <li>CP ĐÀU TƯ PHƯỚC YÊN</li>
+            <li>VIETNAM LOVELY TRAVEL</li>
+            <li>TẬP ĐOÀN FPT</li>
+            <li>CÔNG TY HOÀI GIANG XANH</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <h4>BảoHộ Pro</h4>
-          <p>Xưởng sản xuất đồng phục bảo hộ lao động trực tiếp tại Đà Nẵng. Chuyên cung cấp giải pháp B2B cho doanh
-            nghiệp, nhà thầu và khu công nghiệp.</p>
-          <p style="margin-top:var(--space-md)"><strong>Địa chỉ:</strong> Lô 45, KCN Hòa Khánh, Liên Chiểu, Đà Nẵng</p>
-          <p><strong>Mã số thuế:</strong> 0401234567</p>
-        </div>
-        <div>
-          <h4>Liên kết</h4>
-          <ul>
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="authority.html">Năng lực xưởng</a></li>
-            <li><a href="category.html">Danh mục sản phẩm</a></li>
-            <li><a href="blog.html">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Dịch vụ</h4>
-          <ul>
-            <li><a href="category.html">Đồng phục bảo hộ</a></li>
-            <li><a href="category.html">Vải sỉ công nghiệp</a></li>
-            <li><a href="product.html">Áo phản quang</a></li>
-            <li><a href="profile.html">Hồ sơ năng lực</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Liên hệ</h4>
-          <p>Hotline: 0905 123 456</p>
-          <p>Email: info@baohopro.vn</p>
-          <p>Zalo: 0905 123 456</p>
-          <p style="margin-top:var(--space-md)"><strong>Giờ làm việc:</strong><br>T2–T7: 7:30 – 17:30<br>CN: Nghỉ</p>
-          <div class="social-links" style="margin-top:var(--space-md); display:flex; gap:12px;">
-            <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-              </svg></a>
-            <a href="#" aria-label="Zalo"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
-              </svg></a>
-            <a href="#" aria-label="YouTube"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M21.582 6.186a2.63 2.63 0 00-1.85-1.85C18.1 4 12 4 12 4s-6.1 0-7.732.336a2.63 2.63 0 00-1.85 1.85C2 7.818 2 12 2 12s0 4.182.418 5.814a2.63 2.63 0 001.85 1.85C5.9 20 12 20 12 20s6.1 0 7.732-.336a2.63 2.63 0 001.85-1.85C22 16.182 22 12 22 12s0-4.182-.418-5.814zM9.8 15.5v-7l6.2 3.5-6.2 3.5z" />
-              </svg></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 BảoHộ Pro. Tất cả quyền được bảo lưu.</p>
-      </div>
-    </div>
-  </footer>
+  <!-- ===== QUALITY STANDARDS (Industrial Premium Redesign) ===== -->
 
-  <!-- STICKY BOTTOM CTA BAR -->
-  <div class="sticky-cta">
-    <div class="sticky-cta__inner">
-      <a href="#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
+
+  <!-- ===== CAPABILITY PDF MODAL (UI ONLY) ===== -->
+  <div class="pdf-modal" id="capabilityPdfModal" aria-hidden="true">
+    <div class="pdf-modal__overlay"></div>
+    <div class="pdf-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="capabilityModalTitle">
+      <button class="pdf-modal__close" type="button" aria-label="Đóng">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
-        <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
-      </a>
-      <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
-        </svg>
-        <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
-      </a>
-      <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path
-            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-        </svg>
-        <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
-      </a>
+      </button>
+
+      <div class="pdf-modal__grid">
+        <!-- Left: Book cover -->
+        <aside class="pdf-modal__left">
+          <div class="book-cover-card">
+            <span class="book-cover-card__tag">PDF miễn phí</span>
+            <div class="book-cover-card__body">
+              <span class="book-cover-card__logo">BảoHộ Pro</span>
+              <h3 class="book-cover-card__title">Hồ sơ năng lực xưởng bảo hộ</h3>
+              <p class="book-cover-card__subtitle">Thông số máy móc, quy trình SOP, năng lực sản xuất cập nhật.</p>
+            </div>
+          </div>
+          <p class="book-cover-card__meta">Phiên bản 2026 &mdash; cập nhật theo dự án mới nhất.</p>
+        </aside>
+
+        <!-- Right: Content + form (UI only) -->
+        <section class="pdf-modal__right">
+          <header class="pdf-modal__header">
+            <span class="pdf-modal__tag">Tài liệu cho Thu mua / Manager</span>
+            <h2 id="capabilityModalTitle" class="pdf-modal__title">Download Hồ Sơ Năng Lực Xưởng (PDF)</h2>
+            <p class="pdf-modal__subtitle">
+              Bộ tài liệu tóm tắt năng lực sản xuất, quy trình kiểm soát chất lượng và checklist hỗ trợ bạn đánh giá
+              nhanh mức độ phù hợp của xưởng cho các dự án B2B.
+            </p>
+          </header>
+
+          <ul class="pdf-modal__benefits">
+            <li>
+              <span class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Checklist kiểm soát tiến độ &amp; chất lượng</span>
+            </li>
+            <li>
+              <span class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Quy trình SOP 4 bước minh bạch</span>
+            </li>
+            <li>
+              <span class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Thông số năng lực xưởng &amp; năng suất thực tế</span>
+            </li>
+            <li>
+              <span class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Mẫu yêu cầu báo giá chuẩn B2B dùng lại nhiều lần</span>
+            </li>
+          </ul>
+
+          <form class="pdf-modal__form" aria-label="Form tải hồ sơ năng lực (UI)">
+            <div class="pdf-modal__form-grid">
+              <div class="pdf-field">
+                <label for="pdfName">Họ tên *</label>
+                <input id="pdfName" type="text" placeholder="Nguyễn Văn A">
+              </div>
+              <div class="pdf-field">
+                <label for="pdfEmail">Email công ty *</label>
+                <input id="pdfEmail" type="email" placeholder="email@company.com">
+              </div>
+              <div class="pdf-field">
+                <label for="pdfCompany">Tên công ty *</label>
+                <input id="pdfCompany" type="text" placeholder="Công ty TNHH ABC">
+              </div>
+              <div class="pdf-field">
+                <label for="pdfPhone">Số điện thoại</label>
+                <input id="pdfPhone" type="tel" placeholder="0905 123 456">
+              </div>
+            </div>
+
+            <button type="button" class="pdf-modal__cta">
+              TẢI MIỄN PHÍ NGAY
+            </button>
+            <p class="pdf-modal__note">
+              Không spam. Bạn có thể huỷ nhận email bất cứ lúc nào.
+            </p>
+          </form>
+        </section>
+      </div>
     </div>
   </div>
 
+  <!-- ===== FOOTER ===== -->
+  <div id="footer-container"></div>
   <!-- Schema Markup: LocalBusiness + Organization -->
   <script type="application/ld+json">
   {
