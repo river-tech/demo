@@ -1,6 +1,56 @@
-/* ======================================
-   SCRIPT.JS — B2B Industrial Uniforms
-   ====================================== */
+/* ==========================================================================
+   PRODUCT DETAIL PAGE LOGIC
+   ========================================================================== */
+
+function switchTab(button, tabId) {
+  // Update buttons
+  document.querySelectorAll('.tab-sticky-btn').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+
+  // Update panels
+  document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+  const targetPanel = document.getElementById(tabId);
+  if (targetPanel) {
+    targetPanel.classList.add('active');
+  }
+
+  // Scroll to tab nav if needed
+  const nav = document.querySelector('.tabs-nav-sticky');
+  if (nav) {
+    const navTop = nav.getBoundingClientRect().top + window.pageYOffset;
+    const headerHeight = 80;
+    window.scrollTo({
+      top: navTop - headerHeight,
+      behavior: 'smooth'
+    });
+  }
+}
+
+function switchGallery(thumb) {
+  // Update thumbnails
+  document.querySelectorAll('.product-gallery__thumb').forEach(t => {
+    t.classList.remove('active');
+    t.style.borderColor = 'var(--clr-border)';
+  });
+  thumb.classList.add('active');
+  thumb.style.borderColor = 'var(--clr-accent)';
+
+  // Update main image
+  const mainImg = document.getElementById('mainProductImage');
+  const newSrc = thumb.querySelector('img').src;
+
+  if (mainImg) {
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = newSrc;
+      mainImg.style.opacity = '1';
+    }, 200);
+  }
+}
+
+/* ==========================================================================
+   MAIN INITIALIZATION
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', async function () {
   'use strict';
