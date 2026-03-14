@@ -14,314 +14,157 @@
 
     <!-- HEADER -->
     <div id="header-container"></div>
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-        <div class="breadcrumb"><a href="index.html">Trang chủ</a> <span>/</span> <a href="category.html">Danh mục sản
-                phẩm</a>
-            <span>/</span> <span>Áo phản quang</span>
+    <!-- PAGE HERO (Clean & B2B) -->
+    <section class="page-hero-product">
+        <div class="container">
+            <nav class="breadcrumb-b2b">
+                <a href="index.html">Trang chủ</a> <span class="separator">/</span>
+                <a href="category.html">Danh mục bảo hộ</a> <span class="separator">/</span>
+                <span class="active-page">Áo phản quang</span>
+            </nav>
         </div>
-        <h1>Áo phản quang công trình</h1>
-        <p>Vải kaki 65/35 — Phản quang 3M — Đường may 2 kim chắc chắn</p>
     </section>
 
-    <!-- PRODUCT DETAIL -->
-    <section class="section">
+    <!-- PRODUCT DETAIL (3-COL LAYOUT) -->
+    <section class="product-detail-section">
         <div class="container">
-            <div class="product-gallery">
-                <!-- Left: Gallery -->
-                <div>
-                    <div class="product-gallery__main" id="productMainImg">
-                        <img src="images/product-main.png" alt="Áo phản quang công trình vải kaki 65/35 phản quang 3M"
-                            style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-md)">
+            <div class="product-detail-container">
+
+                <!-- COLUMN 1: GALLERY -->
+                <div class="product-gallery-column reveal reveal-left">
+                    <div class="product-gallery__main" id="mainImageContainer"
+                        style="overflow: hidden; aspect-ratio: 4/5; background: #f9f9f9;">
+                        <img src="images/product-main.png" alt="Áo phản quang công trình" id="mainProductImage"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+                        <span class="product-card-new__tag tag-hot"
+                            style="top: 20px; left: 20px; background: #FFE9D6; color: var(--clr-primary);">HOT</span>
                     </div>
-                    <div class="product-gallery__thumbs">
-                        <div class="product-gallery__thumb active">
-                            <img src="images/product-main.png" alt="Áo phản quang - mặt trước"
-                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
+                    <div class="product-gallery__thumbs" style="display: flex; gap: 12px; margin-top: 16px;">
+                        <div class="product-gallery__thumb active" onclick="switchGallery(this)"
+                            style="width: 80px; height: 80px; overflow: hidden; border: 2px solid var(--clr-accent); cursor: pointer;">
+                            <img src="images/product-main.png" alt="Áo phản quang mặt trước"
+                                style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                         </div>
-                        <div class="product-gallery__thumb">
-                            <img src="images/product-pants.png" alt="Kết hợp với quần bảo hộ"
-                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
+                        <div class="product-gallery__thumb" onclick="switchGallery(this)"
+                            style="width: 80px; height: 80px; overflow: hidden; border: 1px solid var(--clr-border); cursor: pointer;">
+                            <img src="images/product-pants.png" alt="Quần bảo hộ lao động đồng bộ"
+                                style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                         </div>
-                        <div class="product-gallery__thumb">
-                            <img src="images/factory-3.png" alt="QC kiểm tra chất lượng"
-                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
-                        </div>
-                        <div class="product-gallery__thumb">
-                            <img src="images/blog-fabric.png" alt="Vải kaki 65/35 chi tiết"
-                                style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">
+                        <div class="product-gallery__thumb" onclick="switchGallery(this)"
+                            style="width: 80px; height: 80px; overflow: hidden; border: 1px solid var(--clr-border); cursor: pointer;">
+                            <img src="images/factory-3.png" alt="Chi tiết kỹ thuật đường may"
+                                style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Info -->
-                <div>
-                    <span class="section-label">Sản phẩm bảo hộ</span>
-                    <h2 class="section-title" style="margin-bottom:var(--space-md)">Áo phản quang công trình</h2>
-                    <p style="color:var(--clr-text-muted);margin-bottom:var(--space-lg);line-height:1.7">
-                        Áo phản quang chuyên dụng cho công nhân làm việc tại công trình, nhà máy, khu công nghiệp. Được
-                        may từ vải kaki 65/35 bền bỉ, trang bị dải phản quang 3M tiêu chuẩn quốc tế, đảm bảo an toàn
-                        trong điều kiện ánh sáng yếu. Đường may 2 kim chắc chắn, phù hợp cho lao động cường độ cao.
-                    </p>
-                    <ul style="margin-bottom:var(--space-xl);display:flex;flex-direction:column;gap:var(--space-sm)">
-                        <li
-                            style="display:flex;align-items:center;gap:var(--space-sm);font-size:var(--fs-sm);color:var(--clr-text-muted)">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--clr-accent)">
-                                <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Vải kaki 65% polyester / 35% cotton
-                        </li>
-                        <li
-                            style="display:flex;align-items:center;gap:var(--space-sm);font-size:var(--fs-sm);color:var(--clr-text-muted)">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--clr-accent)">
-                                <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Dải phản quang 3M rộng 5cm
-                        </li>
-                        <li
-                            style="display:flex;align-items:center;gap:var(--space-sm);font-size:var(--fs-sm);color:var(--clr-text-muted)">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--clr-accent)">
-                                <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Size S – XXL, may theo số đo
-                        </li>
-                        <li
-                            style="display:flex;align-items:center;gap:var(--space-sm);font-size:var(--fs-sm);color:var(--clr-text-muted)">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--clr-accent)">
-                                <path d="M9 12l2 2 4-4m5-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            MOQ: 50 bộ trở lên
-                        </li>
+                <div class="product-info-column reveal reveal-up">
+                    <h1 class="product-title-main">Áo phản quang công trình Cao cấp</h1>
+
+                    <div class="product-meta-stats">
+                        <span>Mã: PRO-SAF-01</span>
+                        <span>Chất liệu: Kaki 65/35</span>
+                        <span>Ứng dụng: Xây dựng / Nhà máy</span>
+                    </div>
+
+                    <ul id="highlights" class="product-highlights-list">
+                        <li><span>✓</span> Phản quang 3M tiêu chuẩn EN ISO 20471</li>
+                        <li><span>✓</span> Đường may 2 kim, đánh bọ chịu lực cao</li>
+                        <li><span>✓</span> Vải cầm màu, không xù lông sau 50 lần giặt</li>
+                        <li><span>✓</span> Form dáng chuẩn B2B, chuyên nghiệp</li>
                     </ul>
-                    <div style="display:flex;gap:var(--space-md);margin-bottom:var(--space-lg);flex-wrap:wrap">
-                        <a href="index.html#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
-                        <button type="button" class="btn btn--secondary btn--lg" id="btnSizeChart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+
+                    <!-- CTA BOX -->
+                    <div class="lead-action-block reveal reveal-scale">
+                        <h3 style="margin: 0 0 16px 0; font-weight: 700;">Bạn muốn có báo giá sỉ nhanh nhất?</h3>
+                        <div class="lead-action-buttons">
+                            <a href="index.html#quote-section" class="btn btn--primary btn--lg"
+                                style="width: 100%; justify-content: center; font-weight: 700;">Nhận báo giá sỉ ngay</a>
+                            <a href="https://zalo.me" target="_blank" class="btn btn--outline"
+                                style="width: 100%; justify-content: center; border-color: var(--clr-accent); color: var(--clr-primary);">Chat
+                                Zalo tư vấn</a>
+                        </div>
+                        <!-- <div class="hotline-pill">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
-                                <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 01-2.5-2.5z" />
-                                <path d="M8 7h6M8 11h8M8 15h6" />
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                             </svg>
-                            Bảng quy đổi kích thước
-                        </button>
+                            Hotline/Zalo: 0905.123.456
+                        </div> -->
                     </div>
                 </div>
+
+                <!-- COLUMN 3: SIDEBAR -->
+                <aside class="utility-sidebar">
+                    <div class="utility-card">
+                        <h4
+                            style="font-size: 15px; color: var(--clr-primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            Tiện ích đối tác</h4>
+                        <ul class="utility-list">
+                            <li><i style="color: var(--clr-primary);">✈</i> Giao hàng toàn quốc</li>
+                            <li><i style="color: var(--clr-primary);">📏</i> Tư vấn size tận nơi</li>
+                            <li><i style="color: var(--clr-primary);">🛠</i> Bảo hành 6 tháng</li>
+                            <li><i style="color: var(--clr-primary);">🏷</i> VAT 8-10% đầy đủ</li>
+                        </ul>
+                    </div>
+
+                    <div class="banner-card">
+                        <img src="images/factory-1.png" alt="Năng lực xưởng may Dương Thành Tín" loading="lazy">
+                        <div class="banner-card__overlay">
+                            <a href="profile.html" class="btn btn--secondary btn--sm"
+                                style="border: 1px solid #fff; background: rgba(255,255,255,0.1); backdrop-filter: blur(4px); color: #fff;">Tải
+                                Hồ sơ năng lực</a>
+                        </div>
+                    </div>
+                </aside>
+
             </div>
         </div>
     </section>
 
-    <!-- SIZE CHART MODAL -->
-    <div class="size-modal" id="sizeModal">
-        <div class="size-modal__overlay" id="sizeModalOverlay"></div>
-        <div class="size-modal__content">
-            <button class="size-modal__close" id="sizeModalClose" aria-label="Đóng">
-                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-            </button>
-
-            <h3 class="size-modal__title">Bảng Quy Đổi Kích Thước</h3>
-            <p class="size-modal__desc">Lựa chọn kích thước phù hợp dựa trên chất liệu vải</p>
-
-            <div class="size-tabs">
-                <button class="size-tabs__btn active" data-size-tab="kaki">Vải Kaki (Không co giãn)</button>
-                <button class="size-tabs__btn" data-size-tab="cotton">Vải Cotton / Thun (Co giãn)</button>
-                <button class="size-tabs__btn" data-size-tab="phong-sach">Đồng Phục Phòng Sạch</button>
-            </div>
-
-            <!-- Panel: Kaki -->
-            <div class="size-panel active" id="size-kaki">
-                <div class="size-note">
-                    Vải Kaki (65/35, 100% Cotton, Pangrim) ít co giãn. Vui lòng chọn lớn hơn 1 size nếu thường xuyên mặc
-                    thêm lót bên trong hoặc làm việc vận động mạnh.
-                </div>
-                <div class="table-responsive">
-                    <table class="size-table">
-                        <thead>
-                            <tr>
-                                <th>Size</th>
-                                <th>Chiều Cao (cm)</th>
-                                <th>Cân Nặng (kg)</th>
-                                <th>Vòng Ngực (cm)</th>
-                                <th>Vòng Bụng (cm)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>S (Số 4)</strong></td>
-                                <td>155 - 162</td>
-                                <td>45 - 55</td>
-                                <td>80 - 85</td>
-                                <td>70 - 75</td>
-                            </tr>
-                            <tr>
-                                <td><strong>M (Số 5)</strong></td>
-                                <td>160 - 168</td>
-                                <td>55 - 62</td>
-                                <td>85 - 90</td>
-                                <td>75 - 80</td>
-                            </tr>
-                            <tr>
-                                <td><strong>L (Số 6)</strong></td>
-                                <td>165 - 172</td>
-                                <td>62 - 70</td>
-                                <td>90 - 95</td>
-                                <td>80 - 85</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XL (Số 7)</strong></td>
-                                <td>170 - 178</td>
-                                <td>70 - 78</td>
-                                <td>95 - 100</td>
-                                <td>85 - 90</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XXL (Số 8)</strong></td>
-                                <td>175 - 185</td>
-                                <td>78 - 85</td>
-                                <td>100 - 105</td>
-                                <td>90 - 95</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Panel: Cotton -->
-            <div class="size-panel" id="size-cotton">
-                <div class="size-note">
-                    Vải thun / Cotton pha có độ co giãn tốt. Chọn đúng size hoặc nhỏ hơn 1 size nếu muốn mặc ôm sát.
-                </div>
-                <div class="table-responsive">
-                    <table class="size-table">
-                        <thead>
-                            <tr>
-                                <th>Size</th>
-                                <th>Chiều Cao (cm)</th>
-                                <th>Cân Nặng (kg)</th>
-                                <th>Vòng Ngực (cm)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>S</strong></td>
-                                <td>150 - 160</td>
-                                <td>40 - 50</td>
-                                <td>76 - 82</td>
-                            </tr>
-                            <tr>
-                                <td><strong>M</strong></td>
-                                <td>155 - 165</td>
-                                <td>50 - 60</td>
-                                <td>82 - 88</td>
-                            </tr>
-                            <tr>
-                                <td><strong>L</strong></td>
-                                <td>160 - 170</td>
-                                <td>60 - 70</td>
-                                <td>88 - 94</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XL</strong></td>
-                                <td>165 - 175</td>
-                                <td>70 - 80</td>
-                                <td>94 - 100</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XXL</strong></td>
-                                <td>170 - 180+</td>
-                                <td>80 - 90</td>
-                                <td>100 - 106</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Panel: Phòng Sạch -->
-            <div class="size-panel" id="size-phong-sach">
-                <div class="size-note">
-                    Trang phục ESD phòng sạch thường được thiết kế form rộng để mặc trùm bên ngoài trang phục thường.
-                    Hãy chọn theo chiều cao để đảm bảo độ bao phủ tay/chân.
-                </div>
-                <div class="table-responsive">
-                    <table class="size-table">
-                        <thead>
-                            <tr>
-                                <th>Size</th>
-                                <th>Chiều Cao (cm)</th>
-                                <th>Cân Nặng (kg)</th>
-                                <th>Chiều Dài Áo (cm)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>S</strong></td>
-                                <td>Dưới 155</td>
-                                <td>Dưới 50</td>
-                                <td>85</td>
-                            </tr>
-                            <tr>
-                                <td><strong>M</strong></td>
-                                <td>155 - 160</td>
-                                <td>50 - 58</td>
-                                <td>90</td>
-                            </tr>
-                            <tr>
-                                <td><strong>L</strong></td>
-                                <td>160 - 165</td>
-                                <td>58 - 65</td>
-                                <td>95</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XL</strong></td>
-                                <td>165 - 172</td>
-                                <td>65 - 75</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XXL</strong></td>
-                                <td>172 - 180</td>
-                                <td>75 - 85</td>
-                                <td>105</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
+    <!-- PRODUCT CONTENT TABS (SWITCHER) -->
+    <nav class="tabs-nav-sticky">
+        <div class="container reveal reveal-up">
+            <button class="tab-sticky-btn active" onclick="switchTab(this, 'highlights-panel')">Điểm nổi bật</button>
+            <button class="tab-sticky-btn" onclick="switchTab(this, 'tech-specs')">Thông số kỹ thuật</button>
+            <button class="tab-sticky-btn" onclick="switchTab(this, 'policy')">Chính sách B2B</button>
+            <button class="tab-sticky-btn" onclick="switchTab(this, 'faq')">FAQ</button>
         </div>
-    </div>
+    </nav>
 
-    <!-- TABS -->
-    <section class="section section--alt">
+    <div class="product-tabs-section">
         <div class="container">
-            <div class="tabs__nav">
-                <button class="tabs__btn active" data-tab="tab-desc">Mô tả</button>
-                <button class="tabs__btn" data-tab="tab-spec">Thông số kỹ thuật</button>
-                <button class="tabs__btn" data-tab="tab-fabric">Loại vải</button>
-                <button class="tabs__btn" data-tab="tab-safety">Tiêu chuẩn an toàn</button>
-                <button class="tabs__btn" data-tab="tab-usage">Ứng dụng</button>
+            <!-- Highlights Panel -->
+            <div id="highlights-panel" class="tab-panel active" style="padding: 40px 0;">
+                <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center;">
+                    <div>
+                        <img src="images/product-pants.png" alt="Chi tiết sản phẩm" style="width: 100%;">
+                    </div>
+                    <div>
+                        <h2 style="font-size: 28px; color: var(--clr-primary); margin-bottom: 24px;">Ưu việt dòng sản
+                            phẩm Cao cấp</h2>
+                        <ul class="product-highlights-list" style="columns: 1; margin-bottom: 30px;">
+                            <li><span>✓</span> <strong>Vải nhập khẩu:</strong> Kaki TC 65/35 tiêu chuẩn quốc tế, không
+                                bay màu.</li>
+                            <li><span>✓</span> <strong>Công nghệ 3M:</strong> Dải phản quang nhập khẩu Mỹ, tầm nhìn xa
+                                hơn 200m.</li>
+                            <li><span>✓</span> <strong>Đường may kỹ thuật:</strong> 2 kim móc xích, đánh bọ chịu lực tại
+                                12 điểm yếu.</li>
+                            <li><span>✓</span> <strong>Thiết kế B2B:</strong> Tối ưu khả năng vận động và thẩm mỹ chuyên
+                                nghiệp.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="tabs__panel active" id="tab-desc">
-                <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Mô tả sản phẩm</h3>
-                <p style="color:var(--clr-text-muted);line-height:1.8">Áo phản quang công trình BảoHộ Pro được thiết
-                    kế
-                    chuyên biệt cho môi trường làm việc ngoài trời và trong nhà máy. Sản phẩm sử dụng vải kaki 65/35
-                    cao
-                    cấp, đảm bảo độ bền cao và thoáng mát khi mặc cả ngày dài. Dải phản quang 3M được bố trí tại
-                    ngực,
-                    lưng, và hai tay áo, đảm bảo tầm nhìn tối đa trong điều kiện thiếu ánh sáng. Đường may 2 kim kết
-                    hợp
-                    chỉ Coats chuyên dụng tạo nên độ bền vượt trội, chịu được cường độ lao động nặng.</p>
-            </div>
-
-            <div class="tabs__panel" id="tab-spec">
-                <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Thông số kỹ thuật</h3>
-                <table class="spec-table">
+            <!-- Specs Panel -->
+            <div id="tech-specs" class="tab-panel" style="padding: 40px 0;">
+                <h2 style="font-size: 28px; color: var(--clr-primary); margin-bottom: 32px;">Thông số kỹ thuật & Tiêu
+                    chuẩn</h2>
+                <table class="spec-table-new">
                     <tr>
-                        <td>Chất liệu</td>
+                        <td>Chất liệu vải</td>
                         <td>Kaki 65% Polyester / 35% Cotton</td>
                     </tr>
                     <tr>
@@ -329,233 +172,130 @@
                         <td>240 GSM</td>
                     </tr>
                     <tr>
-                        <td>Dải phản quang</td>
-                        <td>3M Scotchlite 8906, rộng 5cm</td>
+                        <td>Công nghệ Phản quang</td>
+                        <td>3M Scotchlite™ High Visibility</td>
                     </tr>
                     <tr>
-                        <td>Đường may</td>
-                        <td>2 kim, chỉ Coats Epic 80</td>
-                    </tr>
-                    <tr>
-                        <td>Size</td>
-                        <td>S / M / L / XL / XXL</td>
-                    </tr>
-                    <tr>
-                        <td>Màu sắc</td>
-                        <td>Cam, Xanh navy, Ghi xám</td>
-                    </tr>
-                    <tr>
-                        <td>Túi</td>
-                        <td>2 túi ngực nắp, 2 túi hông</td>
-                    </tr>
-                    <tr>
-                        <td>Khóa</td>
-                        <td>Nút nhựa / khóa kéo (tùy chọn)</td>
-                    </tr>
-                    <tr>
-                        <td>MOQ</td>
-                        <td>50 bộ</td>
+                        <td>Tiêu chuẩn an toàn</td>
+                        <td>EN ISO 20471 Class 2</td>
                     </tr>
                 </table>
             </div>
 
-            <div class="tabs__panel" id="tab-fabric">
-                <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Loại vải sử dụng</h3>
-                <p style="color:var(--clr-text-muted);line-height:1.8;margin-bottom:var(--space-md)"><strong>Vải
-                        kaki
-                        65/35 (TC)</strong> — Blend giữa polyester và cotton mang lại sự cân bằng hoàn hảo giữa độ
-                    bền,
-                    thoáng mát và dễ giặt. Vải có khả năng chống nhăn tốt, giữ form áo sau nhiều lần giặt. Định
-                    lượng
-                    240 GSM đảm bảo vải đủ dày để bảo vệ nhưng không quá nặng.</p>
-                <p style="color:var(--clr-text-muted);line-height:1.8"><strong>Tùy chọn bổ sung:</strong> Vải chống
-                    cháy
-                    (FR), vải chống tĩnh điện (ESD), vải chống hóa chất tùy theo yêu cầu đặc thù của từng môi trường
-                    làm
-                    việc.</p>
-            </div>
-
-            <div class="tabs__panel" id="tab-safety">
-                <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Tiêu chuẩn an toàn</h3>
-                <ul style="display:flex;flex-direction:column;gap:var(--space-md);color:var(--clr-text-muted)">
-                    <li><strong>EN ISO 20471</strong> — Quần áo cảnh báo tầm nhìn cao, đáp ứng yêu cầu về diện tích
-                        phản
-                        quang tối thiểu</li>
-                    <li><strong>TCVN 6689</strong> — Tiêu chuẩn Việt Nam về quần áo bảo vệ cho người lao động</li>
-                    <li><strong>ANSI/ISEA 107</strong> — Tiêu chuẩn Mỹ về quần áo an toàn tầm nhìn cao</li>
-                    <li><strong>Oeko-Tex® Standard 100</strong> — Chứng nhận không chứa chất độc hại cho da</li>
-                </ul>
-            </div>
-
-            <div class="tabs__panel" id="tab-usage">
-                <h3 style="color:var(--clr-primary);margin-bottom:var(--space-md)">Ứng dụng</h3>
-                <p style="color:var(--clr-text-muted);line-height:1.8">Sản phẩm phù hợp cho các ngành: xây dựng công
-                    trình, sản xuất công nghiệp, khai thác mỏ, vận tải & logistics, cảng biển, điện lực, và các môi
-                    trường cần đảm bảo tầm nhìn an toàn cho người lao động.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ ACCORDION -->
-    <section class="section">
-        <div class="container" style="max-width:800px">
-            <div class="text-center">
-                <span class="section-label">FAQ</span>
-                <h2 class="section-title">Câu hỏi thường gặp</h2>
-            </div>
-            <div class="accordion" style="margin-top:var(--space-2xl)">
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Số lượng đặt hàng tối thiểu (MOQ) là bao nhiêu?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">MOQ cho áo phản quang là 50 bộ trở lên. Với đơn hàng từ
-                            500
-                            bộ, chúng tôi áp dụng chính sách giá ưu đãi đặc biệt. Liên hệ để nhận báo giá chi tiết
-                            theo
-                            số lượng.</div>
+            <!-- Policy Panel -->
+            <div id="policy" class="tab-panel" style="padding: 40px 0;">
+                <h2 style="font-size: 28px; color: var(--clr-primary); text-align: center; margin-bottom: 32px;">Chính
+                    sách & Ưu đãi B2B</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                    <div
+                        style="background: #fdfdfd; padding: 24px; border: 1px solid var(--clr-border); text-align: center;">
+                        <h4 style="color: var(--clr-primary);">Vận Chuyển</h4>
+                        <p style="font-size: 14px; color: var(--clr-text-muted);">Miễn phí cho đơn từ 100 bộ.</p>
                     </div>
                 </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Thời gian sản xuất trung bình là bao lâu?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">Thời gian sản xuất từ 10–21 ngày tùy số lượng. Đơn hàng
-                            dưới
-                            200 bộ: 10–12 ngày. Đơn hàng 200–1000 bộ: 14–18 ngày. Đơn hàng trên 1000 bộ: thỏa thuận
-                            theo
-                            kế hoạch.</div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Có thể in/thêu logo công ty không?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">Có, chúng tôi hỗ trợ đầy đủ: in lụa, thêu vi tính, in
-                            chuyển
-                            nhiệt. Hỗ trợ thiết kế file in miễn phí. Vị trí in: ngực trái, ngực phải, lưng, tay áo.
+            </div>
+
+            <!-- FAQ Panel -->
+            <div id="faq" class="tab-panel" style="padding: 40px 0;">
+                <h2 style="font-size: 28px; color: var(--clr-primary); text-align: center; margin-bottom: 40px;">Giải
+                    đáp thắc mắc</h2>
+                <div class="accordion" style="max-width: 900px; margin: 0 auto;">
+                    <div class="accordion__item">
+                        <button class="accordion__header">Thời gian sản xuất là bao lâu?</button>
+                        <div class="accordion__body">
+                            <div class="accordion__body-inner">Trung bình 12-15 ngày làm việc.</div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Chính sách bảo hành như thế nào?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">Bảo hành 6 tháng cho lỗi kỹ thuật (bung chỉ, phai màu bất
-                            thường, hỏng khóa). Chính sách đổi trả trong 7 ngày nếu sản phẩm không đúng mô tả. Hỗ
-                            trợ
-                            sửa chữa miễn phí trong thời gian bảo hành.</div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Có ship toàn quốc không?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">Có, chúng tôi giao hàng toàn quốc qua các đơn vị vận
-                            chuyển
-                            uy tín. Miễn phí ship cho đơn hàng trên 100 bộ khu vực miền Trung. Hỗ trợ giao hàng
-                            nhanh
-                            cho đơn gấp.</div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Có thể may theo size riêng không?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">Có, chúng tội hỗ trợ may theo bảng size riêng của doanh
-                            nghiệp hoặc theo số đo từng người. Đội ngũ kỹ thuật sẽ tư vấn bảng size phù hợp nhất cho
-                            từng ngành nghề.</div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" tabindex="0" aria-expanded="false">
-                        Làm sao để nhận mẫu trước khi đặt hàng?
-                        <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__body-inner">Chúng tôi gửi mẫu vải và mẫu may hoàn chỉnh trước khi sản
-                            xuất hàng loạt. Chi phí mẫu sẽ được trừ vào đơn hàng chính thức. Thời gian làm mẫu: 3–5
-                            ngày
-                            làm việc.</div>
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </section>
+    </div>
+    </div>
 
     <!-- RELATED PRODUCTS -->
-    <section class="section section--alt">
+    <section class="section bg-warm">
         <div class="container">
-            <div class="text-center">
-                <span class="section-label">Sản phẩm liên quan</span>
-                <h2 class="section-title">Có thể bạn quan tâm</h2>
-            </div>
-            <div class="grid-3" style="margin-top:var(--space-2xl)">
-                <div class="card">
-                    <div class="card__img"><img src="images/product-pants.png" alt="Quần bảo hộ nhiều túi"
-                            loading="lazy"></div>
-                    <div class="card__body">
-                        <h3>Quần bảo hộ nhiều túi</h3>
-                        <p>Vải kaki chống cháy – Đường may 2 kim</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
+            <h2 style="font-size: 28px; color: var(--clr-primary); margin-bottom: 12px; text-align: center;">Sản phẩm
+                tương tự</h2>
+            <p style="text-align: center; color: var(--clr-text-muted); margin-bottom: 40px;">Giải pháp bảo hộ đồng bộ
+                cho đội ngũ của bạn</p>
+
+            <div class="related-carousel">
+                <!-- Product 1 -->
+                <a href="product.html" class="related-card reveal reveal-up delay-100">
+                    <div class="related-card__img">
+                        <img src="images/product-pants.png" alt="Quần bảo hộ">
+                        <span class="related-card__tag" style="position: absolute; top: 12px; left: 12px;">MỚI</span>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card__img"><img src="images/product-uniform.png" alt="Bộ đồng phục kỹ thuật"
-                            loading="lazy"></div>
-                    <div class="card__body">
-                        <h3>Bộ đồng phục kỹ thuật</h3>
-                        <p>Cotton pha polyester – In/thêu logo</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
+                    <div class="related-card__info">
+                        <h4>Quần bảo hộ nhiều túi kỹ thuật</h4>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                            <span style="font-size: 11px; color: var(--clr-text-muted);">Vải Kaki chống cháy</span>
+                            <span style="font-size: 13px; font-weight: 700; color: var(--clr-primary);">Nhận báo
+                                giá</span>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card__img"><img src="images/product-winter.png" alt="Áo khoác bảo hộ mùa đông"
-                            loading="lazy"></div>
-                    <div class="card__body">
-                        <h3>Áo khoác bảo hộ mùa đông</h3>
-                        <p>Vải dù chống nước – Lót nỉ ấm</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
+                </a>
+
+                <!-- Product 2 -->
+                <a href="product.html" class="related-card reveal reveal-up delay-200">
+                    <div class="related-card__img">
+                        <img src="images/product-uniform.png" alt="Bộ đồ phòng sạch">
                     </div>
-                </div>
+                    <div class="related-card__info">
+                        <h4>Bộ quần áo phòng sạch ESD</h4>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                            <span style="font-size: 11px; color: var(--clr-text-muted);">Tiêu chuẩn IEC</span>
+                            <span style="font-size: 13px; font-weight: 700; color: var(--clr-primary);">Nhận báo
+                                giá</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 3 -->
+                <a href="product.html" class="related-card reveal reveal-up delay-300">
+                    <div class="related-card__img">
+                        <img src="images/product-winter.png" alt="Áo khoác bảo hộ">
+                        <span class="related-card__tag" style="position: absolute; top: 12px; left: 12px;">HOT</span>
+                    </div>
+                    <div class="related-card__info">
+                        <h4>Áo khoác bảo hộ mùa đông 2 lớp</h4>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                            <span style="font-size: 11px; color: var(--clr-text-muted);">Chống nước/giữ nhiệt</span>
+                            <span style="font-size: 13px; font-weight: 700; color: var(--clr-primary);">Nhận báo
+                                giá</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 4 -->
+                <a href="product.html" class="related-card reveal reveal-up delay-400">
+                    <div class="related-card__img">
+                        <img src="images/polo.png" alt="Áo Polo công nhân">
+                    </div>
+                    <div class="related-card__info">
+                        <h4>Áo Polo thun lạnh công nhân</h4>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                            <span style="font-size: 11px; color: var(--clr-text-muted);">Thoáng mát/Cầm màu</span>
+                            <span style="font-size: 13px; font-weight: 700; color: var(--clr-primary);">Nhận báo
+                                giá</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- CTA BANNER -->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <div class="cta-banner">
                 <h2>Đặt hàng sản phẩm này ngay</h2>
@@ -563,68 +303,20 @@
                 <a href="index.html#quote-section" class="btn btn--primary btn--lg">Nhận báo giá B2B</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- FOOTER -->
     <div id="footer-container"></div>
 
-    <!-- STICKY BOTTOM CTA BAR -->
-    <div class="sticky-cta">
-        <div class="sticky-cta__inner">
-            <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                </svg>
-                <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
-            </a>
-            <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
-                </svg>
-                <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
-            </a>
-            <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                </svg>
-                <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
-            </a>
-        </div>
-    </div>
 
-    <!-- Schema: Product -->
+
+    <!-- SCHEMA MARKUP (Giữ nguyên) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Áo phản quang công trình",
-      "description": "Áo phản quang công trình vải kaki 65/35, phản quang 3M, đường may 2 kim. Size S–XXL.",
-      "brand": { "@type": "Brand", "name": "BảoHộ Pro" },
-      "manufacturer": { "@type": "Organization", "name": "BảoHộ Pro" },
-      "material": "Kaki 65% Polyester / 35% Cotton, 240 GSM",
-      "category": "Đồng phục bảo hộ lao động"
-    }
-    </script>
-
-    <!-- Schema: FAQ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type":"Question","name":"Số lượng đặt hàng tối thiểu (MOQ) là bao nhiêu?","acceptedAnswer":{"@type":"Answer","text":"MOQ cho áo phản quang là 50 bộ trở lên. Với đơn hàng từ 500 bộ, chúng tôi áp dụng chính sách giá ưu đãi đặc biệt."}},
-        {"@type":"Question","name":"Thời gian sản xuất trung bình là bao lâu?","acceptedAnswer":{"@type":"Answer","text":"Thời gian sản xuất từ 10–21 ngày tùy số lượng. Đơn hàng dưới 200 bộ: 10–12 ngày. Đơn hàng 200–1000 bộ: 14–18 ngày."}},
-        {"@type":"Question","name":"Có thể in/thêu logo công ty không?","acceptedAnswer":{"@type":"Answer","text":"Có, chúng tôi hỗ trợ: in lụa, thêu vi tính, in chuyển nhiệt. Hỗ trợ thiết kế file in miễn phí."}},
-        {"@type":"Question","name":"Chính sách bảo hành như thế nào?","acceptedAnswer":{"@type":"Answer","text":"Bảo hành 6 tháng cho lỗi kỹ thuật. Chính sách đổi trả trong 7 ngày nếu sản phẩm không đúng mô tả."}},
-        {"@type":"Question","name":"Có ship toàn quốc không?","acceptedAnswer":{"@type":"Answer","text":"Có, giao hàng toàn quốc. Miễn phí ship cho đơn hàng trên 100 bộ khu vực miền Trung."}},
-        {"@type":"Question","name":"Có thể may theo size riêng không?","acceptedAnswer":{"@type":"Answer","text":"Có, hỗ trợ may theo bảng size riêng hoặc theo số đo từng người."}},
-        {"@type":"Question","name":"Làm sao để nhận mẫu trước khi đặt hàng?","acceptedAnswer":{"@type":"Answer","text":"Chúng tôi gửi mẫu vải và mẫu may hoàn chỉnh trước khi sản xuất hàng loạt. Thời gian làm mẫu: 3–5 ngày làm việc."}}
-      ]
+      "brand": { "@type": "Brand", "name": "Dương Thành Tín" }
     }
     </script>
 

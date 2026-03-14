@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Mục Sản Phẩm | BảoHộ Pro — Đồng Phục Theo Ngành Nghề</title>
+    <title>Danh Mục Sản Phẩm | Dương Thành Tín — Đồng Phục Theo Ngành Nghề</title>
     <meta name="description"
         content="Danh mục đồng phục bảo hộ theo ngành: xây dựng, nhà máy, bệnh viện, công sở, xí nghiệp. Case Study đơn hàng thực tế.">
     <link rel="stylesheet" href="styles.css">
@@ -14,297 +14,153 @@
 
     <!-- HEADER -->
     <div id="header-container"></div>
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-        <div class="breadcrumb"><a href="index.html">Trang chủ</a> <span>/</span> <span>Danh mục sản phẩm</span></div>
-        <h1>Danh mục sản phẩm theo ngành nghề</h1>
-        <p>Chọn ngành nghề để xem giải pháp đồng phục phù hợp nhất cho doanh nghiệp của Quý khách</p>
-    </section>
+    <!-- CATEGORY PAGE REDESIGN -->
+    <section class="category-page" style="padding: 40px 0; background-color: #fff;">
+        <div class="container container--category-layout"
+            style="max-width: 1280px; display: grid; grid-template-columns: 320px 1fr; gap: 32px; align-items: start;">
 
-    <!-- FILTER TAGS -->
-    <section class="section" style="padding-bottom:0">
-        <div class="container">
-            <div class="filter-tags" id="filterTags">
-                <button class="filter-tag active" data-filter="all">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="7" height="7" />
-                        <rect x="14" y="3" width="7" height="7" />
-                        <rect x="3" y="14" width="7" height="7" />
-                        <rect x="14" y="14" width="7" height="7" />
-                    </svg>
-                    Tất cả
-                </button>
-                <button class="filter-tag" data-filter="xay-dung">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M2 20h20M5 20V8l7-5 7 5v12" />
-                        <rect x="9" y="12" width="6" height="8" />
-                    </svg>
-                    Xây dựng &amp; Công trình
-                </button>
-                <button class="filter-tag" data-filter="nha-may">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M2 20h20M4 20V10l4-3v13M10 20V4l10 6v10" />
-                    </svg>
-                    Nhà máy sản xuất
-                </button>
-                <button class="filter-tag" data-filter="xi-nghiep">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                    Xí nghiệp &amp; KCN
-                </button>
-                <button class="filter-tag" data-filter="benh-vien">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18" />
-                    </svg>
-                    Bệnh viện &amp; Y tế
-                </button>
-                <button class="filter-tag" data-filter="cong-so">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 7H4a2 2 0 00-2 2v10h20V9a2 2 0 00-2-2zM12 7V4" />
-                        <path d="M8 4h8v3H8z" />
-                    </svg>
-                    Công sở &amp; Doanh nghiệp
-                </button>
-                <button class="filter-tag" data-filter="dien-luc">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                    </svg>
-                    Điện lực &amp; Năng lượng
-                </button>
-            </div>
-        </div>
-    </section>
+            <!-- SIDEBAR -->
+            <aside class="category-sidebar reveal reveal-left">
+                <!-- Box Danh mục -->
+                <div class="sidebar-box" style="background: #fff; overflow: hidden; margin-bottom: 24px;">
+                    <h3
+                        style="background: var(--clr-primary); color: #fff; padding: 16px 24px; font-size: 16px; margin: 0; text-transform: uppercase; border-bottom: 3px solid var(--clr-accent);">
+                        Danh mục ngành nghề</h3>
+                    <ul id="categoryList" style="list-style: none; padding: 0; margin: 0;">
+                        <li style="border-bottom: 1px solid var(--clr-border);">
+                            <a href="#" class="sidebar-link active" data-category="bao-ho"
+                                style="display: block; padding: 14px 24px; color: var(--clr-primary); text-decoration: none; font-weight: 600; background: rgba(11, 58, 102, 0.1); border-left: 4px solid var(--clr-accent);">Bảo
+                                hộ lao động</a>
+                        </li>
+                        <li style="border-bottom: 1px solid var(--clr-border);">
+                            <a href="#" class="sidebar-link" data-category="y-te">Đồng phục y tế (Phòng sạch)</a>
+                        </li>
+                        <li style="border-bottom: 1px solid var(--clr-border);">
+                            <a href="#" class="sidebar-link" data-category="nha-may">Đồng phục nhà máy (ESD)</a>
+                        </li>
+                        <li style="border-bottom: 1px solid var(--clr-border);">
+                            <a href="#" class="sidebar-link" data-category="ao-thun">Áo thun Polo Doanh nghiệp</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-category="vai-si">Vải sỉ công nghiệp</a>
+                        </li>
+                    </ul>
+                </div>
 
-    <!-- PRODUCT LISTING -->
-    <section class="section section--alt" id="productGrid">
-        <div class="container">
-            <div class="grid-3" id="productList">
+                <!-- Box Hỗ trợ -->
+                <div class="sidebar-box support-box"
+                    style="background: #fff; padding: 24px; text-align: center; border: 1px solid var(--clr-border);">
+                    <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--clr-text-main);">Quản lý sản xuất –
+                        Báo giá sỉ</h3>
+                    <p style="font-size: 24px; font-weight: 800; color: var(--clr-primary); margin-bottom: 8px;">
+                        0905.123.456</p>
+                    <p style="font-size: 14px; color: var(--clr-text-muted); margin-bottom: 24px;">T2–T7: 7:30 – 17:30
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <a href="https://zalo.me" target="_blank" class="btn btn--outline"
+                            style="width: 100%; border-color: var(--clr-accent); color: var(--clr-primary);">Chat
+                            Zalo</a>
+                        <a href="tel:0905123456" class="btn btn--primary" style="width: 100%;">Gọi ngay</a>
+                    </div>
+                </div>
+            </aside>
 
-                <div class="card" data-tags="xay-dung xi-nghiep">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Xây dựng</span><span class="meta-tag">Xí
-                                nghiệp</span></div>
-                        <h3>Áo phản quang công trình</h3>
-                        <p>Vải kaki 65/35 – Phản quang 3M – Đường may 2 kim – Size S–XXL</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
+            <!-- MAIN CONTENT -->
+            <main class="category-main">
+                <!-- Header -->
+                <div class="category-header reveal reveal-up"
+                    style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                    <div>
+                        <nav class="breadcrumb-b2b" style="margin-bottom: 8px;">
+                            <a href="index.html">Trang chủ</a> <span class="separator">/</span>
+                            <a href="category.html">Danh mục ngành nghề</a> <span class="separator">/</span>
+                            <span class="active-page">Bảo hộ lao động</span>
+                        </nav>
+                        <h1 id="categoryTitle" style="font-size: 32px; margin: 0; color: var(--clr-primary);">Bảo hộ lao
+                            động</h1>
+                    </div>
+                    <div class="sort-dropdown"
+                        style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--clr-text-muted);">
+                        <span>Sắp xếp theo:</span>
+                        <select id="productSort"
+                            style="padding: 8px 12px; border: 1px solid var(--clr-border); font-family: inherit; color: var(--clr-text-main); outline: none; cursor: pointer; background: #fff;">
+                            <option value="default">Mặc định</option>
+                            <option value="newest">Mới nhất</option>
+                            <option value="bestseller">Mua nhiều nhất</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="card" data-tags="xay-dung nha-may">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <path d="M20 12h24v40H20z" fill="none" stroke="currentColor" stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Xây dựng</span><span class="meta-tag">Nhà
-                                máy</span></div>
-                        <h3>Quần bảo hộ nhiều túi</h3>
-                        <p>Vải kaki chống cháy – Đường may 2 kim – 6 túi tiện dụng</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
+                <!-- Product Grid -->
+                <div id="productGrid" class="product-grid-new">
+                    <!-- Products will be injected by JS -->
                 </div>
 
-                <div class="card" data-tags="nha-may xi-nghiep cong-so">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <circle cx="32" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M18 56c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Nhà máy</span><span class="meta-tag">Công
-                                sở</span></div>
-                        <h3>Bộ đồng phục kỹ thuật</h3>
-                        <p>Cotton pha polyester – In/thêu logo – Thoáng mát – Chuyên nghiệp</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
+                <!-- Pagination -->
+                <div id="paginationContainer" class="pagination-new"
+                    style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+                    <!-- Pagination buttons will be injected by JS -->
                 </div>
-
-                <div class="card" data-tags="xay-dung nha-may">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Xây dựng</span></div>
-                        <h3>Áo khoác bảo hộ mùa đông</h3>
-                        <p>Vải dù chống nước – Lót nỉ – Phản quang hai bên</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="cong-so xi-nghiep">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <path d="M20 12h24v40H20z" fill="none" stroke="currentColor" stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Công sở</span><span class="meta-tag">Xí
-                                nghiệp</span></div>
-                        <h3>Đồng phục bảo vệ</h3>
-                        <p>Vải gabardine – Kiểu dáng chuyên nghiệp – Kèm phụ kiện</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="nha-may cong-so">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <circle cx="32" cy="32" r="16" fill="none" stroke="currentColor" stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Nhà máy</span><span class="meta-tag">Công
-                                sở</span></div>
-                        <h3>Áo polo công nhân</h3>
-                        <p>Vải cá sấu PE – Thêu logo – Thoải mái vận động</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="nha-may dien-luc">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Nhà máy</span><span class="meta-tag">Điện
-                                lực</span></div>
-                        <h3>Đồng phục chống tĩnh điện</h3>
-                        <p>Vải ESD sợi carbon – Phòng sạch – Tiêu chuẩn IEC 61340</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="dien-luc nha-may">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <path d="M20 12h24v40H20z" fill="none" stroke="currentColor" stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Điện lực</span><span class="meta-tag">Nhà
-                                máy</span></div>
-                        <h3>Bộ đồ chống cháy FR</h3>
-                        <p>Vải Proban® – Tiêu chuẩn EN 11612 – Chịu nhiệt 350°C</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="benh-vien">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <circle cx="32" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M18 56c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Bệnh viện</span></div>
-                        <h3>Đồng phục y tế – Blouse bác sĩ</h3>
-                        <p>Vải kate trắng kháng khuẩn – May theo size – In tên bệnh viện</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="benh-vien">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Bệnh viện</span></div>
-                        <h3>Scrubs y tá – Điều dưỡng</h3>
-                        <p>Vải cotton blend – Co giãn thoải mái – Nhiều màu sắc</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="xi-nghiep nha-may">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <path d="M20 12h24v40H20z" fill="none" stroke="currentColor" stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Xí nghiệp</span><span class="meta-tag">Nhà
-                                máy</span></div>
-                        <h3>Quần yếm bảo hộ</h3>
-                        <p>Vải jean công nghiệp – Quai đeo chắc chắn – Chống bám dầu</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <div class="card" data-tags="nha-may dien-luc xi-nghiep">
-                    <div class="card__img"><svg viewBox="0 0 64 64">
-                            <circle cx="32" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M18 56c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor"
-                                stroke-width="2" />
-                        </svg></div>
-                    <div class="card__body">
-                        <div class="card__tags"><span class="meta-tag">Nhà máy</span><span class="meta-tag">Điện
-                                lực</span></div>
-                        <h3>Bộ đồ chống hóa chất</h3>
-                        <p>Vải Tyvek – Chống acid/kiềm – Tiêu chuẩn EN 13034</p>
-                        <a href="product.html" class="btn btn--secondary btn--sm">Xem chi tiết</a>
-                    </div>
-                </div>
-
-            </div>
+            </main>
         </div>
     </section>
 
     <!-- RELATED NEWS (Mới thêm theo yêu cầu) -->
     <section class="related-news section section--alt">
         <div class="container">
-            <div class="related-news__header">
+            <div class="related-news__header reveal reveal-up">
                 <h2>Bạn cần thêm thông tin kỹ thuật? Đọc ngay bài viết từ chuyên gia.</h2>
                 <p>Nắm bắt các tiêu chuẩn an toàn và hướng dẫn lựa chọn đồng phục bảo hộ mới nhất</p>
             </div>
             <div class="related-news__grid">
-                <a href="blog.html#post-demo" class="related-news__card" rel="dofollow">
+                <!-- Card 1 -->
+                <a href="blog.html#post-demo" class="related-news__card reveal reveal-up delay-100" rel="dofollow">
                     <div class="related-news__card-img">
-                        <svg viewBox="0 0 64 64">
-                            <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="currentColor"
-                                stroke-width="1.5" />
-                        </svg>
+                        <img src="images/blog-fabric.png"
+                            alt="Hướng dẫn chọn vải bảo hộ phù hợp từng ngành công nghiệp">
                         <span class="tag">Hướng dẫn</span>
                     </div>
                     <div class="related-news__card-body">
                         <h3>Hướng dẫn chọn vải bảo hộ phù hợp từng ngành công nghiệp</h3>
                         <p>Mỗi ngành nghề có yêu cầu đặc thù về chất liệu vải bảo hộ. Bài viết tổng hợp tiêu chí chọn
                             vải kaki, chống cháy, chống tĩnh điện...</p>
-                        <div class="related-news__card-meta">
+                        <div class="related-news__card-footer">
                             <span>20/02/2026</span>
-                            <span>Đọc tiếp →</span>
+                            <span class="read-more">Đọc tiếp →</span>
                         </div>
                     </div>
                 </a>
-                <a href="blog.html#post-demo" class="related-news__card" rel="dofollow">
+
+                <!-- Card 2 -->
+                <a href="blog.html#post-demo" class="related-news__card reveal reveal-up delay-200" rel="dofollow">
                     <div class="related-news__card-img">
-                        <svg viewBox="0 0 64 64">
-                            <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1.5" />
-                        </svg>
+                        <img src="images/factory-1.png" alt="Tiêu chuẩn EN ISO 20471 — Quần áo tầm nhìn cao">
                         <span class="tag">Tiêu chuẩn</span>
                     </div>
                     <div class="related-news__card-body">
                         <h3>Tiêu chuẩn EN ISO 20471 — Quần áo tầm nhìn cao</h3>
                         <p>Tìm hiểu các cấp độ phản quang và yêu cầu diện tích dải phản quang theo tiêu chuẩn châu Âu để
                             bảo vệ người lao động...</p>
-                        <div class="related-news__card-meta">
+                        <div class="related-news__card-footer">
                             <span>15/02/2026</span>
-                            <span>Đọc tiếp →</span>
+                            <span class="read-more">Đọc tiếp →</span>
                         </div>
                     </div>
                 </a>
-                <a href="blog.html#post-demo" class="related-news__card" rel="dofollow">
+
+                <!-- Card 3 -->
+                <a href="blog.html#post-demo" class="related-news__card reveal reveal-up delay-300" rel="dofollow">
                     <div class="related-news__card-img">
-                        <svg viewBox="0 0 64 64">
-                            <polygon points="32,8 56,56 8,56" fill="none" stroke="currentColor" stroke-width="1.5" />
-                        </svg>
+                        <img src="images/factory-2.png" alt="5 sai lầm khi đặt may đồng phục bảo hộ số lượng lớn">
                         <span class="tag">Kinh nghiệm</span>
                     </div>
                     <div class="related-news__card-body">
                         <h3>5 sai lầm khi đặt may đồng phục bảo hộ số lượng lớn</h3>
                         <p>Những lỗi thường gặp khi doanh nghiệp đặt may đồng phục bảo hộ và cách khắc phục hiệu quả
                             giúp tiết kiệm chi phí...</p>
-                        <div class="related-news__card-meta">
+                        <div class="related-news__card-footer">
                             <span>10/02/2026</span>
-                            <span>Đọc tiếp →</span>
+                            <span class="read-more">Đọc tiếp →</span>
                         </div>
                     </div>
                 </a>
@@ -328,6 +184,10 @@
             <div class="grid-2" style="margin-top:var(--space-2xl)">
 
                 <div class="case-card">
+                    <div class="case-card__img" style="height: 160px; overflow: hidden;">
+                        <img src="images/project-1.png" alt="Nhà máy Thép Hòa Phát"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="case-card__header">
                         <div class="case-card__badge">Xây dựng</div>
                         <h3>Nhà máy Thép Hòa Phát — Quảng Ngãi</h3>
@@ -348,6 +208,10 @@
                 </div>
 
                 <div class="case-card">
+                    <div class="case-card__img" style="height: 160px; overflow: hidden;">
+                        <img src="images/factory-4.png" alt="KCN Điện Nam Điện Ngọc"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="case-card__header">
                         <div class="case-card__badge">Nhà máy</div>
                         <h3>KCN Điện Nam Điện Ngọc — 3 nhà máy FDI</h3>
@@ -368,6 +232,10 @@
                 </div>
 
                 <div class="case-card">
+                    <div class="case-card__img" style="height: 160px; overflow: hidden;">
+                        <img src="images/factory-5.png" alt="Bệnh viện Đa khoa Trung ương"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="case-card__header">
                         <div class="case-card__badge">Bệnh viện</div>
                         <h3>Bệnh viện Đa khoa Trung ương — Đà Nẵng</h3>
@@ -388,6 +256,10 @@
                 </div>
 
                 <div class="case-card">
+                    <div class="case-card__img" style="height: 160px; overflow: hidden;">
+                        <img src="images/hero-2.png" alt="Điện lực Miền Trung"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="case-card__header">
                         <div class="case-card__badge">Điện lực</div>
                         <h3>Điện lực Miền Trung — 5 chi nhánh</h3>
@@ -465,7 +337,7 @@
 
 
     <!-- CTA BANNER -->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <div class="cta-banner">
                 <h2>Cần đặt đồng phục cho ngành nghề khác?</h2>
@@ -477,7 +349,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- SCHEMA MARKUP: CollectionPage -->
     <script type="application/ld+json">
@@ -485,7 +357,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Danh mục sản phẩm theo ngành nghề",
-        "url": "https://baohopro.vn/danh-muc",
+        "url": "https://duongthanhtin.vn/danh-muc",
         "relatedLink": [
             "https://baohopro.vn/blog/huong-dan-chon-vai-bao-ho",
             "https://baohopro.vn/blog/tieu-chuan-en-iso-20471",
@@ -496,34 +368,6 @@
 
     <!-- FOOTER -->
     <div id="footer-container"></div>
-    <!-- STICKY BOTTOM CTA BAR -->
-    <div class="sticky-cta">
-        <div class="sticky-cta__inner">
-            <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                </svg>
-                <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
-            </a>
-            <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
-                </svg>
-                <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
-            </a>
-            <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                </svg>
-                <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
-            </a>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

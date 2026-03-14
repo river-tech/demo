@@ -4,331 +4,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Kiến Thức Bảo Hộ Lao Động | BảoHộ Pro</title>
+    <title>Case Study & Tiêu Chuẩn Sản Xuất | Dương Thành Tín</title>
     <meta name="description"
-        content="Chia sẻ kiến thức về đồng phục bảo hộ lao động, tiêu chuẩn an toàn, lựa chọn vải công nghiệp và xu hướng ngành.">
+        content="Trung tâm kiến thức B2B: Case study tối ưu sản xuất, phân tích tiêu chuẩn kỹ thuật vật liệu và SOP quy trình may mặc công nghiệp.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-white">
 
     <!-- HEADER -->
     <div id="header-container"></div>
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-        <div class="breadcrumb"><a href="index.html">Trang chủ</a> <span>/</span> <span>Blog</span></div>
-        <h1>Kiến thức bảo hộ lao động</h1>
-        <p>Cập nhật xu hướng, tiêu chuẩn và kinh nghiệm chọn đồng phục bảo hộ</p>
-    </section>
 
-    <!-- FEATURED ARTICLE -->
-    <section class="section">
+    <!-- 1. PAGE HEADER -->
+    <header class="news-header">
         <div class="container">
-            <div class="featured-article">
-                <div class="featured-article__img">
-                    <svg viewBox="0 0 64 64">
-                        <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="currentColor"
-                            stroke-width="1.5" opacity="0.25" />
-                    </svg>
-                </div>
-                <div class="featured-article__body">
-                    <span class="tag">Nổi bật</span>
-                    <h2>Hướng dẫn chọn vải bảo hộ phù hợp từng ngành công nghiệp</h2>
-                    <p>Mỗi ngành nghề có yêu cầu đặc thù về chất liệu vải bảo hộ. Bài viết tổng hợp tiêu chí chọn vải
-                        kaki, chống cháy, chống tĩnh điện cho từng môi trường làm việc.</p>
-                    <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc bài viết</a>
-                </div>
+            <nav class="breadcrumb-b2b">
+                <a href="index.html">Trang chủ</a> <span class="separator">/</span> <span class="active-page">Trung tâm
+                    kiến thức B2B</span>
+            </nav>
+            <div class="news-header__content">
+                <h1 class="news-h1">CASE STUDY & <br>TIÊU CHUẨN SẢN XUẤT</h1>
+                <p class="news-subtext">Cập nhật các phân tích kỹ thuật về vật liệu dệt may, quy trình chuẩn SOP và các
+                    bài học thực chiến giúp tối ưu rủi ro chuỗi cung ứng.</p>
             </div>
+        </div>
+    </header>
+
+    <!-- 2. FEATURED + SIDEBAR -->
+    <section class="news-hero-section bg-warm">
+        <div class="container news-hero-grid">
+            <!-- Left: Featured Post -->
+            <div class="news-featured reveal reveal-up">
+                <article class="news-card-featured">
+                    <div class="news-card-featured__img-wrapper">
+                        <span class="news-badge news-badge--featured">CASE STUDY NỔI BẬT</span>
+                        <img src="images/news-fabric-3d.png" alt="Tối ưu hao hụt định mức vải bằng công nghệ rập 3D"
+                            loading="lazy">
+                    </div>
+                    <div class="news-card-featured__content">
+                        <div class="news-meta">
+                            <span>TỐI ƯU HÓA SẢN XUẤT</span>
+                            <span class="news-meta__sep">•</span>
+                            <span>BỞI BAN GIÁM ĐỐC</span>
+                            <span class="news-meta__sep">•</span>
+                            <span>THÁNG 3/2026</span>
+                        </div>
+                        <h2 class="news-h2">TỐI ƯU 15% HAO HỤT ĐỊNH MỨC VẢI NỈ BÔNG BẰNG HỆ THỐNG RẬP 3D: BÀI TOÁN TỪ
+                            LOCAL BRAND X</h2>
+                        <p class="news-excerpt">Phân tích chi tiết cách áp dụng phần mềm thiết kế rập kết hợp với máy
+                            cắt tự động nhằm giảm thiểu tối đa đầu thừa đuôi thẹo, nâng cao hiệu suất khai thác khổ vải
+                            cho các dòng sản phẩm nỉ bông định lượng cao...</p>
+                        <a href="blog-detail.html" class="news-cta-link">ĐỌC CHI TIẾT BÀI VIẾT →</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Right: Read Most -->
+            <aside class="news-sidebar reveal reveal-left">
+                <div class="news-sidebar__card">
+                    <div class="news-sidebar__header">
+                        <h3 class="news-sidebar__title">ĐỌC NHIỀU NHẤST</h3>
+                    </div>
+                    <div class="news-sidebar__list">
+                        <!-- Item 1 -->
+                        <a href="#" class="news-sidebar__item">
+                            <div class="news-sidebar__item-thumb">
+                                <img src="images/news-kaki-shrinkage.png" alt="Phân tích độ co rút vải Kaki công nghiệp"
+                                    loading="lazy">
+                            </div>
+                            <div class="news-sidebar__item-info">
+                                <h4>Bảng so sánh độ co rút của 5 dòng vải Kaki bảo hộ phổ biến</h4>
+                            </div>
+                        </a>
+                        <!-- Item 2 -->
+                        <a href="#" class="news-sidebar__item">
+                            <div class="news-sidebar__item-thumb">
+                                <img src="images/news-kcs-sop.png" alt="Quy trình kiểm tra KCS SOP tại xưởng"
+                                    loading="lazy">
+                            </div>
+                            <div class="news-sidebar__item-info">
+                                <h4>SOP Kiểm tra KCS: 15 điểm đánh bọ chịu lực bắt buộc</h4>
+                            </div>
+                        </a>
+                        <!-- Item 3 -->
+                        <a href="#" class="news-sidebar__item">
+                            <div class="news-sidebar__item-thumb">
+                                <img src="images/news-printing-tech.png" alt="So sánh công nghệ in PET và in lụa B2B"
+                                    loading="lazy">
+                            </div>
+                            <div class="news-sidebar__item-info">
+                                <h4>Phân biệt công nghệ in PET và in lụa trên nền vải Cotton 250gsm</h4>
+                            </div>
+                        </a>
+                        <!-- Item 4 -->
+                        <a href="#" class="news-sidebar__item">
+                            <div class="news-sidebar__item-thumb">
+                                <img src="images/news-erp-efficiency.png" alt="ERP xưởng may">
+                            </div>
+                            <div class="news-sidebar__item-info">
+                                <h4>Vì sao xưởng may áp dụng ERP lại giảm được 30% hàng lỗi?</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
         </div>
     </section>
 
-    <!-- BLOG LISTING -->
-    <section class="section section--alt">
+    <!-- 3. ANALYSIS GRID -->
+    <section class="news-grid-section section">
         <div class="container">
-            <div class="blog-grid">
-                <!-- Main Column -->
-                <div>
-                    <div class="grid-2">
-                        <div class="card blog-card">
-                            <div class="card__img"><svg viewBox="0 0 64 64">
-                                    <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" opacity="0.25" />
-                                </svg></div>
-                            <div class="card__body">
-                                <span class="tag">Vải công nghiệp</span>
-                                <h3>So sánh vải kaki 65/35 và vải TC 80/20</h3>
-                                <p>Phân tích ưu nhược điểm hai loại vải phổ biến nhất trong sản xuất đồng phục bảo hộ
-                                    lao động.</p>
-                                <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc tiếp</a>
-                            </div>
-                        </div>
-                        <div class="card blog-card">
-                            <div class="card__img"><svg viewBox="0 0 64 64">
-                                    <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        opacity="0.25" />
-                                </svg></div>
-                            <div class="card__body">
-                                <span class="tag">Tiêu chuẩn</span>
-                                <h3>Tiêu chuẩn EN ISO 20471 — Quần áo tầm nhìn cao</h3>
-                                <p>Tìm hiểu các cấp độ phản quang và yêu cầu diện tích dải phản quang theo tiêu chuẩn
-                                    châu Âu.</p>
-                                <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc tiếp</a>
-                            </div>
-                        </div>
-                        <div class="card blog-card">
-                            <div class="card__img"><svg viewBox="0 0 64 64">
-                                    <polygon points="32,8 56,56 8,56" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" opacity="0.25" />
-                                </svg></div>
-                            <div class="card__body">
-                                <span class="tag">Kinh nghiệm</span>
-                                <h3>5 sai lầm khi đặt may đồng phục bảo hộ số lượng lớn</h3>
-                                <p>Những lỗi thường gặp khi doanh nghiệp đặt may đồng phục bảo hộ và cách khắc phục hiệu
-                                    quả.</p>
-                                <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc tiếp</a>
-                            </div>
-                        </div>
-                        <div class="card blog-card">
-                            <div class="card__img"><svg viewBox="0 0 64 64">
-                                    <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" opacity="0.25" />
-                                </svg></div>
-                            <div class="card__body">
-                                <span class="tag">Xu hướng</span>
-                                <h3>Xu hướng đồng phục bảo hộ 2026: Bền vững & thông minh</h3>
-                                <p>Điểm qua các xu hướng mới nhất trong ngành: vải tái chế, vải kháng khuẩn, đồng phục
-                                    thông minh.</p>
-                                <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc tiếp</a>
-                            </div>
-                        </div>
-                        <div class="card blog-card">
-                            <div class="card__img"><svg viewBox="0 0 64 64">
-                                    <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        opacity="0.25" />
-                                </svg></div>
-                            <div class="card__body">
-                                <span class="tag">Hướng dẫn</span>
-                                <h3>Cách bảo quản đồng phục phản quang để tăng tuổi thọ</h3>
-                                <p>Hướng dẫn giặt, phơi, bảo quản dải phản quang đúng cách để duy trì hiệu quả phản
-                                    quang.</p>
-                                <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc tiếp</a>
-                            </div>
-                        </div>
-                        <div class="card blog-card">
-                            <div class="card__img"><svg viewBox="0 0 64 64">
-                                    <polygon points="32,8 56,56 8,56" fill="none" stroke="currentColor"
-                                        stroke-width="1.5" opacity="0.25" />
-                                </svg></div>
-                            <div class="card__body">
-                                <span class="tag">Nguồn vải</span>
-                                <h3>Top 5 loại vải chống cháy phổ biến tại Việt Nam</h3>
-                                <p>Tổng hợp các loại vải FR được sử dụng nhiều nhất: Nomex, Proban, vải kaki FR nội địa.
-                                </p>
-                                <a href="#post-demo" class="btn btn--secondary btn--sm">Đọc tiếp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="sidebar">
-                    <div class="sidebar__block">
-                        <h3>Dịch vụ liên quan</h3>
-                        <a href="category.html" class="sidebar__link">May đồng phục bảo hộ</a>
-                        <a href="product.html" class="sidebar__link">Áo phản quang công trình</a>
-                        <a href="category.html" class="sidebar__link">Vải sỉ công nghiệp</a>
-                        <a href="profile.html" class="sidebar__link">Tải hồ sơ năng lực</a>
-                        <a href="contact.html" class="sidebar__link">Liên hệ tư vấn</a>
-                    </div>
-                    <div class="sidebar__block">
-                        <h3>Chuyên mục</h3>
-                        <a href="#" class="sidebar__link">Vải công nghiệp</a>
-                        <a href="#" class="sidebar__link">Tiêu chuẩn an toàn</a>
-                        <a href="#" class="sidebar__link">Kinh nghiệm sản xuất</a>
-                        <a href="#" class="sidebar__link">Xu hướng ngành</a>
-                        <a href="#" class="sidebar__link">Hướng dẫn sử dụng</a>
-                    </div>
-                    <div class="sidebar__block"
-                        style="background:var(--clr-primary);color:var(--clr-white);border-radius:var(--radius-lg)">
-                        <h3 style="color:var(--clr-white)">Cần tư vấn?</h3>
-                        <p style="font-size:var(--fs-sm);opacity:0.85;margin-bottom:var(--space-md)">Đội ngũ kỹ thuật
-                            sẵn sàng tư vấn miễn phí cho bạn</p>
-                        <a href="contact.html" class="btn btn--primary btn--sm btn--full">Liên hệ ngay</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ARTICLE TEMPLATE (anchor #post-demo) -->
-    <section class="section" id="post-demo">
-        <div class="container">
-            <div class="article-detail">
-                <div class="breadcrumb" style="justify-content:flex-start;margin-bottom:var(--space-xl)">
-                    <a href="index.html">Trang chủ</a> <span>/</span> <a href="blog.html">Blog</a> <span>/</span>
-                    <span>Bài viết</span>
-                </div>
-                <span class="tag">Vải công nghiệp</span>
-                <h2 style="margin-top:var(--space-md)">Hướng dẫn chọn vải bảo hộ phù hợp từng ngành công nghiệp</h2>
-                <p style="font-size:var(--fs-sm);color:var(--clr-text-muted);margin-bottom:var(--space-xl)">Cập nhật:
-                    20/02/2026 — Tác giả: Đội ngũ kỹ thuật BảoHộ Pro</p>
-
-                <p>Việc lựa chọn chất liệu vải phù hợp là yếu tố quyết định đến chất lượng và hiệu quả bảo vệ của đồng
-                    phục bảo hộ. Mỗi ngành nghề, mỗi môi trường làm việc đều có yêu cầu riêng về tính năng vải.</p>
-
-                <h3>1. Ngành xây dựng & công trình</h3>
-                <p>Yêu cầu chính: độ bền cao, chống mài mòn, dải phản quang. Vải khuyến nghị: Kaki 65/35 (240 GSM), phản
-                    quang 3M Scotchlite. Vải này có khả năng chịu lực tốt, thoáng mát và dễ giặt.</p>
-
-                <!-- RELATED PRODUCTS CTA BLOCK (Mới thêm theo yêu cầu) -->
-                <div class="related-products-cta">
-                    <div class="related-products-cta__header">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 7H4a2 2 0 00-2 2v10h20V9a2 2 0 00-2-2zM12 7V4" />
-                            <path d="M8 4h8v3H8z" />
+            <div class="news-section-header reveal reveal-up">
+                <h2 class="news-h2">PHÂN TÍCH CHUYÊN MÔN</h2>
+                <div class="news-grid-nav">
+                    <button class="news-nav-btn" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="15 18 9 12 15 6" />
                         </svg>
-                        <h4>Sản phẩm liên quan</h4>
-                    </div>
-                    <div class="related-products-cta__grid">
-                        <a href="product.html" class="related-products-cta__item" rel="dofollow">
-                            <div class="related-products-cta__item-img">
-                                <svg viewBox="0 0 64 64">
-                                    <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                        stroke-width="2" />
-                                </svg>
-                            </div>
-                            <div class="related-products-cta__item-info">
-                                <h5>Áo phản quang công trình</h5>
-                                <span>Bảo hộ lao động</span>
-                            </div>
-                        </a>
-                        <a href="product.html" class="related-products-cta__item" rel="dofollow">
-                            <div class="related-products-cta__item-img">
-                                <svg viewBox="0 0 64 64">
-                                    <path d="M20 12h24v40H20z" fill="none" stroke="currentColor" stroke-width="2" />
-                                </svg>
-                            </div>
-                            <div class="related-products-cta__item-info">
-                                <h5>Quần bảo hộ nhiều túi</h5>
-                                <span>Bảo hộ lao động</span>
-                            </div>
-                        </a>
-                        <a href="product.html" class="related-products-cta__item" rel="dofollow">
-                            <div class="related-products-cta__item-img">
-                                <svg viewBox="0 0 64 64">
-                                    <circle cx="32" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2" />
-                                    <path d="M18 56c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor"
-                                        stroke-width="2" />
-                                </svg>
-                            </div>
-                            <div class="related-products-cta__item-info">
-                                <h5>Bộ đồng phục kỹ thuật</h5>
-                                <span>Bảo hộ lao động</span>
-                            </div>
-                        </a>
-                        <a href="product.html" class="related-products-cta__item" rel="dofollow">
-                            <div class="related-products-cta__item-img">
-                                <svg viewBox="0 0 64 64">
-                                    <rect x="16" y="8" width="32" height="48" rx="4" fill="none" stroke="currentColor"
-                                        stroke-width="2" />
-                                </svg>
-                            </div>
-                            <div class="related-products-cta__item-info">
-                                <h5>Áo khoác bảo hộ mùa đông</h5>
-                                <span>Bảo hộ lao động</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="related-products-cta__footer">
-                        <a href="category.html" class="btn btn--primary btn--sm" rel="dofollow">Xem tất cả sản phẩm Bảo
-                            hộ lao động →</a>
-                    </div>
+                    </button>
+                    <button class="news-nav-btn" aria-label="Next">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
                 </div>
-                <!-- END RELATED PRODUCTS CTA BLOCK -->
+            </div>
 
-                <h3>2. Ngành điện & hàn</h3>
-                <p>Yêu cầu chính: chống cháy, chống tia lửa điện. Vải khuyến nghị: Proban® (cotton xử lý FR), Nomex® cho
-                    môi trường nhiệt độ cao. Lưu ý chọn vải đạt tiêu chuẩn EN 11612.</p>
+            <div class="news-grid">
+                <!-- Card 1 -->
+                <article class="news-card-small reveal reveal-up delay-100">
+                    <a href="#" class="news-card-small__img">
+                        <img src="images/news-color-fastness.png" alt="Độ bền màu">
+                    </a>
+                    <div class="news-card-small__content">
+                        <span class="news-badge news-badge--light">TIÊU CHUẨN VẬT LIỆU</span>
+                        <h3 class="news-card-title">Hiểu đúng về độ bền màu ma sát (Color Fastness) trong hàng xuất khẩu
+                        </h3>
+                        <p class="news-card-excerpt">Hướng dẫn chi tiết quy trình test ma sát khô và ướt theo tiêu chuẩn
+                            ISO 105-X12 cho các đơn hàng E...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">15 THÁNG 3, 2026</span>
+                            <button class="news-card-save" aria-label="Save">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
-                <h3>3. Ngành điện tử & phòng sạch</h3>
-                <ul>
-                    <li>Vải chống tĩnh điện (ESD) với sợi carbon dẫn điện</li>
-                    <li>Tiêu chuẩn IEC 61340 về kiểm soát tĩnh điện</li>
-                    <li>Vải polyester đặc biệt không tạo bụi vải</li>
-                </ul>
+                <!-- Card 2 -->
+                <article class="news-card-small reveal reveal-up delay-200">
+                    <a href="#" class="news-card-small__img">
+                        <img src="images/news-supply-chain.png" alt="Quản lý chuỗi cung ứng">
+                    </a>
+                    <div class="news-card-small__content">
+                        <span class="news-badge news-badge--light">QUẢN LÝ CHUỖI CUNG ỨNG</span>
+                        <h3 class="news-card-title">Hướng dẫn tracking tiến độ đơn hàng qua Dương Thành Tín Manager</h3>
+                        <p class="news-card-excerpt">Làm thế nào để khách hàng có thể kiểm soát real-time tình trạng
+                            nguyên liệu về kho và tiến độ trên...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">12 THÁNG 3, 2026</span>
+                            <button class="news-card-save" aria-label="Save">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
-                <h3>Kết luận</h3>
-                <p>Việc chọn đúng loại vải không chỉ bảo vệ người lao động mà còn tuân thủ quy định pháp luật về an toàn
-                    lao động. Liên hệ đội ngũ kỹ thuật BảoHộ Pro để được tư vấn chi tiết cho từng trường hợp cụ thể.</p>
+                <!-- Card 3 -->
+                <!-- Card 3 -->
+                <article class="news-card-small reveal reveal-up delay-300">
+                    <a href="#" class="news-card-small__img">
+                        <img src="images/news-market-forecast.png" alt="Dự báo giá">
+                    </a>
+                    <div class="news-card-small__content">
+                        <span class="news-badge news-badge--light">THỊ TRƯỜNG & DỰ BÁO</span>
+                        <h3 class="news-card-title">Dự báo biến động giá nguyên phụ liệu ngành may mặc Quý 2/2026</h3>
+                        <p class="news-card-excerpt">Báo cáo cập nhật về xu hướng giá bông thế giới và ảnh hưởng của chi
+                            phí vận tải biển đến giá thành...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">10 THÁNG 3, 2026</span>
+                            <button class="news-card-save" aria-label="Save">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
 
-                <div
-                    style="margin-top:var(--space-2xl);padding:var(--space-xl);background:var(--clr-bg);border-radius:var(--radius-lg);text-align:center">
-                    <p style="font-weight:var(--fw-semibold);color:var(--clr-primary);margin-bottom:var(--space-md)">Cần
-                        tư vấn chọn vải cho dự án của bạn?</p>
-                    <a href="contact.html" class="btn btn--primary">Liên hệ tư vấn miễn phí</a>
-                </div>
+            <!-- 4. PAGINATION -->
+            <div class="news-pagination">
+                <button class="news-page-item active">1</button>
+                <button class="news-page-item">2</button>
+                <button class="news-page-item">3</button>
+                <span class="news-page-dots">...</span>
+                <button class="news-page-item">12</button>
             </div>
         </div>
     </section>
 
-    <!-- SCHEMA MARKUP: BlogPosting -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Hướng dẫn chọn vải bảo hộ phù hợp từng ngành công nghiệp",
-        "author": {
-            "@type": "Organization",
-            "name": "BảoHộ Pro"
-        },
-        "datePublished": "2026-02-20",
-        "dateModified": "2026-02-20",
-        "mainEntityOfPage": "https://baohopro.vn/blog/huong-dan-chon-vai-bao-ho",
-        "about": [
-            {
-                "@type": "Thing",
-                "name": "Bảo hộ lao động",
-                "url": "https://baohopro.vn/danh-muc/bao-ho-lao-dong"
-            },
-            {
-                "@type": "Thing",
-                "name": "Đồng phục công nghiệp",
-                "url": "https://baohopro.vn/danh-muc/dong-phuc-cong-nghiep"
-            }
-        ]
-    }
-    </script>
+    <!-- 5. CTA STRIP -->
+    <section class="news-cta-strip reveal reveal-scale">
+        <div class="container news-cta-grid">
+            <div class="news-cta-info">
+                <h3>BẠN CẦN MỘT BỘ KHUNG ĐÁNH GIÁ XƯỞNG MAY TIÊU CHUẨN?</h3>
+                <p>Tải ngay Sổ tay Thu mua B2B - Cập nhật mới nhất 2026.</p>
+            </div>
+            <div class="news-cta-action-group">
+                <div class="news-cta-btns">
+                    <a href="contact.html" class="news-btn-primary">NHẬN BÁO GIÁ</a>
+                    <a href="contact.html" class="news-btn-secondary">QUY TRÌNH HỢP TÁC</a>
+                </div>
+                <p class="news-cta-microline">Phản hồi trong 24h – không áp lực ký hợp đồng.</p>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <div id="footer-container"></div>
-    <!-- STICKY BOTTOM CTA BAR -->
-    <div class="sticky-cta">
-        <div class="sticky-cta__inner">
-            <a href="index.html#quote-section" class="sticky-cta__btn sticky-cta__btn--primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                </svg>
-                <span class="sticky-cta__label"><small>Đăng ký</small><strong>Tư vấn</strong></span>
-            </a>
-            <a href="#" class="sticky-cta__btn sticky-cta__btn--zalo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2C6.48 2 2 6.04 2 11c0 2.83 1.34 5.35 3.44 7.03L4 22l4.2-2.24C9.34 20.26 10.63 20.5 12 20.5c5.52 0 10-3.54 10-8.5S17.52 2 12 2z" />
-                </svg>
-                <span class="sticky-cta__label"><small>Tư vấn qua</small><strong>Zalo</strong></span>
-            </a>
-            <a href="tel:0905123456" class="sticky-cta__btn sticky-cta__btn--hotline">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                </svg>
-                <span class="sticky-cta__label"><small>Hotline hỗ trợ</small><strong>0905.123.456</strong></span>
-            </a>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
