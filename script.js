@@ -985,11 +985,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
             '</div>' +
             '<h3>Yêu cầu đã được ghi nhận!</h3>' +
-            '<p>Cảm ơn Quý khách đã quan tâm đến BảoHộ Pro.<br>Đội ngũ tư vấn sẽ liên hệ với Quý khách trong vòng <strong style="color:var(--clr-primary)">24 giờ làm việc</strong>.</p>' +
+            '<p>Cảm ơn Quý khách đã quan tâm đến Dương Thành Tín.<br>Đội ngũ tư vấn sẽ liên hệ với Quý khách trong vòng <strong style="color:var(--clr-primary)">24 giờ làm việc</strong>.</p>' +
             '<p style="font-size:var(--fs-sm)">Nếu cần hỗ trợ gấp, vui lòng liên hệ trực tiếp qua các kênh bên dưới.</p>' +
             '<div class="success-contact">' +
             '<p><strong>Hotline:</strong> 0905 123 456 &nbsp;|&nbsp; <strong>Zalo:</strong> 0905 123 456</p>' +
-            '<p><strong>Email:</strong> info@baohopro.vn</p>' +
+            '<p><strong>Email:</strong> info@duongthanhtin.vn</p>' +
             '</div>';
           wrapper.parentElement.insertBefore(successEl, wrapper.nextSibling);
         }
@@ -1188,12 +1188,15 @@ document.addEventListener('DOMContentLoaded', async function () {
   // Initialize Category Page if present
   initCategoryPage();
 
+  // Initialize Handbook Page if present
+  initHandbookPage();
+
   /* ---------- Testimonial Slider (Flip Card) ---------- */
   const testimonials = [
     {
       name: 'Trần Quốc Dũng',
       role: 'Giám đốc chi nhánh ACB',
-      quote: '“Chúng tôi đã hợp tác với BảoHộ Pro cho 3 dự án lớn trong năm qua. Chất lượng vải kaki và đường may rất chắc chắn, đúng tiêu chuẩn bảo hộ khắt khe. Đặc biệt, đội ngũ hỗ trợ tiến độ rất sát sao, giúp chúng tôi hoàn thành trang bị cho 500 nhân viên đúng thời hạn.”',
+      quote: '“Chúng tôi đã hợp tác với Dương Thành Tín cho 3 dự án lớn trong năm qua. Chất lượng vải kaki và đường may rất chắc chắn, đúng tiêu chuẩn bảo hộ khắt khe. Đặc biệt, đội ngũ hỗ trợ tiến độ rất sát sao, giúp chúng tôi hoàn thành trang bị cho 500 nhân viên đúng thời hạn.”',
       avatar: 'https://i.pravatar.cc/150?u=dung',
       image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
     },
@@ -1207,7 +1210,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     {
       name: 'Nguyễn Thị Lan',
       role: 'Trưởng phòng hành chính Foster',
-      quote: '“Dịch vụ tận tâm, quy trình SOP 4 bước giúp chúng tôi tuyệt đối an tâm về chất lượng. Foster rất hài lòng với các mẫu thiết kế áo thun đồng phục mới của BảoHộ Pro, vừa thời trang vừa đảm bảo tính nhận diện thương hiệu.”',
+      quote: '“Dịch vụ tận tâm, quy trình SOP 4 bước giúp chúng tôi tuyệt đối an tâm về chất lượng. Foster rất hài lòng với các mẫu thiết kế áo thun đồng phục mới của Dương Thành Tín, vừa thời trang vừa đảm bảo tính nhận diện thương hiệu.”',
       avatar: 'https://i.pravatar.cc/150?u=lan',
       image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
     }
@@ -1245,7 +1248,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
       if (mainImgEl) {
         mainImgEl.src = data.image;
-        mainImgEl.alt = data.name + ' - BảoHộ Pro';
+        mainImgEl.alt = data.name + ' - Dương Thành Tín';
       }
     }
 
@@ -1385,3 +1388,34 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 
+
+// ---------- Handbook Page Logic ----------
+function initHandbookPage() {
+  const form = document.getElementById('handbookForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+
+    // Simple UI feedback
+    btn.disabled = true;
+    btn.innerHTML = 'ĐANG XỬ LÝ...';
+
+    setTimeout(() => {
+      btn.innerHTML = 'ĐÃ GỬI TÀI LIỆU!';
+      btn.style.background = 'var(--clr-success)';
+      alert('Cảm ơn bạn! Tài liệu chuyên sâu đã được gửi vào email của bạn.');
+      form.reset();
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+      }, 3000);
+    }, 1500);
+  });
+}
+
+// Call init functions on DOM load (check if already called or add to existing DOMContentLoaded)
