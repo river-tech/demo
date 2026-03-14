@@ -469,6 +469,7 @@ h6 {
   padding: 12px 0;
   position: relative;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .navbar__nav a:hover,
@@ -4662,9 +4663,8 @@ body.page-leaving {
   height: 64px;
   background: #FFE9D6;
   border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   margin-bottom: 20px;
   color: var(--clr-primary);
   flex-shrink: 0;
@@ -4673,7 +4673,6 @@ body.page-leaving {
 .quality-card__icon svg {
   width: 32px;
   height: 32px;
-  display: block;
 }
 
 .quality-card h4 {
@@ -4825,9 +4824,8 @@ body.page-leaving {
   height: 64px !important;
   background: #FFE9D6 !important;
   border-radius: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: grid !important;
+  place-items: center !important;
   margin-bottom: 20px !important;
   flex-shrink: 0 !important;
 }
@@ -4835,7 +4833,6 @@ body.page-leaving {
 .section-quality .quality-card__icon svg {
   width: 32px !important;
   height: 32px !important;
-  display: block !important;
   color: var(--clr-primary) !important;
 }
 
