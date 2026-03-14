@@ -2,12 +2,34 @@
    SCRIPT.JS — B2B Industrial Uniforms
    ====================================== */
 
-(function () {
+document.addEventListener('DOMContentLoaded', async function () {
   'use strict';
+
+  // Load Header and Footer components
+  try {
+    const [headerRes, footerRes] = await Promise.all([
+      fetch('components/header.html'),
+      fetch('components/footer.html')
+    ]);
+
+    if (headerRes.ok) {
+      const headerHtml = await headerRes.text();
+      const headerContainer = document.getElementById('header-container');
+      if (headerContainer) headerContainer.outerHTML = headerHtml;
+    }
+
+    if (footerRes.ok) {
+      const footerHtml = await footerRes.text();
+      const footerContainer = document.getElementById('footer-container');
+      if (footerContainer) footerContainer.outerHTML = footerHtml;
+    }
+  } catch (err) {
+    console.error('Error loading components:', err);
+  }
 
   /* ---------- Mobile Nav Toggle ---------- */
   const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('.header__nav');
+  const nav = document.querySelector('.navbar__nav');
 
   if (hamburger && nav) {
     hamburger.addEventListener('click', function () {
@@ -26,6 +48,28 @@
     });
   }
 
+  /* ---------- Search Toggle ---------- */
+  const searchToggle = document.getElementById('searchToggle');
+  const navSearch = document.getElementById('navSearch');
+  if (searchToggle && navSearch) {
+    searchToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      navSearch.classList.toggle('active');
+    });
+
+    // Close search when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!navSearch.contains(e.target) && e.target !== searchToggle) {
+        navSearch.classList.remove('active');
+      }
+    });
+
+    // Prevent search click from bubbling up
+    navSearch.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+
   /* ---------- Sticky Header Shadow ---------- */
   const header = document.querySelector('.header');
   if (header) {
@@ -40,11 +84,25 @@
 
   /* ---------- Active Nav State ---------- */
   (function setActiveNav() {
-    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    var navLinks = document.querySelectorAll('.header__nav a');
+    var navLinks = document.querySelectorAll('.navbar__nav a');
+    if (!navLinks.length) return;
+
+    var path = window.location.pathname || '';
+    // Bỏ slash cuối nếu có
+    if (path.length > 1 && path.endsWith('/')) {
+      path = path.slice(0, -1);
+    }
+    var currentFile = path.split('/').pop() || 'index.html';
+
     navLinks.forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.remove('active');
+      var href = link.getAttribute('href') || '';
+
+      // Chỉ so sánh phần file name (index.html, authority.html,...)
+      var linkFile = href.split('/').pop();
+
+      if (linkFile === currentFile ||
+        (currentFile === 'index.html' && linkFile === 'index.html')) {
         link.classList.add('active');
       }
     });
@@ -517,4 +575,236 @@
     });
   }
 
-})();
+  /* ---------- Capability PDF Modal (one-time per session) ---------- */
+  (function setupCapabilityPdfModal() {
+    const modal = document.getElementById('capabilityPdfModal');
+    if (!modal) return;
+
+    const overlay = modal.querySelector('.pdf-modal__overlay');
+    const closeBtn = modal.querySelector('.pdf-modal__close');
+
+    function openModal() {
+      if (modal.classList.contains('is-open')) return;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+    if (overlay) {
+      overlay.addEventListener('click', closeModal);
+    }
+
+    // Chỉ popup ở trang chủ, mỗi lần load trang
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const isHome = path === '' || path === 'index.html';
+
+    if (isHome) {
+      // nhỏ delay để không đụng page transition
+      setTimeout(openModal, 1200);
+    }
+  })();
+
+  /* ---------- Testimonial Slider (Flip Card) ---------- */
+  const testimonials = [
+    {
+      name: 'Trần Quốc Dũng',
+      role: 'Giám đốc chi nhánh ACB',
+      quote: '“Chúng tôi đã hợp tác với BảoHộ Pro cho 3 dự án lớn trong năm qua. Chất lượng vải kaki và đường may rất chắc chắn, đúng tiêu chuẩn bảo hộ khắt khe. Đặc biệt, đội ngũ hỗ trợ tiến độ rất sát sao, giúp chúng tôi hoàn thành trang bị cho 500 nhân viên đúng thời hạn.”',
+      avatar: 'https://i.pravatar.cc/150?u=dung',
+      image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    },
+    {
+      name: 'Lê Minh Tâm',
+      role: 'Quản lý thu mua Tập đoàn Hòa Phát',
+      quote: '“Hợp tác hơn 5 năm, chất lượng đồng phục bảo hộ luôn đạt tiêu chuẩn TCVN. Đường may 2 kim bền bỉ, logo thêu sắc nét. Giao hàng đúng tiến độ dù số lượng lớn lên đến 3.000 bộ, giúp nhà máy vận hành an toàn.”',
+      avatar: 'https://i.pravatar.cc/150?u=tam',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    },
+    {
+      name: 'Nguyễn Thị Lan',
+      role: 'Trưởng phòng hành chính Foster',
+      quote: '“Dịch vụ tận tâm, quy trình SOP 4 bước giúp chúng tôi tuyệt đối an tâm về chất lượng. Foster rất hài lòng với các mẫu thiết kế áo thun đồng phục mới của BảoHộ Pro, vừa thời trang vừa đảm bảo tính nhận diện thương hiệu.”',
+      avatar: 'https://i.pravatar.cc/150?u=lan',
+      image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    }
+  ];
+
+  let currentTestimonial = 0;
+  const testimonialContainer = document.querySelector('.testimonials');
+
+  if (testimonialContainer && testimonials.length > 0) {
+    const nameEl = testimonialContainer.querySelector('.testimonial-card__name');
+    const roleEl = testimonialContainer.querySelector('.testimonial-card__role');
+    const quoteEl = testimonialContainer.querySelector('.testimonial-card__quote');
+    const avatarEl = testimonialContainer.querySelector('.testimonial-card__avatar');
+    const mainImgEl = testimonialContainer.querySelector('.testimonials__image-card img');
+    const prevBtn = testimonialContainer.querySelector('.testimonials__btn--prev');
+    const nextBtn = testimonialContainer.querySelector('.testimonials__btn--next');
+    const cardInner = testimonialContainer.querySelector('.testimonial-card__inner');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let isAnimating = false;
+    let autoTimer = null;
+    const AUTO_DELAY = 7000;
+    const FLIP_DURATION = 650;
+
+    function applyTestimonial(index) {
+      const data = testimonials[index];
+      if (!data) return;
+
+      if (nameEl) nameEl.textContent = data.name;
+      if (roleEl) roleEl.textContent = data.role;
+      if (quoteEl) quoteEl.textContent = data.quote;
+      if (avatarEl) {
+        avatarEl.src = data.avatar;
+        avatarEl.alt = data.name;
+      }
+      if (mainImgEl) {
+        mainImgEl.src = data.image;
+        mainImgEl.alt = data.name + ' - BảoHộ Pro';
+      }
+    }
+
+    // Initial render
+    applyTestimonial(currentTestimonial);
+
+    function setButtonsDisabled(disabled) {
+      [prevBtn, nextBtn].forEach(btn => {
+        if (!btn) return;
+        btn.disabled = disabled;
+        btn.classList.toggle('is-disabled', disabled);
+      });
+    }
+
+    function scheduleAuto() {
+      if (autoTimer) cancelAnimationFrame(autoTimer);
+      let startTime = null;
+      function loop(ts) {
+        if (!startTime) startTime = ts;
+        const elapsed = ts - startTime;
+        if (elapsed >= AUTO_DELAY) {
+          handleChange('next');
+        } else {
+          autoTimer = requestAnimationFrame(loop);
+        }
+      }
+      autoTimer = requestAnimationFrame(loop);
+    }
+
+    function cancelAuto() {
+      if (autoTimer) {
+        cancelAnimationFrame(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function handleChange(direction) {
+      if (isAnimating) return;
+      let nextIndex = currentTestimonial + (direction === 'next' ? 1 : -1);
+      if (nextIndex < 0) nextIndex = testimonials.length - 1;
+      if (nextIndex >= testimonials.length) nextIndex = 0;
+
+      const duration = FLIP_DURATION;
+      isAnimating = true;
+      setButtonsDisabled(true);
+      cancelAuto();
+
+      if (prefersReducedMotion || !cardInner) {
+        // Simple fade for reduced motion
+        testimonialContainer.style.transition = 'opacity 0.35s ease';
+        testimonialContainer.style.opacity = '0.15';
+        setTimeout(() => {
+          currentTestimonial = nextIndex;
+          applyTestimonial(currentTestimonial);
+          testimonialContainer.style.opacity = '1';
+          setTimeout(() => {
+            isAnimating = false;
+            setButtonsDisabled(false);
+            scheduleAuto();
+          }, 260);
+        }, 140);
+        return;
+      }
+
+      // Image cross-fade + subtle zoom
+      if (mainImgEl) {
+        mainImgEl.style.transition = `opacity ${duration}ms cubic-bezier(0.22, 1, 0.36, 1), transform ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+        mainImgEl.style.opacity = '0.4';
+        mainImgEl.style.transform = 'scale(1.02)';
+      }
+
+      const firstHalf = duration / 2;
+      const angleOut = direction === 'next' ? 90 : -90;
+      const angleInStart = -angleOut;
+
+      cardInner.style.transition = `transform ${firstHalf}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+      cardInner.style.transform = `rotateY(${angleOut}deg)`;
+
+      setTimeout(() => {
+        // Swap content at 90deg
+        currentTestimonial = nextIndex;
+        applyTestimonial(currentTestimonial);
+
+        // Jump to backside without transition
+        cardInner.style.transition = 'none';
+        cardInner.style.transform = `rotateY(${angleInStart}deg)`;
+
+        // Allow the browser to apply styles before animating back
+        requestAnimationFrame(() => {
+          cardInner.style.transition = `transform ${firstHalf}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+          cardInner.style.transform = 'rotateY(0deg)';
+
+          // Bring image back to full opacity while card is flipping in
+          if (mainImgEl) {
+            mainImgEl.style.opacity = '1';
+            mainImgEl.style.transform = 'scale(1)';
+          }
+        });
+      }, firstHalf);
+
+      setTimeout(() => {
+        isAnimating = false;
+        setButtonsDisabled(false);
+        scheduleAuto();
+      }, duration + 40);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => handleChange('prev'));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => handleChange('next'));
+    }
+
+    // Autoplay with hover pause
+    scheduleAuto();
+    testimonialContainer.addEventListener('mouseenter', cancelAuto);
+    testimonialContainer.addEventListener('mouseleave', scheduleAuto);
+  }
+
+  /* ---------- Scroll Top Button ---------- */
+  const scrollTopBtn = document.getElementById('scrollTop');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+});
+
+
